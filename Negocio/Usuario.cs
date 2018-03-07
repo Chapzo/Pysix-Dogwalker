@@ -28,7 +28,7 @@ namespace Negocio
             {
                 List<OrganizarPaseadorResult> objlista = data.OrganizarPaseador().ToList();
                 setCodigo("ok");
-                setRTA("todo correcto");
+                setRTA("Todo correcto");
                 return objlista;
 
             }
