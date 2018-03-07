@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 14, 10.25" name="Pyxis">
+  <DataContextMoniker Name="/PyxisDataContext" />
+  <nestedChildShapes>
+    <classShape Id="5525fb3a-665b-4ee2-a19d-5f5b13276413" absoluteBounds="11.75, 8.125, 2, 1.7708968098958344">
+      <DataClassMoniker Name="/PyxisDataContext/Calificaciones" />
+      <nestedChildShapes>
+        <elementListCompartment Id="66cc307e-9206-4d79-8ac4-cdedca63ee97" absoluteBounds="11.765, 8.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="638ca5f6-7a0c-4051-ad36-db76774b6c9f" absoluteBounds="0.75, 2.125, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/PyxisDataContext/Localidades" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8b072bd9-515d-4531-9246-0daf6813fb86" absoluteBounds="0.765, 2.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="aa37e1c1-5f06-4ec1-b631-acaccb5a0674" absoluteBounds="6.25, 2.75, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/PyxisDataContext/Mascotas" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cf280c7c-9751-40c1-8034-19330b5708d3" absoluteBounds="6.265, 3.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5f325dd8-fdfb-4585-912f-147060e19b55" absoluteBounds="6.25, 6.375, 2, 2.3478011067708344">
+      <DataClassMoniker Name="/PyxisDataContext/Paseadores" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d2c1b51c-16d1-49f9-8fbf-f4c1d853f5e9" absoluteBounds="6.265, 6.835, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bdbe7aa9-02cc-4546-8dcf-9ccb371cbcc7" absoluteBounds="9, 5.125, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/PyxisDataContext/PQR" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a9bc5174-165d-424e-a6fa-eb09b52b91ac" absoluteBounds="9.015, 5.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5c9004d1-a922-4366-a10d-77bce0885dba" absoluteBounds="6, 1, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/PyxisDataContext/Razas" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0e542dc9-71a5-4609-ac53-2f9f4db8e8ef" absoluteBounds="6.0150000000000006, 1.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7bb713aa-8855-406c-aa15-4b07bdb2a62b" absoluteBounds="0.75, 4.125, 2, 1.1939925130208327">
+      <DataClassMoniker Name="/PyxisDataContext/Roles" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6f491e0c-e1fa-4503-9f55-f393419fa08e" absoluteBounds="0.765, 4.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="021abe83-6ec3-4969-9b26-e3fd20bd8573" absoluteBounds="9, 8, 2, 1.9631982421874987">
+      <DataClassMoniker Name="/PyxisDataContext/Servicios" />
+      <nestedChildShapes>
+        <elementListCompartment Id="65f2d91c-31c6-4289-8000-8455e5953109" absoluteBounds="9.015, 8.46, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6950c93b-d709-41aa-b74f-2d67ca3e75db" absoluteBounds="3.5, 3.375, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/PyxisDataContext/Usuarios" />
+      <nestedChildShapes>
+        <elementListCompartment Id="683dc594-129a-4ee1-8a32-515b49f50209" absoluteBounds="3.515, 3.835, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.25 : 6.63544840494792); (9 : 6.63544840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PyxisDataContext/Paseadores/Paseadores_PQR" />
+      <nodes>
+        <classShapeMoniker Id="5f325dd8-fdfb-4585-912f-147060e19b55" />
+        <classShapeMoniker Id="bdbe7aa9-02cc-4546-8dcf-9ccb371cbcc7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.125 : 2.19399251302083); (7.125 : 2.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PyxisDataContext/Razas/Razas_Mascotas" />
+      <nodes>
+        <classShapeMoniker Id="5c9004d1-a922-4366-a10d-77bce0885dba" />
+        <classShapeMoniker Id="aa37e1c1-5f06-4ec1-b631-acaccb5a0674" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11 : 9.01044840494792); (11.75 : 9.01044840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PyxisDataContext/Servicios/Servicios_Calificaciones" />
+      <nodes>
+        <classShapeMoniker Id="021abe83-6ec3-4969-9b26-e3fd20bd8573" />
+        <classShapeMoniker Id="5525fb3a-665b-4ee2-a19d-5f5b13276413" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 8.36140055338542); (9 : 8.36140055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PyxisDataContext/Paseadores/Paseadores_Servicios" />
+      <nodes>
+        <classShapeMoniker Id="5f325dd8-fdfb-4585-912f-147060e19b55" />
+        <classShapeMoniker Id="021abe83-6ec3-4969-9b26-e3fd20bd8573" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 4.04409912109375); (6.25 : 4.04409912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PyxisDataContext/Usuarios/Usuarios_Mascotas" />
+      <nodes>
+        <classShapeMoniker Id="6950c93b-d709-41aa-b74f-2d67ca3e75db" />
+        <classShapeMoniker Id="aa37e1c1-5f06-4ec1-b631-acaccb5a0674" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.5 : 6.10740397135417); (4.5 : 7.54890055338542); (4.94791916666667 : 7.54890055338542 : JumpStart); (5.11458583333333 : 7.54890055338542 : JumpEnd); (6.25 : 7.54890055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PyxisDataContext/Usuarios/Usuarios_Paseadores" />
+      <nodes>
+        <classShapeMoniker Id="6950c93b-d709-41aa-b74f-2d67ca3e75db" />
+        <classShapeMoniker Id="5f325dd8-fdfb-4585-912f-147060e19b55" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 5.61620198567708); (9 : 5.61620198567708)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PyxisDataContext/Usuarios/Usuarios_PQR" />
+      <nodes>
+        <classShapeMoniker Id="6950c93b-d709-41aa-b74f-2d67ca3e75db" />
+        <classShapeMoniker Id="bdbe7aa9-02cc-4546-8dcf-9ccb371cbcc7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.0312525 : 6.10740397135417); (5.0312525 : 9.37424967447917); (9 : 9.37424967447917)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PyxisDataContext/Usuarios/Usuarios_Servicios" />
+      <nodes>
+        <classShapeMoniker Id="6950c93b-d709-41aa-b74f-2d67ca3e75db" />
+        <classShapeMoniker Id="021abe83-6ec3-4969-9b26-e3fd20bd8573" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.72199625651042); (3.5 : 4.72199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PyxisDataContext/Roles/Roles_Usuarios" />
+      <nodes>
+        <classShapeMoniker Id="7bb713aa-8855-406c-aa15-4b07bdb2a62b" />
+        <classShapeMoniker Id="6950c93b-d709-41aa-b74f-2d67ca3e75db" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 3.31899251302083); (3.125 : 3.69399251302083); (3.125 : 3); (3.5 : 3.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/PyxisDataContext/Localidades/Localidades_Usuarios" />
+      <nodes>
+        <classShapeMoniker Id="638ca5f6-7a0c-4051-ad36-db76774b6c9f" />
+        <classShapeMoniker Id="6950c93b-d709-41aa-b74f-2d67ca3e75db" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

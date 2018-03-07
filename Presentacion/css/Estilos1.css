@@ -1,0 +1,121 @@
+﻿body {
+    font-family: Raleway;
+    background-color: #FAAC58;
+}
+table{
+    border-radius:10px;
+    background-color: #F8ECE0;
+}
+.thStandart{
+	border-radius:10px;
+    padding: 3px;
+    background-color: #D8D8D8;
+	
+}
+td{
+    padding: 5px;
+    align-content: center;     
+}
+.Boton1{
+    border-radius: 5px;
+    border: none;
+    background-color: #FFF;
+    padding: 5px;
+
+}
+
+.Boton1:hover{
+    border-radius: 5px;
+    border: none;
+    background-color: #82FA58;
+}
+.thPaseador{
+	border-radius:10px;
+    padding: 3px;
+    background-color: #FE2E2E;
+}
+.thMascota{
+	border-radius:10px;
+    padding: 3px;
+    background-color: #58FAF4;
+}
+
+.Boton2{
+    border-radius: 5px;
+    border: none;
+    background-color: #FFF;
+    padding: 5px;
+
+}
+
+
+.Boton2:hover{
+    border-radius: 5px;
+    border: none;
+    background-color: #FA5858;
+}
+
+.Boton3{
+    border-radius: 5px;
+    border: none;
+    background-color: #FFF;
+    padding: 5px;
+
+}
+
+
+.Boton3:hover{
+    border-radius: 5px;
+    border: none;
+    background-color: #5882FA;
+}
+.LogoHeader{
+    width: 80px;
+    height: 25px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.liLeft {
+    float: left;
+}
+.liRight{
+    float: right;
+}
+
+
+li a {
+    display: block;
+    
+    text-align: center;
+    padding: 5px 16px;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+.btnMasterPage{
+    display: block;
+    border-style: none;
+    border-color: inherit;
+    border-width: medium;
+    border-radius: 5px;
+    background-color: #FD8515;
+    font-family: Raleway;
+    padding: 0.2px 0.2px;
+    display: block;
+    text-align: center;
+    height: 27px;
+}
+.btnMasterPage:hover{
+    background-color: #000;
+    color: #FFF;
+    font-family: Raleway;
+}

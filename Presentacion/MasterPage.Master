@@ -1,0 +1,32 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="Presentacion.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="css/Estilos1.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <ul>
+  			    <li class="liLeft"><a href="Menu.aspx"><img class="LogoHeader" src="img/PyxisLogo.png"></a></li> 
+  			    <li class="liLeft"><a href="ControlUS.aspx"><input type="button" class="btnMasterPage" value="Clientes"/></a></li>
+                <li class="liLeft"><a href="ControlPaseador.aspx"><input type="button" class="btnMasterPage" value="Paseadores"/></a></li>
+  			    <li class="liLeft"><a href=""><input type="button" class="btnMasterPage" value="PQR"/></a></li>
+                
+                <%--<li class="liRight"><asp:Button ID="btnSalir"  class="btnMasterPage" runat="server" Text="Salir" OnClick="btnSalir_Click"/></li>--%>
+		    </ul>
+        </div>
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
