@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#"  MasterPageFile="~/Menu.Master" AutoEventWireup="true" CodeBehind="ControlUS.aspx.cs" Inherits="Presentacion.ControlUS" %>
+﻿<%@ Page Language="C#"  MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="ControlUS.aspx.cs" Inherits="Presentacion.ControlUS" %>
 
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="ContentPlaceHolderID1">
 
