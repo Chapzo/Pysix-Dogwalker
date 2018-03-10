@@ -10,7 +10,7 @@
     
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" action="" runat="server">
     <div>
         <center>
             <table>
@@ -90,7 +90,7 @@
                 <tr>
                     <td class="auto-style2">Tipo de documento: </td>
                     <td>
-                        <asp:DropDownList ID="ddl" runat="server">
+                        <asp:DropDownList ID="ddlDocumento" runat="server">
                         </asp:DropDownList>
                     </td>
                 </tr>

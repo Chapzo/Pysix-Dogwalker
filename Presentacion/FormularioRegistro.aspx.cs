@@ -40,21 +40,31 @@ namespace Presentacion
 
         protected void btnCrearU_Click(object sender, EventArgs e)
         {
+            
+
             try
             {
-                if (txtPassword.Text == txtPasswordConfirm.Text)
+                if (txtNombre.Text != null &&
+                    txtApellido.Text != null &&
+                    txtPassword.Text != null &&
+                    txtPasswordConfirm.Text != null &&
+                    txtEmail.Text != null &&
+                    ddlLocalidad.Text != null &&
+                    txtTelefono.Text != null &&
+                    ddlDocumento.Text != null &&
+                    txtNoDocumento.Text != null &&
+                    txtPassword.Text == txtPasswordConfirm.Text)
                 {
 
-                    objusuario.CrearUsuario(txtNombre.Text, txtApellido.Text, txtPassword.Text, txtEmail.Text, txtBarrio.Text, int.Parse(txtTelefono.Text), txtDocumento.Text, int.Parse(txtNoDocumento.Text));
+                    objusuario.CrearUsuario(txtNombre.Text, txtApellido.Text, txtPassword.Text, txtEmail.Text, ddlLocalidad.Text, int.Parse(txtTelefono.Text), ddlDocumento.Text, int.Parse(txtNoDocumento.Text));
                     Usuarios objUsuario = objusuario.Login(txtEmail.Text, txtPassword.Text);
                     Session["Usuario"] = objUsuario;
                     Response.Redirect("FormularioPaseador.aspx");
                     Label1.Text = " haz sido creado correctamente Usuario ";
                 }
                 else
-                {
-                    Label1.Text = "la contraseña no coinciden";
-
+                {                   
+                            Label1.Text = "Todos los datos son requeridos. Por favor revise que todo esté correctamente.";
                 }
             }
             catch (Exception ex)
@@ -70,11 +80,6 @@ namespace Presentacion
             Session.Abandon();
             Response.Redirect("inicio.aspx");
             
-        }
-
-        protected void btnCrearU_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
