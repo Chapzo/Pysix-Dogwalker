@@ -56,7 +56,7 @@
                  <tr>
                     <td class="auto-style6">Localidad</td>
                     <td class="auto-style7">
-                        <asp:DropDownList ID="ddllocalidad" runat="server" style="margin-left: 0px">
+                        <asp:DropDownList ID="ddlLocalidad" runat="server" style="margin-left: 0px">
                             <asp:ListItem>Seleccionar</asp:ListItem>
                             <asp:ListItem Value="1">Usaquén</asp:ListItem>
                             <asp:ListItem Value="2">Chapinero</asp:ListItem>
@@ -90,7 +90,7 @@
                 <tr>
                     <td class="auto-style2">Tipo de documento: </td>
                     <td>
-                        <asp:DropDownList ID="DropDownList1" runat="server">
+                        <asp:DropDownList ID="ddl" runat="server">
                         </asp:DropDownList>
                     </td>
                 </tr>

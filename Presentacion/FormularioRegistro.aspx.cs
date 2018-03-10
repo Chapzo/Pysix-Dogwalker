@@ -38,38 +38,43 @@ namespace Presentacion
             }
         }
 
-        //protected void btnCrearU_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        if (txtPassword.Text==txtPasswordConfirm.Text)
-        //        {
+        protected void btnCrearU_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtPassword.Text == txtPasswordConfirm.Text)
+                {
 
-        //        objusuario.CrearUsuario(txtNombre.Text, txtApellido.Text, txtPassword.Text, txtEmail.Text, txtBarrio.Text, int.Parse(txtTelefono.Text), txtDocumento.Text, int.Parse(txtNoDocumento.Text));
-        //       Usuarios objUsuario=objusuario.Login(txtEmail.Text, txtPassword.Text);
-        //        Session["Usuario"] =objUsuario;
-        //        Response.Redirect("FormularioPaseador.aspx");
-        //            Label1.Text = " haz sido creado correctamente Usuario ";
-        //         }
-        //        else
-        //        {
-        //            Label1.Text = "la contraseña no coinciden";
+                    objusuario.CrearUsuario(txtNombre.Text, txtApellido.Text, txtPassword.Text, txtEmail.Text, txtBarrio.Text, int.Parse(txtTelefono.Text), txtDocumento.Text, int.Parse(txtNoDocumento.Text));
+                    Usuarios objUsuario = objusuario.Login(txtEmail.Text, txtPassword.Text);
+                    Session["Usuario"] = objUsuario;
+                    Response.Redirect("FormularioPaseador.aspx");
+                    Label1.Text = " haz sido creado correctamente Usuario ";
+                }
+                else
+                {
+                    Label1.Text = "la contraseña no coinciden";
 
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
+                }
+            }
+            catch (Exception ex)
+            {
 
-        //        Label1.Text = ex.Message;
-        //    }
+                Label1.Text = ex.Message;
+            }
 
-        //}
+        }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
             Session.Abandon();
             Response.Redirect("inicio.aspx");
             
+        }
+
+        protected void btnCrearU_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

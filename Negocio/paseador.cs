@@ -7,7 +7,7 @@ using DataBase;
 
 namespace Negocio
 {
-   public class paseador : Respuesta
+   public class Paseador : Respuesta
     {
 
         PyxisDataContext data = new PyxisDataContext();

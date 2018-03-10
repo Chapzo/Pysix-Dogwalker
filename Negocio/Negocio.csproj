@@ -41,8 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="administrador.cs" />
-    <Compile Include="paseador.cs" />
+    <Compile Include="Administrador.cs" />
+    <Compile Include="Paseador.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Respuesta.cs" />
     <Compile Include="Usuario.cs" />

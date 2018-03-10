@@ -36,7 +36,8 @@ namespace Presentacion
                 }
                 else
                 {
-                    labelRespuesta.Text = "no se pudo ingresar, verifique sus datos" + Objusuario.getRTA();
+                    labelRespuesta.Text = "Usuario o contraseña incorrectos. Por favor verifique los datos." //+ Objusuario.getRTA()
+                        ;
                 }
             }
             catch (Exception Ex)

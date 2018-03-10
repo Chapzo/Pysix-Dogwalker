@@ -85,8 +85,8 @@ input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgb
   <div class="login">
 	<h1>PYXIS</h1>
       <form id="form1" runat="server">
-    	<asp:TextBox ID="Textusua" runat="server" placeholder="usuario" ></asp:TextBox >
-        <asp:TextBox type="password" ID="Textcontra" runat="server" placeholder="contraseña" ></asp:TextBox>
+    	<asp:TextBox ID="Textusua" runat="server" placeholder="Usuario" ></asp:TextBox >
+        <asp:TextBox type="password" ID="Textcontra" runat="server" placeholder="Contraseña" ></asp:TextBox>
     <asp:Button ID="Button1" runat="server" Text="Ingresar" class="btn btn-primary btn-block btn-large" OnClick="Button1_Click1" CssClass="auto-style1" Width="298px" />
           <asp:Button ID="btnRegistro" runat="server" Text="Registrate" class="btn btn-primary btn-block btn-large" OnClick="btnRegistro_Click1" CssClass="auto-style1" Width="298px" />
       <asp:Label ID="labelRespuesta" runat="server"></asp:Label>   

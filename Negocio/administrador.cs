@@ -7,7 +7,7 @@ using DataBase;
 
 namespace Negocio
 {
-    class administrador:Respuesta
+    class Administrador:Respuesta
     {
         PyxisDataContext data = new PyxisDataContext();
 
@@ -17,7 +17,7 @@ namespace Negocio
             {
                 data.Inactivarpaseador(id);
                 setCodigo("ok");
-                setRTA("se inactivo correctamente");
+                setRTA("Se inactivo correctamente.");
                 return true;
 
             }

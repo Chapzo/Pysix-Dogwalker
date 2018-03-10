@@ -12,7 +12,7 @@ namespace Presentacion
     public partial class FormularioPaseador : System.Web.UI.Page
     {
        
-        paseador objpaseador = new paseador();
+        Paseador objpaseador = new Paseador();
         protected void Page_Load(object sender, EventArgs e)
         {
 
