@@ -189,6 +189,14 @@ namespace Negocio
 
         }
 
+        public static string Encriptar(this string Contrasena)
+        {
+            string result = string.Empty;
+            byte[] encryted = System.Text.Encoding.Unicode.GetBytes(Contrasena);
+            result = Convert.ToBase64String(encryted);
+            return result;
+        }
+
     }
 
 }
