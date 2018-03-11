@@ -91,7 +91,7 @@
                 <tr>
                     <td class="auto-style2">Tipo de documento: </td>
                     <td>
-                        <asp:DropDownList ID="ddlDocumento" runat="server" OnSelectedIndexChanged="ddlDocumento_SelectedIndexChanged">
+                        <asp:DropDownList ID="ddlDocumento" runat="server" DataSourceID="SqlDataSource2" DataTextField="Nombre" DataValueField="Nombre" OnSelectedIndexChanged="ddlDocumento_SelectedIndexChanged">
                             <asp:ListItem>Seleccionar</asp:ListItem>
                             <asp:ListItem>Cedula de ciudadanía</asp:ListItem>
                             <asp:ListItem>Registro civil</asp:ListItem>
@@ -99,6 +99,7 @@
                             <asp:ListItem>Pasaporte</asp:ListItem>
                             <asp:ListItem>RUT</asp:ListItem>
                         </asp:DropDownList>
+                        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:LocalidadesConexion %>" SelectCommand="SELECT [Nombre] FROM [TipoDocumento]"></asp:SqlDataSource>
                     </td>
                 </tr>
                 <tr>
