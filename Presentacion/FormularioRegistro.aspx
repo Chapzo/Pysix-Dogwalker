@@ -72,12 +72,12 @@
                             <asp:ListItem Value="12">Barrio Unidos</asp:ListItem>
                             <asp:ListItem Value="13">Teusaquillo</asp:ListItem>
                             <asp:ListItem Value="14">Los Mártires</asp:ListItem>
-                            <asp:ListItem></asp:ListItem>
-                            <asp:ListItem></asp:ListItem>
-                            <asp:ListItem></asp:ListItem>
-                            <asp:ListItem></asp:ListItem>
-                            <asp:ListItem></asp:ListItem>
-                            <asp:ListItem></asp:ListItem>
+                            <asp:ListItem>Antonio Nariño</asp:ListItem>
+                            <asp:ListItem>Puente Aranda</asp:ListItem>
+                            <asp:ListItem>La Candelaria</asp:ListItem>
+                            <asp:ListItem>Rafael Uribe</asp:ListItem>
+                            <asp:ListItem>Ciudad Bolivar</asp:ListItem>
+                            <asp:ListItem>Sumapaz</asp:ListItem>
                         </asp:DropDownList>
                     </td>
                 </tr>
@@ -90,7 +90,13 @@
                 <tr>
                     <td class="auto-style2">Tipo de documento: </td>
                     <td>
-                        <asp:DropDownList ID="ddlDocumento" runat="server">
+                        <asp:DropDownList ID="ddlDocumento" runat="server" OnSelectedIndexChanged="ddlDocumento_SelectedIndexChanged">
+                            <asp:ListItem>Seleccionar</asp:ListItem>
+                            <asp:ListItem>Cedula de ciudadanía</asp:ListItem>
+                            <asp:ListItem>Registro civil</asp:ListItem>
+                            <asp:ListItem>Tarjeta de identidad</asp:ListItem>
+                            <asp:ListItem>Pasaporte</asp:ListItem>
+                            <asp:ListItem>RUT</asp:ListItem>
                         </asp:DropDownList>
                     </td>
                 </tr>

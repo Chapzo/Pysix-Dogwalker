@@ -81,5 +81,10 @@ namespace Presentacion
             Response.Redirect("inicio.aspx");
             
         }
+
+        protected void ddlDocumento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
