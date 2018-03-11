@@ -10,7 +10,7 @@
     
 </head>
 <body>
-    <form id="form1" action="" runat="server">
+    <form id="form1" runat="server">
     <div>
         <center>
             <table>
@@ -56,7 +56,7 @@
                  <tr>
                     <td class="auto-style6">Localidad</td>
                     <td class="auto-style7">
-                        <asp:DropDownList ID="ddlLocalidad" runat="server" style="margin-left: 0px">
+                        <asp:DropDownList ID="ddlLocalidad" runat="server" style="margin-left: 0px" DataSourceID="SqlDataSource1" DataTextField="nombre" DataValueField="nombre">
                             <asp:ListItem>Seleccionar</asp:ListItem>
                             <asp:ListItem Value="1">Usaquén</asp:ListItem>
                             <asp:ListItem Value="2">Chapinero</asp:ListItem>
@@ -79,6 +79,7 @@
                             <asp:ListItem>Ciudad Bolivar</asp:ListItem>
                             <asp:ListItem>Sumapaz</asp:ListItem>
                         </asp:DropDownList>
+                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LocalidadesConexion %>" SelectCommand="SELECT [nombre] FROM [Localidades]"></asp:SqlDataSource>
                     </td>
                 </tr>
                  <tr>
