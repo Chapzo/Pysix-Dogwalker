@@ -75,6 +75,7 @@
     <Content Include="FormularioMascota.aspx" />
     <Content Include="FormularioPaseador.aspx" />
     <Content Include="FormularioRegistro.aspx" />
+    <Content Include="img\Fondo.png" />
     <Content Include="img\PyxisLogo.png" />
     <Content Include="img\SiluetaCliente.png" />
     <Content Include="img\SiluetaPaseador.png" />

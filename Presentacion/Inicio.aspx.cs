@@ -26,7 +26,7 @@ namespace Presentacion
             try
             {
 
-                Usuarios objUsuario = Objusuario.Login(Textusua.Text, Textcontra.Text);
+                Usuarios objUsuario = Objusuario.Login(txtUsuario.Text, txtContrasena.Text);
 
                 if (objUsuario != null)
                 {

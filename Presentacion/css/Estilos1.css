@@ -1,6 +1,7 @@
 ﻿body {
     font-family: Raleway;
     background-color: #FAAC58;
+    background-image: url('../img/Fondo.png');
 }
 table{
     border-radius:10px;

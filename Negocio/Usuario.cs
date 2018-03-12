@@ -11,14 +11,6 @@ namespace Negocio
     public class Usuario : Respuesta
     {
         private int ID;
-        
-     
-      
-
-
-
-
-
 
         PyxisDataContext data = new PyxisDataContext();
 
@@ -189,7 +181,7 @@ namespace Negocio
 
         }
 
-        public static string Encriptar(this string Contrasena)
+        public string Encriptar(this string Contrasena)
         {
             string result = string.Empty;
             byte[] encryted = System.Text.Encoding.Unicode.GetBytes(Contrasena);
