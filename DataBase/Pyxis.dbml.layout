@@ -56,63 +56,63 @@
         <elementListCompartment Id="683dc594-129a-4ee1-8a32-515b49f50209" absoluteBounds="3.515, 3.835, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(8.25 : 6.63544840494792); (9 : 6.63544840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 6.63544840494792); (9 : 6.63544840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PyxisDataContext/Paseadores/Paseadores_PQR" />
       <nodes>
         <classShapeMoniker Id="5f325dd8-fdfb-4585-912f-147060e19b55" />
         <classShapeMoniker Id="bdbe7aa9-02cc-4546-8dcf-9ccb371cbcc7" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(7.125 : 2.19399251302083); (7.125 : 2.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(7.125 : 2.19399251302083); (7.125 : 2.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PyxisDataContext/Razas/Razas_Mascotas" />
       <nodes>
         <classShapeMoniker Id="5c9004d1-a922-4366-a10d-77bce0885dba" />
         <classShapeMoniker Id="aa37e1c1-5f06-4ec1-b631-acaccb5a0674" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(11 : 9.01044840494792); (11.75 : 9.01044840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(11 : 9.01044840494792); (11.75 : 9.01044840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PyxisDataContext/Servicios/Servicios_Calificaciones" />
       <nodes>
         <classShapeMoniker Id="021abe83-6ec3-4969-9b26-e3fd20bd8573" />
         <classShapeMoniker Id="5525fb3a-665b-4ee2-a19d-5f5b13276413" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 8.36140055338542); (9 : 8.36140055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 8.36140055338542); (9 : 8.36140055338542)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PyxisDataContext/Paseadores/Paseadores_Servicios" />
       <nodes>
         <classShapeMoniker Id="5f325dd8-fdfb-4585-912f-147060e19b55" />
         <classShapeMoniker Id="021abe83-6ec3-4969-9b26-e3fd20bd8573" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 4.04409912109375); (6.25 : 4.04409912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 4.04409912109375); (6.25 : 4.04409912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PyxisDataContext/Usuarios/Usuarios_Mascotas" />
       <nodes>
         <classShapeMoniker Id="6950c93b-d709-41aa-b74f-2d67ca3e75db" />
         <classShapeMoniker Id="aa37e1c1-5f06-4ec1-b631-acaccb5a0674" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(4.5 : 6.10740397135417); (4.5 : 7.54890055338542); (4.94791916666667 : 7.54890055338542 : JumpStart); (5.11458583333333 : 7.54890055338542 : JumpEnd); (6.25 : 7.54890055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(4.5 : 6.10740397135417); (4.5 : 7.54890055338542); (6.25 : 7.54890055338542)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PyxisDataContext/Usuarios/Usuarios_Paseadores" />
       <nodes>
         <classShapeMoniker Id="6950c93b-d709-41aa-b74f-2d67ca3e75db" />
         <classShapeMoniker Id="5f325dd8-fdfb-4585-912f-147060e19b55" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 5.61620198567708); (9 : 5.61620198567708)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 5.61620198567708); (9 : 5.61620198567708)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PyxisDataContext/Usuarios/Usuarios_PQR" />
       <nodes>
         <classShapeMoniker Id="6950c93b-d709-41aa-b74f-2d67ca3e75db" />
         <classShapeMoniker Id="bdbe7aa9-02cc-4546-8dcf-9ccb371cbcc7" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.0312525 : 6.10740397135417); (5.0312525 : 9.37424967447917); (9 : 9.37424967447917)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.0312525 : 6.10740397135417); (5.0312525 : 9.37424967447917); (9 : 9.37424967447917)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PyxisDataContext/Usuarios/Usuarios_Servicios" />
       <nodes>
         <classShapeMoniker Id="6950c93b-d709-41aa-b74f-2d67ca3e75db" />
         <classShapeMoniker Id="021abe83-6ec3-4969-9b26-e3fd20bd8573" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 4.72199625651042); (3.5 : 4.72199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 4.72199625651042); (3.5 : 4.72199625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PyxisDataContext/Roles/Roles_Usuarios" />
       <nodes>
         <classShapeMoniker Id="7bb713aa-8855-406c-aa15-4b07bdb2a62b" />

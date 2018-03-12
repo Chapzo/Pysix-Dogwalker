@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Pyxis" Class="PyxisDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=CH\CHAPZO;Initial Catalog=Pyxis;Integrated Security=True" SettingsObjectName="DataBase.Properties.Settings" SettingsPropertyName="PyxisConnectionString2" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DATACENTER2017;Initial Catalog=Pyxis;Integrated Security=True" SettingsObjectName="DataBase.Properties.Settings" SettingsPropertyName="PyxisConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Calificaciones" Member="Calificaciones">
     <Type Name="Calificaciones">
       <Column Name="Idcalificacion" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -107,19 +107,35 @@
     <Parameter Name="NOMBRE" Parameter="nOMBRE" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="APELLIDO" Parameter="aPELLIDO" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="TELEFONO" Parameter="tELEFONO" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="BARRIO" Parameter="bARRIO" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Localidad" Parameter="localidad" Type="System.Int32" DbType="Int" />
     <Parameter Name="CORREO" Parameter="cORREO" Type="System.String" DbType="VarChar(100)" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Organizarusuario" Method="Organizarusuario">
+    <ElementType Name="OrganizarusuarioResult">
+      <Column Name="Idusuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Apellido" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="telefono" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="correo" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="nombre1" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.buscar" Method="buscar">
+    <Parameter Name="nombre" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="buscarResult">
+      <Column Name="Idusuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
   </Function>
   <Function Name="dbo.buscarpaseadorN" Method="buscarpaseadorN">
     <Parameter Name="nombre" Type="System.String" DbType="VarChar(50)" />
     <ElementType Name="buscarpaseadorNResult">
       <Column Name="Idpaseador" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Apellido" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="telefono" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="correo" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="barrio" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="nombre1" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="precio" Type="System.Double" DbType="Float" CanBeNull="true" />
     </ElementType>
   </Function>
@@ -131,7 +147,7 @@
       <Column Name="Apellido" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="telefono" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="correo" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="barrio" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="nombre1" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="tipo_doc" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
       <Column Name="documento" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
@@ -165,8 +181,8 @@
     <Parameter Name="APELLIDO" Parameter="aPELLIDO" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="CONTRASENA" Parameter="cONTRASENA" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="CORREO" Parameter="cORREO" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="telefono" Type="System.Int32" DbType="Int" />
-    <Parameter Name="barrio" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="telefono" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="localidad" Type="System.Int32" DbType="Int" />
     <Parameter Name="documento" Type="System.Int32" DbType="Int" />
     <Parameter Name="tipodoc" Type="System.String" DbType="VarChar(5)" />
     <Return Type="System.Int32" />
@@ -175,25 +191,15 @@
     <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.Organizarusuario" Method="Organizarusuario">
-    <ElementType Name="OrganizarusuarioResult">
-      <Column Name="Idusuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Apellido" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="telefono" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="correo" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="barrio" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.OrganizarPaseador" Method="OrganizarPaseador">
     <ElementType Name="OrganizarPaseadorResult">
       <Column Name="Idpaseador" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Apellido" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="telefono" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="estado" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
       <Column Name="correo" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="barrio" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="nombre1" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="precio" Type="System.Double" DbType="Float" CanBeNull="true" />
     </ElementType>
   </Function>
