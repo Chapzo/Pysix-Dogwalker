@@ -35,9 +35,17 @@
                     </td>
                 </tr>
                  <tr>
-                    <td>precio del servicio:</td>
+                    <td>Precio del servicio:</td>
                     <td>
                         <asp:TextBox ID="txtPrecio" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                 <tr>
+                    <td>Hoja de vida:</td>
+                    <td>
+                        
+                        <asp:Button ID="btnSubirHojaVida" runat="server" Text="Examinar" />
+                        
                     </td>
                 </tr>
                 <tr>
