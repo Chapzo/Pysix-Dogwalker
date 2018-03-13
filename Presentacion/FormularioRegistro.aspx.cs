@@ -55,8 +55,11 @@ namespace Presentacion
                     txtNoDocumento.Text != null &&
                     txtPassword.Text == txtPasswordConfirm.Text)
                 {
-                    objusuario.encriptar(txtPassword.Text);
-                    objusuario.CrearUsuario(txtNombre.Text, txtApellido.Text, txtPassword.Text, txtEmail.Text, ddlLocalidad.Text, int.Parse(txtTelefono.Text), ddlDocumento.Text, int.Parse(txtNoDocumento.Text));
+                    string PasswordEncriptado= string.Empty;
+                    byte[] encryted = System.Text.Encoding.Unicode.GetBytes(txtPassword.Text);
+                    PasswordEncriptado = Convert.ToBase64String(encryted);
+
+                    objusuario.CrearUsuario(txtNombre.Text, txtApellido.Text, PasswordEncriptado, txtEmail.Text, ddlLocalidad.Text, int.Parse(txtTelefono.Text), ddlDocumento.Text, int.Parse(txtNoDocumento.Text));
                     Usuarios objUsuario = objusuario.Login(txtEmail.Text, txtPassword.Text);
                     Session["Usuario"] = objUsuario;
                     Response.Redirect("FormularioPaseador.aspx");
