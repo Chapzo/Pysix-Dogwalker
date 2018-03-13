@@ -169,7 +169,7 @@ namespace Negocio
             {
                 data.ActualizarUsuario(id, nombre, apellido, telefono, correo, direccion);
                 setCodigo("Ok");
-                setRTA("se actualizo el usuario");
+                setRTA("ce actualizo el usuario");
                 return true;
             }
             catch (Exception ex)
