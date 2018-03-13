@@ -180,12 +180,6 @@ namespace Negocio
             }
 
         }
-
-        public string Encriptar(this string contraseña)
-        {
-            
-        }
-
     }
 
 }
