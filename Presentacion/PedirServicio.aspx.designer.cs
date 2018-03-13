@@ -10,61 +10,61 @@
 namespace Presentacion {
     
     
-    public partial class FormularioMascota {
+    public partial class PedirServicio {
         
         /// <summary>
-        /// Control FormPaseador.
+        /// Control txtDisponibilidad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm FormPaseador;
+        protected global::System.Web.UI.WebControls.TextBox txtDisponibilidad;
         
         /// <summary>
-        /// Control txtTamaño.
+        /// Control txtExperiencia.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTamaño;
+        protected global::System.Web.UI.WebControls.TextBox txtExperiencia;
         
         /// <summary>
-        /// Control txtEdad.
+        /// Control txtEspecialidad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEdad;
+        protected global::System.Web.UI.WebControls.TextBox txtEspecialidad;
         
         /// <summary>
-        /// Control DropDownList1.
+        /// Control txtPrecio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.TextBox txtPrecio;
         
         /// <summary>
-        /// Control txtNombre.
+        /// Control btnSubirHojaVida.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombre;
+        protected global::System.Web.UI.WebControls.Button btnSubirHojaVida;
         
         /// <summary>
-        /// Control btnCrearM.
+        /// Control btnCrearP.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCrearM;
+        protected global::System.Web.UI.WebControls.Button btnCrearP;
         
         /// <summary>
         /// Control btnCancelar.

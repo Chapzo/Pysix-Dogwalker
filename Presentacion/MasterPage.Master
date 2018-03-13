@@ -17,7 +17,7 @@
   			    <li class="liLeft"><a href="Menu.aspx"><img class="LogoHeader" src="img/PyxisLogo.png"></a></li> 
   			    <li class="liLeft"><a href="ControlUS.aspx"><input type="button" class="btnMasterPage" value="Clientes"/></a></li>
                 <li class="liLeft"><a href="ControlPaseador.aspx"><input type="button" class="btnMasterPage" value="Paseadores"/></a></li>
-  			    <li class="liLeft"><a href=""><input type="button" class="btnMasterPage" value="PQR"/></a></li>
+  			    <li class="liLeft"><a href="PedirServicio.aspx"><input type="button" class="btnMasterPage" value="Pedir servicio"/></a></li>
                 
                 <%--<li class="liRight"><asp:Button ID="btnSalir"  class="btnMasterPage" runat="server" Text="Salir" OnClick="btnSalir_Click"/></li>--%>
 		    </ul>
