@@ -88,11 +88,11 @@ namespace Negocio
             }
 
         }
-        public bool CrearUsuario(string nombre, string apellido,string contraseña, string correo, string barrio,int telefono,string tipodoc,int documento)
+        public bool CrearUsuario(string nombre, string apellido,string contraseña, string correo,int localidades,long telefono,string tipodoc,int documento)
         {
             try
             {
-                data.CrearUsuario(nombre, apellido,contraseña, correo, telefono,barrio,documento,tipodoc);
+                data.CrearUsuario(nombre, apellido,contraseña, correo, telefono,localidades,documento,tipodoc);
                 setCodigo ("OK");
                 setRTA ("Se ingresó el contacto correctamente");
                 return true;
@@ -163,11 +163,11 @@ namespace Negocio
 
         }
 
-        public bool ActualizarUsuario(int id, string nombre, string apellido, int telefono, string correo, string direccion, string tiusuario)
+        public bool ActualizarUsuario(int id, string nombre, string apellido, long telefono, string correo, int localidad, string tiusuario)
         {
             try
             {
-                data.ActualizarUsuario(id, nombre, apellido, telefono, correo, direccion);
+                data.ActualizarUsuario(id, nombre, apellido, telefono,localidad ,correo);
                 setCodigo("Ok");
                 setRTA("ce actualizo el usuario");
                 return true;
