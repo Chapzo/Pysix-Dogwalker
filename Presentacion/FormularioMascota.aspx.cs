@@ -37,7 +37,7 @@ namespace Presentacion
             try
             {
                 Usuarios objUSuario = (Usuarios)Session["Usuario"];
-                objusuario.CrearMascota (objUSuario.Idusuario ,txtTamaño.Text,txtEdad.Text,txtRaza.Text,txtNombre.Text );
+                objusuario.CrearMascota (objUSuario.Idusuario ,txtTamaño.Text,txtEdad.Text,DropDownList1.Text,txtNombre.Text );
                 Session.Abandon();
                 Response.Redirect("Inicio.aspx");
 

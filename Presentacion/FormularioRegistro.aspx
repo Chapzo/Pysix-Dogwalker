@@ -56,7 +56,7 @@
                  <tr>
                     <td class="auto-style6">Localidad</td>
                     <td class="auto-style7">
-                        <asp:DropDownList ID="ddlLocalidad" runat="server" style="margin-left: 0px" DataSourceID="SqlDataSource1" DataTextField="nombre" DataValueField="nombre">
+                        <asp:DropDownList ID="ddlLocalidad" runat="server" style="margin-left: 0px" >
                             <asp:ListItem>Seleccionar</asp:ListItem>
                             <asp:ListItem Value="1">Usaquén</asp:ListItem>
                             <asp:ListItem Value="2">Chapinero</asp:ListItem>
@@ -72,14 +72,14 @@
                             <asp:ListItem Value="12">Barrio Unidos</asp:ListItem>
                             <asp:ListItem Value="13">Teusaquillo</asp:ListItem>
                             <asp:ListItem Value="14">Los Mártires</asp:ListItem>
-                            <asp:ListItem>Antonio Nariño</asp:ListItem>
-                            <asp:ListItem>Puente Aranda</asp:ListItem>
-                            <asp:ListItem>La Candelaria</asp:ListItem>
-                            <asp:ListItem>Rafael Uribe</asp:ListItem>
-                            <asp:ListItem>Ciudad Bolivar</asp:ListItem>
-                            <asp:ListItem>Sumapaz</asp:ListItem>
+                            <asp:ListItem Value="15">Antonio Nariño</asp:ListItem>
+                            <asp:ListItem Value="16">Puente Aranda</asp:ListItem>
+                            <asp:ListItem Value="17">La Candelaria</asp:ListItem>
+                            <asp:ListItem Value="18">Rafael Uribe</asp:ListItem>
+                            <asp:ListItem Value="19">Ciudad Bolivar</asp:ListItem>
+                            <asp:ListItem Value="20">Sumapaz</asp:ListItem>
                         </asp:DropDownList>
-                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LocalidadesConexion %>" SelectCommand="SELECT [nombre] FROM [Localidades]"></asp:SqlDataSource>
+                       
                     </td>
                 </tr>
                  <tr>
@@ -91,16 +91,15 @@
                 <tr>
                     <td class="auto-style2">Tipo de documento: </td>
                     <td>
-                        <asp:DropDownList ID="ddlDocumento" runat="server" DataSourceID="SqlDataSource2" DataTextField="Nombre" DataValueField="Nombre" OnSelectedIndexChanged="ddlDocumento_SelectedIndexChanged">
+                        <asp:DropDownList ID="ddlDocumento" runat="server">
                             <asp:ListItem>Seleccionar</asp:ListItem>
-                            <asp:ListItem>Cedula de ciudadanía</asp:ListItem>
-                            <asp:ListItem>Registro civil</asp:ListItem>
-                            <asp:ListItem>Tarjeta de identidad</asp:ListItem>
-                            <asp:ListItem>Pasaporte</asp:ListItem>
+                            <asp:ListItem Value="C.C">Cedula de ciudadanía</asp:ListItem>
+                            <asp:ListItem Value="R.C">Registro civil</asp:ListItem>
+                            <asp:ListItem Value="T.I">Tarjeta de identidad</asp:ListItem>
+                            <asp:ListItem Value="P">Pasaporte</asp:ListItem>
                             <asp:ListItem>RUT</asp:ListItem>
                         </asp:DropDownList>
-                        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:LocalidadesConexion %>" SelectCommand="SELECT [Nombre] FROM [TipoDocumento]"></asp:SqlDataSource>
-                    </td>
+                          </td>
                 </tr>
                 <tr>
                     <td class="auto-style4">No. de documento: </td>

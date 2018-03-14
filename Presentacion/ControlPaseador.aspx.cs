@@ -39,26 +39,7 @@ namespace Presentacion
         }
 
 
-        protected void btnCrearContacto_Click(object sender, EventArgs e)
-        {
-            TBlCrear.Visible = true;
-            try
-            {
-                if (objUsuario.CrearUsuario(txtNombre.Text, txtApellido.Text, Textpass.Text, txtCorreo.Text, Textestado.Text, int.Parse(txtTelefono.Text), TpUsuario.Text, int.Parse(txtDireccion.Text)))
-                {
-                    LimpiarCampos();
-                    TBlCrear.Visible = false;
-                    BTActualizar.Visible = false;
-                }
 
-            }
-            catch (Exception ex)
-            {
-
-                Label9.Text = ex.Message;
-            }
-
-        }
         public void LimpiarCampos()
         {
             txtNombre.Text = string.Empty;
@@ -98,7 +79,7 @@ namespace Presentacion
                         txtNombre.Text = job.Nombre;
                         txtApellido.Text = job.Apellido;
                         txtTelefono.Text = job.telefono.ToString();
-                        txtDireccion.Text = job.barrio;
+                        txtDireccion.Text = job.localidad.ToString();
                         txtCorreo.Text = job.correo;
                         GrUsuarios.Enabled = false;
                         btnCrearContacto.Visible = false;
@@ -142,20 +123,7 @@ namespace Presentacion
 
         protected void BTActualizar_Click(object sender, EventArgs e)
         {
-            BTActualizar.Visible = true;
-            btnCrearContacto.Visible = false;
-            GrUsuarios.Enabled = true;
-            int id = int.Parse(ViewState["IDusuario"].ToString());
-            if (objUsuario.ActualizarUsuario(id, txtNombre.Text, txtApellido.Text, int.Parse(txtTelefono.Text), txtCorreo.Text, txtDireccion.Text, TpUsuario.Text))
-            {
-                Label9.Text = objUsuario.getCodigo() + "-" + objUsuario.getRTA();
-                LlenarTablaSinMensajes();
-                LimpiarCampos();
-            }
-            else
-            {
-                Label9.Text = objUsuario.getCodigo() + "-" + objUsuario.getRTA();
-            }
+           
         }
 
         protected void ButBuscar_Click(object sender, EventArgs e)
