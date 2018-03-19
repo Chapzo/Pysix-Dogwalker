@@ -81,7 +81,7 @@ namespace Presentacion
                         txtNombre.Text = job.Nombre;
                         txtApellido.Text = job.Apellido;
                         txtTelefono.Text = job.telefono.ToString();
-                        txtDireccion.Text = job.barrio;
+                        txtDireccion.Text = job.localidad.ToString();
                         txtCorreo.Text = job.correo;
                         Grpaseadores.Enabled = false;
                         BTActualizar.Visible = true;
@@ -124,19 +124,7 @@ namespace Presentacion
 
         protected void BTActualizar_Click(object sender, EventArgs e)
         {
-            BTActualizar.Visible = true;
-            Grpaseadores.Enabled = true;
-            int id = int.Parse(ViewState["Idpaseador"].ToString());
-            if (objUsuario.ActualizarUsuario(id, txtNombre.Text, txtApellido.Text, int.Parse(txtTelefono.Text), txtCorreo.Text, txtDireccion.Text, TpUsuario.Text))
-            {
-                Label9.Text = objUsuario.getCodigo() + "-" + objUsuario.getRTA();
-                LlenarTablaSinMensajes();
-                LimpiarCampos();
-            }
-            else
-            {
-                Label9.Text = objUsuario.getCodigo() + "-" + objUsuario.getRTA();
-            }
+          
         }
 
         protected void ButBuscar_Click(object sender, EventArgs e)
