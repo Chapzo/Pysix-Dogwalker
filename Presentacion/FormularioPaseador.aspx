@@ -14,7 +14,7 @@
         <center>
             <table>
                 <tr>
-                    <th colspan="2" class="thPaseador">Formulario paseador</th>
+                    <th colspan="3" class="thPaseador">Formulario paseador</th>
                 </tr>
                 <tr>
                     <td>Disponibilidad: </td>
@@ -76,8 +76,7 @@
                             <asp:ListItem Value="2300">11:00pm</asp:ListItem>
                             <asp:ListItem Value="2400">12:00am</asp:ListItem>
                         </asp:DropDownList>
-                        <br />
-                        <br />
+                        <td>
                         Los días:
                         <br />
                         <asp:CheckBoxList ID="CheckBoxList1" runat="server">
@@ -90,37 +89,37 @@
                             <asp:ListItem Value="Sab">Sábado</asp:ListItem>
                             <asp:ListItem Value="Dom">Domingo</asp:ListItem>
                         </asp:CheckBoxList>
-                        <br />
+                        </td>
                     </td>
                 </tr>
                 <tr>
                     <td>Experiencia: </td>
-                    <td>
+                    <td colspan="2">
                         <asp:TextBox ID="txtExperiencia" runat="server"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <td>Especialidad: </td>
-                    <td>
+                    <td colspan="2">
                         <asp:TextBox ID="txtEspecialidad" runat="server"></asp:TextBox>
                     </td>
                 </tr>
                  <tr>
                     <td>Precio del servicio:</td>
-                    <td>
+                    <td colspan="2">
                         <asp:TextBox ID="txtPrecio" runat="server"></asp:TextBox>
                     </td>
                 </tr>
                  <tr>
-                    <td>Hoja de vida:</td>
-                    <td>
+                    <td >Hoja de vida:</td>
+                    <td  colspan="2">
                         
                         <asp:Button ID="btnSubirHojaVida" runat="server" Text="Examinar" />
                         
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2">
+                    <td colspan="3">
                         <center>
                         <asp:Button ID="btnCrearP" CssClass="Boton1" runat="server" Text="Crear" OnClick="btnCrearP_Click" />
 &nbsp;<asp:Button ID="btnCancelar" CssClass="Boton2" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
