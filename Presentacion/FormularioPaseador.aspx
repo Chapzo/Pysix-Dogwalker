@@ -19,7 +19,64 @@
                 <tr>
                     <td>Disponibilidad: </td>
                     <td>
-                        <asp:TextBox ID="txtDisponibilidad" runat="server"></asp:TextBox>
+                        <asp:DropDownList ID="ddlHoraInicio" runat="server">
+                            <asp:ListItem>Seleccionar</asp:ListItem>
+                            <asp:ListItem Value="100">1:00am</asp:ListItem>
+                            <asp:ListItem Value="200">2:00am</asp:ListItem>
+                            <asp:ListItem Value="300">3:00am</asp:ListItem>
+                            <asp:ListItem Value="400">4:00am</asp:ListItem>
+                            <asp:ListItem Value="500">5:00am</asp:ListItem>
+                            <asp:ListItem Value="600">6:00am</asp:ListItem>
+                            <asp:ListItem Value="700">7:00am</asp:ListItem>
+                            <asp:ListItem Value="800">8:00am</asp:ListItem>
+                            <asp:ListItem Value="900">9:00am</asp:ListItem>
+                            <asp:ListItem Value="1000">10:00am</asp:ListItem>
+                            <asp:ListItem Value="1100">11:00am</asp:ListItem>
+                            <asp:ListItem Value="1200">12:00pm</asp:ListItem>
+                            <asp:ListItem Value="1300">1:00pm</asp:ListItem>
+                            <asp:ListItem Value="1400">2:00pm</asp:ListItem>
+                            <asp:ListItem Value="1500">3:00pm</asp:ListItem>
+                            <asp:ListItem Value="1600">4:00pm</asp:ListItem>
+                            <asp:ListItem Value="1700">5:00pm</asp:ListItem>
+                            <asp:ListItem Value="1800">6:00pm</asp:ListItem>
+                            <asp:ListItem Value="1900">7:00pm</asp:ListItem>
+                            <asp:ListItem Value="2000">8:00pm</asp:ListItem>
+                            <asp:ListItem Value="2100">9:00am</asp:ListItem>
+                            <asp:ListItem Value="2200">10:00pm</asp:ListItem>
+                            <asp:ListItem Value="2300">11:00pm</asp:ListItem>
+                            <asp:ListItem Value="2400">12:00am</asp:ListItem>
+                        </asp:DropDownList>
+                        <br />
+                        Hasta
+                        <br />
+                        <asp:DropDownList ID="ddlHoraFin" runat="server">
+                            <asp:ListItem>Seleccionar</asp:ListItem>
+                            <asp:ListItem Value="100">1:00am</asp:ListItem>
+                            <asp:ListItem Value="200">2:00am</asp:ListItem>
+                            <asp:ListItem Value="300">3:00am</asp:ListItem>
+                            <asp:ListItem Value="400">4:00am</asp:ListItem>
+                            <asp:ListItem Value="500">5:00am</asp:ListItem>
+                            <asp:ListItem Value="600">6:00am</asp:ListItem>
+                            <asp:ListItem Value="700">7:00am</asp:ListItem>
+                            <asp:ListItem Value="800">8:00am</asp:ListItem>
+                            <asp:ListItem Value="900">9:00am</asp:ListItem>
+                            <asp:ListItem Value="1000">10:00am</asp:ListItem>
+                            <asp:ListItem Value="1100">11:00am</asp:ListItem>
+                            <asp:ListItem Value="1200">12:00pm</asp:ListItem>
+                            <asp:ListItem Value="1300">1:00pm</asp:ListItem>
+                            <asp:ListItem Value="1400">2:00pm</asp:ListItem>
+                            <asp:ListItem Value="1500">3:00pm</asp:ListItem>
+                            <asp:ListItem Value="1600">4:00pm</asp:ListItem>
+                            <asp:ListItem Value="1700">5:00pm</asp:ListItem>
+                            <asp:ListItem Value="1800">6:00pm</asp:ListItem>
+                            <asp:ListItem Value="1900">7:00pm</asp:ListItem>
+                            <asp:ListItem Value="2000">8:00pm</asp:ListItem>
+                            <asp:ListItem Value="2100">9:00am</asp:ListItem>
+                            <asp:ListItem Value="2200">10:00pm</asp:ListItem>
+                            <asp:ListItem Value="2300">11:00pm</asp:ListItem>
+                            <asp:ListItem Value="2400">12:00am</asp:ListItem>
+                        </asp:DropDownList>
+                        <br />
                     </td>
                 </tr>
                 <tr>

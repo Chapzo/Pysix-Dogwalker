@@ -22,13 +22,22 @@ namespace Presentacion {
         protected global::System.Web.UI.HtmlControls.HtmlForm FormPaseador;
         
         /// <summary>
-        /// Control txtDisponibilidad.
+        /// Control ddlHoraInicio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDisponibilidad;
+        protected global::System.Web.UI.WebControls.DropDownList ddlHoraInicio;
+        
+        /// <summary>
+        /// Control ddlHoraFin.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlHoraFin;
         
         /// <summary>
         /// Control txtExperiencia.
