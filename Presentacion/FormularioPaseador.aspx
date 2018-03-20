@@ -77,6 +77,20 @@
                             <asp:ListItem Value="2400">12:00am</asp:ListItem>
                         </asp:DropDownList>
                         <br />
+                        <br />
+                        Los días:
+                        <br />
+                        <asp:CheckBoxList ID="CheckBoxList1" runat="server">
+                            
+                            <asp:ListItem Value="Lun">Lunes</asp:ListItem>
+                            <asp:ListItem Value="Mar">Martes</asp:ListItem>
+                            <asp:ListItem Value="Mie">Miércoles</asp:ListItem>
+                            <asp:ListItem Value="Jue">Jueves</asp:ListItem>
+                            <asp:ListItem Value="Vie">Viernes</asp:ListItem>
+                            <asp:ListItem Value="Sab">Sábado</asp:ListItem>
+                            <asp:ListItem Value="Dom">Domingo</asp:ListItem>
+                        </asp:CheckBoxList>
+                        <br />
                     </td>
                 </tr>
                 <tr>
