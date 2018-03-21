@@ -11,13 +11,13 @@ namespace Negocio
     {
 
         PyxisDataContext data = new PyxisDataContext();
-        public bool CrearPaseador(int id, string disponibilidad, string experiencia, string especialidad, float precio, string nombre)
+        public bool CrearPaseador(int id, int disponibilidad, string experiencia, string especialidad, float precio, string nombre)
         {
             try
             {
                 data.Crearpaseador(id, disponibilidad, experiencia, especialidad, precio);
                 setCodigo("ok");
-                setRTA("muchas gracias"+nombre+"ahora eres uno de nuestros paseadores");
+                setRTA("Muchas gracias "+nombre+", ahora eres uno de nuestros paseadores");
                 return true;
             }
             catch (Exception EX)

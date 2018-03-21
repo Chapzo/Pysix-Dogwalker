@@ -79,7 +79,7 @@
                         <td>
                         Los días:
                         <br />
-                        <asp:CheckBoxList ID="CheckBoxList1" runat="server">
+                        <asp:CheckBoxList ID="cblDias" runat="server">
                             
                             <asp:ListItem Value="Lun">Lunes</asp:ListItem>
                             <asp:ListItem Value="Mar">Martes</asp:ListItem>
