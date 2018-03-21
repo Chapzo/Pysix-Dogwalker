@@ -18,6 +18,17 @@
                     <th colspan="2" class="thStandart">Formulario registro</th>
                 </tr>
                 <tr>
+                    <th colspan="2">
+                        <asp:Image ID="Image1" Width="150" runat="server" ></asp:Image>
+                     </th>
+                </tr>
+                 <tr>
+                    <th colspan="2">
+                        <asp:FileUpload ID="FileUpload1" accept=".jpg" runat="server" />
+                        <asp:Button ID="btnmirar" runat="server" Text="visualizar" OnClick="btnmirar_Click" />
+                     </th>
+                </tr>
+                <tr>
                     <td>Usuario: </td>
                     <td>
                         <asp:TextBox ID="txtUsuario" runat="server"></asp:TextBox>
@@ -97,7 +108,7 @@
                             <asp:ListItem Value="R.C">Registro civil</asp:ListItem>
                             <asp:ListItem Value="T.I">Tarjeta de identidad</asp:ListItem>
                             <asp:ListItem Value="P">Pasaporte</asp:ListItem>
-                            <asp:ListItem>RUT</asp:ListItem>
+                            <asp:ListItem value="RUT">RUT</asp:ListItem>
                         </asp:DropDownList>
                           </td>
                 </tr>
