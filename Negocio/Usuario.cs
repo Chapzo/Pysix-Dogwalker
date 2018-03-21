@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ namespace Negocio
 {
     public class Usuario : Respuesta
     {
-        private int ID;
+       public byte[] hola;
 
         PyxisDataContext data = new PyxisDataContext();
 
@@ -88,16 +89,17 @@ namespace Negocio
             }
 
         }
-        public bool CrearUsuario(string nombre, string apellido,string contraseña, string correo,int localidades,long telefono,string tipodoc,int documento)
+        public bool CrearUsuario(string nombre, string apellido,string contraseña, string correo,int localidades,long telefono,string tipodoc,int documento,byte[]img)
         {
             try
             {
-                data.CrearUsuario(nombre, apellido,contraseña, correo, telefono,localidades,documento,tipodoc);
+                data.CrearUsuario(nombre, apellido,contraseña, correo, telefono,localidades,documento,tipodoc,img);
                 setCodigo ("OK");
                 setRTA ("Se ingresó el contacto correctamente");
                 return true;
             }
             catch (Exception EX) { 
+
             
                 setCodigo("error");
                 setRTA(EX.Message);
@@ -180,6 +182,20 @@ namespace Negocio
             }
 
         }
+
+        public string mostrarimage(int id)
+        {
+            Usuarios objuUsuario = (from f in data.Usuarios
+                                    where f.Idusuario == id 
+                                    select f).FirstOrDefault();
+            byte[] hola = objuUsuario.ImgPerfil.ToArray();
+                
+           string imagenvista =  Convert.ToBase64String(hola);
+            return imagenvista; 
+
+            
+        }
+
     }
 
 }
