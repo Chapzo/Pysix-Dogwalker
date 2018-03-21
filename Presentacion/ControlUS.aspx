@@ -23,7 +23,7 @@
                                 <asp:BoundField DataField="telefono" HeaderText="Telefono" />
                                 <asp:BoundField DataField="correo" HeaderText="Correo" />
                                 <asp:BoundField DataField="estado" HeaderText="Estado" />
-                                <asp:BoundField DataField="barrio" HeaderText="barrio" />
+                                <asp:BoundField DataField="localidad" HeaderText="barrio" />
                                 <asp:ButtonField CommandName= "Inactivar" Text="Inactivar"/>
                                 
                             </Columns>

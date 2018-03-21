@@ -39,7 +39,7 @@ namespace Presentacion
             {
                 Usuarios objUSuario = (Usuarios)Session["Usuario"];
 
-                objpaseador.CrearPaseador(objUSuario.Idusuario, ddlHoraInicio.SelectedValue, ddlHoraFin.SelectedValue,txtExperiencia.Text,txtEspecialidad.Text,float.Parse(txtPrecio.Text),objUSuario.nombre);
+                objpaseador.Crearpaseador(objUSuario.Idusuario, txtExperiencia.Text,txtEspecialidad.Text,float.Parse(txtPrecio.Text), ddlHoraInicio.SelectedValue, ddlHoraFin.SelectedValue, ddlHoraFin.SelectedValue, cblDias.SelectedValue);
                 
                 
 
