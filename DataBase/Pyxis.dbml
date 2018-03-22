@@ -88,29 +88,29 @@
       <Association Name="Localidades_Usuarios" Member="Localidades" ThisKey="localidad" OtherKey="idLocalidad" Type="Localidades" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Paseadores" Member="Paseadores">
-    <Type Name="Paseadores">
-      <Column Name="Idpaseador" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="disponibilidad" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="experiencia" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="calificacion_prom" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="especialidad" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="pa_idusu" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="precio" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="estado" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Association Name="Paseadores_PQR" Member="PQR" ThisKey="Idpaseador" OtherKey="idpas" Type="PQR" />
-      <Association Name="Paseadores_Servicios" Member="Servicios" ThisKey="Idpaseador" OtherKey="pa_serv" Type="Servicios" />
-      <Association Name="Usuarios_Paseadores" Member="Usuarios" ThisKey="pa_idusu" OtherKey="Idusuario" Type="Usuarios" IsForeignKey="true" />
-      <Association Name="Disponibilidad_Paseadores" Member="Disponibilidad1" ThisKey="disponibilidad" OtherKey="IdDisponibilidad" Type="Disponibilidad" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Disponibilidad" Member="Disponibilidad">
     <Type Name="Disponibilidad">
       <Column Name="IdDisponibilidad" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="HoraInicio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="HoraFin" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Dias" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Association Name="Disponibilidad_Paseadores" Member="Paseadores" ThisKey="IdDisponibilidad" OtherKey="disponibilidad" Type="Paseadores" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Paseadores" Member="Paseadores">
+    <Type Name="Paseadores">
+      <Column Name="Idpaseador" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="calificacion_prom" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="especialidad" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="pa_idusu" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="precio" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="estado" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Horainicio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HoraFin" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="dias" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Experiencia" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Paseadores_PQR" Member="PQR" ThisKey="Idpaseador" OtherKey="idpas" Type="PQR" />
+      <Association Name="Paseadores_Servicios" Member="Servicios" ThisKey="Idpaseador" OtherKey="pa_serv" Type="Servicios" />
+      <Association Name="Usuarios_Paseadores" Member="Usuarios" ThisKey="pa_idusu" OtherKey="Idusuario" Type="Usuarios" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.Organizarusuario" Method="Organizarusuario">
@@ -215,12 +215,17 @@
   </Function>
   <Function Name="dbo.Crearpaseador" Method="Crearpaseador">
     <Parameter Name="id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Experiencia" Parameter="experiencia" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Experiencia" Parameter="experiencia" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" />
     <Parameter Name="Especialidad" Parameter="especialidad" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="precio" Type="System.Double" DbType="Float" />
     <Parameter Name="HoraIni" Parameter="horaIni" Type="System.Int32" DbType="Int" />
     <Parameter Name="HoraFin" Parameter="horaFin" Type="System.Int32" DbType="Int" />
     <Parameter Name="Dias" Parameter="dias" Type="System.String" DbType="VarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.RolSeleccionador" Method="RolSeleccionador">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="numero_rol" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

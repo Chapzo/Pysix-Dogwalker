@@ -54,12 +54,12 @@ namespace DataBase
     partial void InsertUsuarios(Usuarios instance);
     partial void UpdateUsuarios(Usuarios instance);
     partial void DeleteUsuarios(Usuarios instance);
-    partial void InsertPaseadores(Paseadores instance);
-    partial void UpdatePaseadores(Paseadores instance);
-    partial void DeletePaseadores(Paseadores instance);
     partial void InsertDisponibilidad(Disponibilidad instance);
     partial void UpdateDisponibilidad(Disponibilidad instance);
     partial void DeleteDisponibilidad(Disponibilidad instance);
+    partial void InsertPaseadores(Paseadores instance);
+    partial void UpdatePaseadores(Paseadores instance);
+    partial void DeletePaseadores(Paseadores instance);
     #endregion
 		
 		public PyxisDataContext() : 
@@ -156,19 +156,19 @@ namespace DataBase
 			}
 		}
 		
-		public System.Data.Linq.Table<Paseadores> Paseadores
-		{
-			get
-			{
-				return this.GetTable<Paseadores>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Disponibilidad> Disponibilidad
 		{
 			get
 			{
 				return this.GetTable<Disponibilidad>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Paseadores> Paseadores
+		{
+			get
+			{
+				return this.GetTable<Paseadores>();
 			}
 		}
 		
@@ -250,9 +250,16 @@ namespace DataBase
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Crearpaseador")]
-		public int Crearpaseador([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Experiencia", DbType="VarChar(20)")] string experiencia, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Especialidad", DbType="VarChar(50)")] string especialidad, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Float")] System.Nullable<double> precio, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HoraIni", DbType="Int")] System.Nullable<int> horaIni, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HoraFin", DbType="Int")] System.Nullable<int> horaFin, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Dias", DbType="VarChar(100)")] string dias)
+		public int Crearpaseador([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Experiencia", DbType="VarBinary(MAX)")] System.Data.Linq.Binary experiencia, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Especialidad", DbType="VarChar(50)")] string especialidad, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Float")] System.Nullable<double> precio, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HoraIni", DbType="Int")] System.Nullable<int> horaIni, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HoraFin", DbType="Int")] System.Nullable<int> horaFin, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Dias", DbType="VarChar(100)")] string dias)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id, experiencia, especialidad, precio, horaIni, horaFin, dias);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.RolSeleccionador")]
+		public int RolSeleccionador([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> numero_rol)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id, numero_rol);
 			return ((int)(result.ReturnValue));
 		}
 	}
@@ -2090,6 +2097,140 @@ namespace DataBase
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Disponibilidad")]
+	public partial class Disponibilidad : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _IdDisponibilidad;
+		
+		private int _HoraInicio;
+		
+		private int _HoraFin;
+		
+		private string _Dias;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdDisponibilidadChanging(int value);
+    partial void OnIdDisponibilidadChanged();
+    partial void OnHoraInicioChanging(int value);
+    partial void OnHoraInicioChanged();
+    partial void OnHoraFinChanging(int value);
+    partial void OnHoraFinChanged();
+    partial void OnDiasChanging(string value);
+    partial void OnDiasChanged();
+    #endregion
+		
+		public Disponibilidad()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdDisponibilidad", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int IdDisponibilidad
+		{
+			get
+			{
+				return this._IdDisponibilidad;
+			}
+			set
+			{
+				if ((this._IdDisponibilidad != value))
+				{
+					this.OnIdDisponibilidadChanging(value);
+					this.SendPropertyChanging();
+					this._IdDisponibilidad = value;
+					this.SendPropertyChanged("IdDisponibilidad");
+					this.OnIdDisponibilidadChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoraInicio", DbType="Int NOT NULL")]
+		public int HoraInicio
+		{
+			get
+			{
+				return this._HoraInicio;
+			}
+			set
+			{
+				if ((this._HoraInicio != value))
+				{
+					this.OnHoraInicioChanging(value);
+					this.SendPropertyChanging();
+					this._HoraInicio = value;
+					this.SendPropertyChanged("HoraInicio");
+					this.OnHoraInicioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoraFin", DbType="Int NOT NULL")]
+		public int HoraFin
+		{
+			get
+			{
+				return this._HoraFin;
+			}
+			set
+			{
+				if ((this._HoraFin != value))
+				{
+					this.OnHoraFinChanging(value);
+					this.SendPropertyChanging();
+					this._HoraFin = value;
+					this.SendPropertyChanged("HoraFin");
+					this.OnHoraFinChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Dias", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string Dias
+		{
+			get
+			{
+				return this._Dias;
+			}
+			set
+			{
+				if ((this._Dias != value))
+				{
+					this.OnDiasChanging(value);
+					this.SendPropertyChanging();
+					this._Dias = value;
+					this.SendPropertyChanged("Dias");
+					this.OnDiasChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Paseadores")]
 	public partial class Paseadores : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -2097,10 +2238,6 @@ namespace DataBase
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _Idpaseador;
-		
-		private int _disponibilidad;
-		
-		private string _experiencia;
 		
 		private System.Nullable<double> _calificacion_prom;
 		
@@ -2112,13 +2249,19 @@ namespace DataBase
 		
 		private string _estado;
 		
+		private int _Horainicio;
+		
+		private int _HoraFin;
+		
+		private string _dias;
+		
+		private System.Data.Linq.Binary _Experiencia;
+		
 		private EntitySet<PQR> _PQR;
 		
 		private EntitySet<Servicios> _Servicios;
 		
 		private EntityRef<Usuarios> _Usuarios;
-		
-		private EntityRef<Disponibilidad> _Disponibilidad1;
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
@@ -2126,10 +2269,6 @@ namespace DataBase
     partial void OnCreated();
     partial void OnIdpaseadorChanging(int value);
     partial void OnIdpaseadorChanged();
-    partial void OndisponibilidadChanging(int value);
-    partial void OndisponibilidadChanged();
-    partial void OnexperienciaChanging(string value);
-    partial void OnexperienciaChanged();
     partial void Oncalificacion_promChanging(System.Nullable<double> value);
     partial void Oncalificacion_promChanged();
     partial void OnespecialidadChanging(string value);
@@ -2140,6 +2279,14 @@ namespace DataBase
     partial void OnprecioChanged();
     partial void OnestadoChanging(string value);
     partial void OnestadoChanged();
+    partial void OnHorainicioChanging(int value);
+    partial void OnHorainicioChanged();
+    partial void OnHoraFinChanging(int value);
+    partial void OnHoraFinChanged();
+    partial void OndiasChanging(string value);
+    partial void OndiasChanged();
+    partial void OnExperienciaChanging(System.Data.Linq.Binary value);
+    partial void OnExperienciaChanged();
     #endregion
 		
 		public Paseadores()
@@ -2147,7 +2294,6 @@ namespace DataBase
 			this._PQR = new EntitySet<PQR>(new Action<PQR>(this.attach_PQR), new Action<PQR>(this.detach_PQR));
 			this._Servicios = new EntitySet<Servicios>(new Action<Servicios>(this.attach_Servicios), new Action<Servicios>(this.detach_Servicios));
 			this._Usuarios = default(EntityRef<Usuarios>);
-			this._Disponibilidad1 = default(EntityRef<Disponibilidad>);
 			OnCreated();
 		}
 		
@@ -2167,50 +2313,6 @@ namespace DataBase
 					this._Idpaseador = value;
 					this.SendPropertyChanged("Idpaseador");
 					this.OnIdpaseadorChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_disponibilidad", DbType="Int NOT NULL")]
-		public int disponibilidad
-		{
-			get
-			{
-				return this._disponibilidad;
-			}
-			set
-			{
-				if ((this._disponibilidad != value))
-				{
-					if (this._Disponibilidad1.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OndisponibilidadChanging(value);
-					this.SendPropertyChanging();
-					this._disponibilidad = value;
-					this.SendPropertyChanged("disponibilidad");
-					this.OndisponibilidadChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_experiencia", DbType="VarChar(20)")]
-		public string experiencia
-		{
-			get
-			{
-				return this._experiencia;
-			}
-			set
-			{
-				if ((this._experiencia != value))
-				{
-					this.OnexperienciaChanging(value);
-					this.SendPropertyChanging();
-					this._experiencia = value;
-					this.SendPropertyChanged("experiencia");
-					this.OnexperienciaChanged();
 				}
 			}
 		}
@@ -2319,6 +2421,86 @@ namespace DataBase
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Horainicio", DbType="Int NOT NULL")]
+		public int Horainicio
+		{
+			get
+			{
+				return this._Horainicio;
+			}
+			set
+			{
+				if ((this._Horainicio != value))
+				{
+					this.OnHorainicioChanging(value);
+					this.SendPropertyChanging();
+					this._Horainicio = value;
+					this.SendPropertyChanged("Horainicio");
+					this.OnHorainicioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoraFin", DbType="Int NOT NULL")]
+		public int HoraFin
+		{
+			get
+			{
+				return this._HoraFin;
+			}
+			set
+			{
+				if ((this._HoraFin != value))
+				{
+					this.OnHoraFinChanging(value);
+					this.SendPropertyChanging();
+					this._HoraFin = value;
+					this.SendPropertyChanged("HoraFin");
+					this.OnHoraFinChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dias", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string dias
+		{
+			get
+			{
+				return this._dias;
+			}
+			set
+			{
+				if ((this._dias != value))
+				{
+					this.OndiasChanging(value);
+					this.SendPropertyChanging();
+					this._dias = value;
+					this.SendPropertyChanged("dias");
+					this.OndiasChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Experiencia", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary Experiencia
+		{
+			get
+			{
+				return this._Experiencia;
+			}
+			set
+			{
+				if ((this._Experiencia != value))
+				{
+					this.OnExperienciaChanging(value);
+					this.SendPropertyChanging();
+					this._Experiencia = value;
+					this.SendPropertyChanged("Experiencia");
+					this.OnExperienciaChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Paseadores_PQR", Storage="_PQR", ThisKey="Idpaseador", OtherKey="idpas")]
 		public EntitySet<PQR> PQR
 		{
@@ -2379,40 +2561,6 @@ namespace DataBase
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Disponibilidad_Paseadores", Storage="_Disponibilidad1", ThisKey="disponibilidad", OtherKey="IdDisponibilidad", IsForeignKey=true)]
-		public Disponibilidad Disponibilidad1
-		{
-			get
-			{
-				return this._Disponibilidad1.Entity;
-			}
-			set
-			{
-				Disponibilidad previousValue = this._Disponibilidad1.Entity;
-				if (((previousValue != value) 
-							|| (this._Disponibilidad1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Disponibilidad1.Entity = null;
-						previousValue.Paseadores.Remove(this);
-					}
-					this._Disponibilidad1.Entity = value;
-					if ((value != null))
-					{
-						value.Paseadores.Add(this);
-						this._disponibilidad = value.IdDisponibilidad;
-					}
-					else
-					{
-						this._disponibilidad = default(int);
-					}
-					this.SendPropertyChanged("Disponibilidad1");
-				}
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -2455,168 +2603,6 @@ namespace DataBase
 		{
 			this.SendPropertyChanging();
 			entity.Paseadores = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Disponibilidad")]
-	public partial class Disponibilidad : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _IdDisponibilidad;
-		
-		private int _HoraInicio;
-		
-		private int _HoraFin;
-		
-		private string _Dias;
-		
-		private EntitySet<Paseadores> _Paseadores;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdDisponibilidadChanging(int value);
-    partial void OnIdDisponibilidadChanged();
-    partial void OnHoraInicioChanging(int value);
-    partial void OnHoraInicioChanged();
-    partial void OnHoraFinChanging(int value);
-    partial void OnHoraFinChanged();
-    partial void OnDiasChanging(string value);
-    partial void OnDiasChanged();
-    #endregion
-		
-		public Disponibilidad()
-		{
-			this._Paseadores = new EntitySet<Paseadores>(new Action<Paseadores>(this.attach_Paseadores), new Action<Paseadores>(this.detach_Paseadores));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdDisponibilidad", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int IdDisponibilidad
-		{
-			get
-			{
-				return this._IdDisponibilidad;
-			}
-			set
-			{
-				if ((this._IdDisponibilidad != value))
-				{
-					this.OnIdDisponibilidadChanging(value);
-					this.SendPropertyChanging();
-					this._IdDisponibilidad = value;
-					this.SendPropertyChanged("IdDisponibilidad");
-					this.OnIdDisponibilidadChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoraInicio", DbType="Int NOT NULL")]
-		public int HoraInicio
-		{
-			get
-			{
-				return this._HoraInicio;
-			}
-			set
-			{
-				if ((this._HoraInicio != value))
-				{
-					this.OnHoraInicioChanging(value);
-					this.SendPropertyChanging();
-					this._HoraInicio = value;
-					this.SendPropertyChanged("HoraInicio");
-					this.OnHoraInicioChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoraFin", DbType="Int NOT NULL")]
-		public int HoraFin
-		{
-			get
-			{
-				return this._HoraFin;
-			}
-			set
-			{
-				if ((this._HoraFin != value))
-				{
-					this.OnHoraFinChanging(value);
-					this.SendPropertyChanging();
-					this._HoraFin = value;
-					this.SendPropertyChanged("HoraFin");
-					this.OnHoraFinChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Dias", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string Dias
-		{
-			get
-			{
-				return this._Dias;
-			}
-			set
-			{
-				if ((this._Dias != value))
-				{
-					this.OnDiasChanging(value);
-					this.SendPropertyChanging();
-					this._Dias = value;
-					this.SendPropertyChanged("Dias");
-					this.OnDiasChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Disponibilidad_Paseadores", Storage="_Paseadores", ThisKey="IdDisponibilidad", OtherKey="disponibilidad")]
-		public EntitySet<Paseadores> Paseadores
-		{
-			get
-			{
-				return this._Paseadores;
-			}
-			set
-			{
-				this._Paseadores.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Paseadores(Paseadores entity)
-		{
-			this.SendPropertyChanging();
-			entity.Disponibilidad1 = this;
-		}
-		
-		private void detach_Paseadores(Paseadores entity)
-		{
-			this.SendPropertyChanging();
-			entity.Disponibilidad1 = null;
 		}
 	}
 	

@@ -94,14 +94,15 @@ namespace Presentacion
                     }
                     else
                     {
+                        
                         objusuario.CrearUsuario(txtNombre.Text, txtApellido.Text,encriptar(), txtEmail.Text,int.Parse(ddlLocalidad.SelectedValue), Int64.Parse(txtTelefono.Text), ddlDocumento.Text, int.Parse(txtNoDocumento.Text),imagen);
                     Usuarios objUsuario = objusuario.Login(txtEmail.Text, encriptar());
 
                     Session["Usuario"] = objUsuario;
                     Label1.Text = " haz sido creado correctamente Usuario ";
-                    //Response.Redirect("FormularioPaseador.aspx");
+                            Response.Redirect("EleccionFormulario.aspx");
 
-                    }
+                        }
                     }
                     else
                     {
@@ -111,12 +112,12 @@ namespace Presentacion
                         //store the currently selected file in memeory    
                         //set the binary data    
                         FileUpload1.PostedFile.InputStream.Read(imgbyte, 0, length);
-                        objusuario.CrearUsuario(txtNombre.Text, txtApellido.Text, encriptar(), txtEmail.Text, int.Parse(ddlLocalidad.SelectedValue), Int64.Parse(txtTelefono.Text), ddlDocumento.Text, int.Parse(txtNoDocumento.Text), imagen);
+                        objusuario.CrearUsuario(txtNombre.Text, txtApellido.Text, encriptar(), txtEmail.Text, int.Parse(ddlLocalidad.SelectedValue), Int64.Parse(txtTelefono.Text), ddlDocumento.Text, int.Parse(txtNoDocumento.Text), imgbyte);
                         Usuarios objUsuario = objusuario.Login(txtEmail.Text, encriptar());
 
                         Session["Usuario"] = objUsuario;
                         Label1.Text = " haz sido creado correctamente Usuario ";
-                        //Response.Redirect("FormularioPaseador.aspx");
+                        Response.Redirect("EleccionFormulario.aspx");
                     }
 
 

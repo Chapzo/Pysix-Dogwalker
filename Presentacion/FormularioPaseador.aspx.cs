@@ -11,36 +11,49 @@ namespace Presentacion
 {
     public partial class FormularioPaseador : System.Web.UI.Page
     {
-       
+       string dias;
         Paseador objpaseador = new Paseador();
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            //if (!IsPostBack)
-            //{
-            //    try
-            //    {
-            //        Usuarios objUSuario = (Usuarios)Session["Usuario"];
-                    
+            if (!IsPostBack)
+            {
+                try
+                {
+                    Usuarios objUSuario = (Usuarios)Session["Usuario"];
 
 
-            //    }
-            //    catch (Exception Ex)
-            //    {
-            //        Session.Abandon();
-            //        Response.Redirect("Inicio.aspx");
 
-            //    }
-            //}
+                }
+                catch (Exception Ex)
+                {
+                    Session.Abandon();
+                    Response.Redirect("Inicio.aspx");
+
+                }
+            }
         }
         protected void btnCrearP_Click(object sender, EventArgs e)
         {
             try
             {
                 Usuarios objUSuario = (Usuarios)Session["Usuario"];
+                int filesize = FileUpload1.PostedFile.ContentLength;
+                byte[] contenido = new byte[filesize];
+                FileUpload1.PostedFile.InputStream.Read(contenido, 0, filesize);
+                
+                foreach(ListItem li in CblDias.Items)
+                {
+                    if (li.Selected)
+                    {
+                        dias += li.Value.ToString() + '-';
+                       
+                    }
 
-                objpaseador.CrearPaseador(1048, txtExperiencia.Text,txtEspecialidad.Text,float.Parse(txtPrecio.Text),int.Parse(ddlHoraInicio.SelectedValue),int.Parse(ddlHoraFin.SelectedValue),CblDias.SelectedValue);
+                }
 
+                objpaseador.CrearPaseador(objUSuario.Idusuario, txtEspecialidad.Text, float.Parse(txtPrecio.Text), int.Parse(ddlHoraInicio.SelectedValue), int.Parse(ddlHoraFin.SelectedValue),dias, contenido);
+                objpaseador.rolselec(objUSuario.Idusuario, 1);
                 Label1.Text = "hola";
 
             }

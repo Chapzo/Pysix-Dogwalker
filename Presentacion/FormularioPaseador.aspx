@@ -113,7 +113,7 @@
                     <td >Hoja de vida:</td>
                     <td  colspan="2">
                         
-                        <asp:Button ID="btnSubirHojaVida" runat="server" Text="Examinar" />
+                        <asp:FileUpload ID="FileUpload1" runat="server" />
                         
                     </td>
                 </tr>
