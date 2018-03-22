@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#"  MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="ControlUS.aspx.cs" Inherits="Presentacion.ControlUS" %>
 
-<asp:Content ID="Content1" runat="server" ContentPlaceHolderID="ContentPlaceHolderID1">
+<asp:Content ID="Content1" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
 
         <div>
             Paseador<br />

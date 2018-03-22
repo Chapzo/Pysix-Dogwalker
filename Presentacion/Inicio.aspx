@@ -11,13 +11,37 @@
 <link href="css/Estilos1.css" rel="stylesheet" />
 <body>
   <div class="login">
-	<h1>PYXIS</h1>
+	<center><h1>Pysix Dogwalker</h1></center>
       <form id="form1" runat="server">
-    	<asp:TextBox ID="txtUsuario" runat="server" placeholder="Usuario" ></asp:TextBox >
-        <asp:TextBox type="password" ID="txtContrasena" runat="server" placeholder="Contraseña" ></asp:TextBox>
-    <asp:Button ID="btnAceptar" runat="server" Text="Ingresar" class="btn btn-primary btn-block btn-large" OnClick="Button1_Click1" CssClass="auto-style1" Width="298px" />
-          <asp:Button ID="btnRegistro" runat="server" Text="Registrate" class="btn btn-primary btn-block btn-large" OnClick="btnRegistro_Click1" CssClass="auto-style1" Width="298px" />
-      <asp:Label ID="labelRespuesta" runat="server"></asp:Label>   
+          <center>
+          <table>
+              <th td colspan="2">¡Bienvenido!</th>
+              <tr>
+                  <td colspan="2"><asp:TextBox ID="txtUsuario" runat="server" placeholder="Usuario" ></asp:TextBox ></td>
+              </tr>
+              <tr>
+                   <td colspan="2"><asp:TextBox type="password" ID="txtContrasena" runat="server" placeholder="Contraseña" ></asp:TextBox></td>
+              </tr>
+              <tr>
+                  <td>
+                      <center>
+                          <asp:Button ID="btnAceptar" runat="server" Text="Ingresar" class="btn btn-primary btn-block btn-large" OnClick="Button1_Click1" CssClass="auto-style1" Width="100px" />
+                      </center>
+                    <td>
+                        <center>
+          <asp:Button ID="btnRegistro" runat="server" Text="Registrate" class="btn btn-primary btn-block btn-large" OnClick="btnRegistro_Click1" CssClass="auto-style1" Width="100px" />
+                      </center>
+                    </td>
+              </tr>
+    	
+        
+    
+      
+              </table>
+              <br />
+              <br />
+              <asp:Label ID="labelRespuesta" runat="server"></asp:Label>   
+              </center>
       </form>
 </div>
   

@@ -13,5 +13,15 @@ namespace Presentacion
         {
 
         }
+
+        protected void btnCrearP_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

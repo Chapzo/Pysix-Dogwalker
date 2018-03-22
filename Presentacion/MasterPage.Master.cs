@@ -16,6 +16,8 @@ namespace Presentacion
 
         protected void btnSalir_Click(object sender, EventArgs e)
         {
+            Session.Abandon();
+            Response.Redirect("Inicio.aspx");
 
         }
     }

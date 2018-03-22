@@ -13,22 +13,22 @@ namespace Presentacion {
     public partial class PedirServicio {
         
         /// <summary>
-        /// Control txtDisponibilidad.
+        /// Control ddlLocalidad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDisponibilidad;
+        protected global::System.Web.UI.WebControls.DropDownList ddlLocalidad;
         
         /// <summary>
-        /// Control txtExperiencia.
+        /// Control ddlHora.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtExperiencia;
+        protected global::System.Web.UI.WebControls.DropDownList ddlHora;
         
         /// <summary>
         /// Control txtEspecialidad.
@@ -58,22 +58,13 @@ namespace Presentacion {
         protected global::System.Web.UI.WebControls.Button btnSubirHojaVida;
         
         /// <summary>
-        /// Control btnCrearP.
+        /// Control btnBuscarS.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCrearP;
-        
-        /// <summary>
-        /// Control btnCancelar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancelar;
+        protected global::System.Web.UI.WebControls.Button btnBuscarS;
         
         /// <summary>
         /// Control Label1.

@@ -19,7 +19,7 @@
                 <li class="liLeft"><a href="ControlPaseador.aspx"><input type="button" class="btnMasterPage" value="Paseadores"/></a></li>
   			    <li class="liLeft"><a href="PedirServicio.aspx"><input type="button" class="btnMasterPage" value="Pedir servicio"/></a></li>
                 
-                <%--<li class="liRight"><asp:Button ID="btnSalir"  class="btnMasterPage" runat="server" Text="Salir" OnClick="btnSalir_Click"/></li>--%>
+                <li class="liRight"><asp:Button ID="btnSalir" CssClass="btnMasterPage" runat="server" Text="Salir" OnClick="btnSalir_Click"/></li>
 		    </ul>
         </div>
     <div>

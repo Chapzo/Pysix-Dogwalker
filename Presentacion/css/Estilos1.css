@@ -1,7 +1,16 @@
-﻿body {
-    font-family: Raleway;
+﻿html{
+    
+    background: url('../img/Fondo.png');
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
     background-color: #FAAC58;
-    background-image: url('../img/Fondo.png');
+}
+
+body {
+    font-family: Raleway;
+    
+    height: 100%;
 }
 table{
     border-radius:10px;
