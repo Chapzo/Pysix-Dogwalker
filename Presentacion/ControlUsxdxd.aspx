@@ -1,6 +1,6 @@
-﻿<%@ Page Language="C#"  MasterPageFile="~/Menu.Master" AutoEventWireup="true" CodeBehind="ControlUsxdxd.aspx.cs" Inherits="Presentacion.ControlUs" %>
+﻿<%@ Page Language="C#"  MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="ControlUsxdxd.aspx.cs" Inherits="Presentacion.ControlUs" %>
 
-<asp:Content ID="Content1" runat="server" ContentPlaceHolderID="ContentPlaceHolderID1">
+<asp:Content ID="Content1" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
 
         <div>
             Paseador<br />
@@ -18,13 +18,11 @@
                           <AlternatingRowStyle BackColor="White" />
                             <Columns>
                                 <asp:BoundField DataField="Idusuario" HeaderText="ID" />
-                                <asp:BoundField DataField ="nombre" HeaderText="Nombre" /> 
+                                <asp:BoundField DataField ="usunom" HeaderText="Nombre" /> 
                                 <asp:BoundField DataField="apellido" HeaderText="Apellido" />
                                 <asp:BoundField DataField="telefono" HeaderText="Telefono" />
                                 <asp:BoundField DataField="correo" HeaderText="Correo" />
-                                <asp:BoundField DataField="estado" HeaderText="Estado" />
-                                <asp:BoundField DataField="barrio" HeaderText="barrio" />
-                                
+                                <asp:BoundField DataField="nombre" HeaderText="localidad" />
                                                             </Columns>
                             <EditRowStyle BackColor="Green" />
                             <FooterStyle BackColor="Azure" Font-Bold="true" ForeColor="YellowGreen" />

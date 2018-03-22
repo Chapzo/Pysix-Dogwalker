@@ -172,13 +172,6 @@ namespace DataBase
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Organizarusuario")]
-		public ISingleResult<OrganizarusuarioResult> Organizarusuario()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<OrganizarusuarioResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ActualizarUsuario")]
 		public int ActualizarUsuario([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NOMBRE", DbType="VarChar(50)")] string nOMBRE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="APELLIDO", DbType="VarChar(50)")] string aPELLIDO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TELEFONO", DbType="BigInt")] System.Nullable<long> tELEFONO, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> localidad, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CORREO", DbType="VarChar(100)")] string cORREO)
 		{
@@ -268,6 +261,13 @@ namespace DataBase
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), horaIni, localidad);
 			return ((ISingleResult<BusquedaServicioResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Organizarusuario")]
+		public ISingleResult<OrganizarusuarioResult> Organizarusuario()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<OrganizarusuarioResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -1895,7 +1895,7 @@ namespace DataBase
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImgPerfil", DbType="Image", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImgPerfil", DbType="Image", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 		public System.Data.Linq.Binary ImgPerfil
 		{
 			get
@@ -2488,7 +2488,7 @@ namespace DataBase
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Experiencia", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Experiencia", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 		public System.Data.Linq.Binary Experiencia
 		{
 			get
@@ -2610,122 +2610,6 @@ namespace DataBase
 		{
 			this.SendPropertyChanging();
 			entity.Paseadores = null;
-		}
-	}
-	
-	public partial class OrganizarusuarioResult
-	{
-		
-		private int _Idusuario;
-		
-		private string _nombre;
-		
-		private string _Apellido;
-		
-		private System.Nullable<long> _telefono;
-		
-		private string _correo;
-		
-		private string _nombre1;
-		
-		public OrganizarusuarioResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Idusuario", DbType="Int NOT NULL")]
-		public int Idusuario
-		{
-			get
-			{
-				return this._Idusuario;
-			}
-			set
-			{
-				if ((this._Idusuario != value))
-				{
-					this._Idusuario = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string nombre
-		{
-			get
-			{
-				return this._nombre;
-			}
-			set
-			{
-				if ((this._nombre != value))
-				{
-					this._nombre = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Apellido", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Apellido
-		{
-			get
-			{
-				return this._Apellido;
-			}
-			set
-			{
-				if ((this._Apellido != value))
-				{
-					this._Apellido = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_telefono", DbType="BigInt")]
-		public System.Nullable<long> telefono
-		{
-			get
-			{
-				return this._telefono;
-			}
-			set
-			{
-				if ((this._telefono != value))
-				{
-					this._telefono = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_correo", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string correo
-		{
-			get
-			{
-				return this._correo;
-			}
-			set
-			{
-				if ((this._correo != value))
-				{
-					this._correo = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre1", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string nombre1
-		{
-			get
-			{
-				return this._nombre1;
-			}
-			set
-			{
-				if ((this._nombre1 != value))
-				{
-					this._nombre1 = value;
-				}
-			}
 		}
 	}
 	
@@ -2898,7 +2782,7 @@ namespace DataBase
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImgPerfil", DbType="Image")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImgPerfil", DbType="Image", CanBeNull=true)]
 		public System.Data.Linq.Binary ImgPerfil
 		{
 			get
@@ -3068,7 +2952,7 @@ namespace DataBase
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Experiencia", DbType="VarBinary(MAX)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Experiencia", DbType="VarBinary(MAX)", CanBeNull=true)]
 		public System.Data.Linq.Binary Experiencia
 		{
 			get
@@ -3238,7 +3122,7 @@ namespace DataBase
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Experiencia", DbType="VarBinary(MAX)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Experiencia", DbType="VarBinary(MAX)", CanBeNull=true)]
 		public System.Data.Linq.Binary Experiencia
 		{
 			get
@@ -3448,7 +3332,7 @@ namespace DataBase
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Experiencia", DbType="VarBinary(MAX)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Experiencia", DbType="VarBinary(MAX)", CanBeNull=true)]
 		public System.Data.Linq.Binary Experiencia
 		{
 			get
@@ -3624,7 +3508,7 @@ namespace DataBase
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImgPerfil", DbType="Image")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImgPerfil", DbType="Image", CanBeNull=true)]
 		public System.Data.Linq.Binary ImgPerfil
 		{
 			get
@@ -3636,6 +3520,122 @@ namespace DataBase
 				if ((this._ImgPerfil != value))
 				{
 					this._ImgPerfil = value;
+				}
+			}
+		}
+	}
+	
+	public partial class OrganizarusuarioResult
+	{
+		
+		private int _Idusuario;
+		
+		private string _usunom;
+		
+		private string _Apellido;
+		
+		private System.Nullable<long> _telefono;
+		
+		private string _correo;
+		
+		private string _nombre;
+		
+		public OrganizarusuarioResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Idusuario", DbType="Int NOT NULL")]
+		public int Idusuario
+		{
+			get
+			{
+				return this._Idusuario;
+			}
+			set
+			{
+				if ((this._Idusuario != value))
+				{
+					this._Idusuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_usunom", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string usunom
+		{
+			get
+			{
+				return this._usunom;
+			}
+			set
+			{
+				if ((this._usunom != value))
+				{
+					this._usunom = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Apellido", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Apellido
+		{
+			get
+			{
+				return this._Apellido;
+			}
+			set
+			{
+				if ((this._Apellido != value))
+				{
+					this._Apellido = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_telefono", DbType="BigInt")]
+		public System.Nullable<long> telefono
+		{
+			get
+			{
+				return this._telefono;
+			}
+			set
+			{
+				if ((this._telefono != value))
+				{
+					this._telefono = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_correo", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string correo
+		{
+			get
+			{
+				return this._correo;
+			}
+			set
+			{
+				if ((this._correo != value))
+				{
+					this._correo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string nombre
+		{
+			get
+			{
+				return this._nombre;
+			}
+			set
+			{
+				if ((this._nombre != value))
+				{
+					this._nombre = value;
 				}
 			}
 		}

@@ -113,16 +113,6 @@
       <Association Name="Usuarios_Paseadores" Member="Usuarios" ThisKey="pa_idusu" OtherKey="Idusuario" Type="Usuarios" IsForeignKey="true" />
     </Type>
   </Table>
-  <Function Name="dbo.Organizarusuario" Method="Organizarusuario">
-    <ElementType Name="OrganizarusuarioResult">
-      <Column Name="Idusuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Apellido" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="telefono" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="correo" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="nombre1" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.ActualizarUsuario" Method="ActualizarUsuario">
     <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
     <Parameter Name="NOMBRE" Parameter="nOMBRE" Type="System.String" DbType="VarChar(50)" />
@@ -256,6 +246,16 @@
       <Column Name="contrasena" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Usu_rol" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ImgPerfil" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Organizarusuario" Method="Organizarusuario">
+    <ElementType Name="OrganizarusuarioResult">
+      <Column Name="Idusuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="usunom" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Apellido" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="telefono" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="correo" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
 </Database>
