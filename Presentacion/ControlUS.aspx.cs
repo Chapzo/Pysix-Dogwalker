@@ -119,6 +119,27 @@ namespace Presentacion
                 }
 
             }
+            else if (e.CommandName == "Inactivar")
+            {
+                try
+                {
+                    int Id = int.Parse(GrUsuarios.Rows[Convert.ToInt32(e.CommandArgument)].Cells[0].Text);
+                    if (objUsuario.Inactivarpaseador(Id))
+                    {
+                        Label9.Text = objUsuario.getCodigo() + "-" + objUsuario.getRTA();
+                        LlenarTablaSinMensajes();
+                        
+                    }
+
+                }
+                catch (Exception)
+                {
+                    Label9.Text = objUsuario.getCodigo() + "-" + objUsuario.getRTA();
+
+
+                }
+
+            }
         }
 
         protected void BTActualizar_Click(object sender, EventArgs e)

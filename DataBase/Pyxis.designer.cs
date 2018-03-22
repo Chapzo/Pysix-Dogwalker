@@ -200,13 +200,6 @@ namespace DataBase
 			return ((ISingleResult<buscarpaseadorNResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Consultarpaseador")]
-		public ISingleResult<ConsultarpaseadorResult> Consultarpaseador([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD);
-			return ((ISingleResult<ConsultarpaseadorResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CrearMascotas")]
 		public int CrearMascotas([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string tamaño, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Edad", DbType="VarChar(50)")] string edad, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string raza, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string nombre)
 		{
@@ -226,13 +219,6 @@ namespace DataBase
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD);
 			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.OrganizarPaseador")]
-		public ISingleResult<OrganizarPaseadorResult> OrganizarPaseador()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<OrganizarPaseadorResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CrearUsuario")]
@@ -261,6 +247,20 @@ namespace DataBase
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id, numero_rol);
 			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Consultarpaseador")]
+		public ISingleResult<ConsultarpaseadorResult> Consultarpaseador([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD);
+			return ((ISingleResult<ConsultarpaseadorResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.OrganizarPaseador")]
+		public ISingleResult<OrganizarPaseadorResult> OrganizarPaseador()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<OrganizarPaseadorResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -2882,6 +2882,32 @@ namespace DataBase
 		}
 	}
 	
+	public partial class mostrarimagenResult
+	{
+		
+		private System.Data.Linq.Binary _ImgPerfil;
+		
+		public mostrarimagenResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImgPerfil", DbType="Image")]
+		public System.Data.Linq.Binary ImgPerfil
+		{
+			get
+			{
+				return this._ImgPerfil;
+			}
+			set
+			{
+				if ((this._ImgPerfil != value))
+				{
+					this._ImgPerfil = value;
+				}
+			}
+		}
+	}
+	
 	public partial class ConsultarpaseadorResult
 	{
 		
@@ -2900,6 +2926,8 @@ namespace DataBase
 		private string _tipo_doc;
 		
 		private int _documento;
+		
+		private System.Data.Linq.Binary _Experiencia;
 		
 		public ConsultarpaseadorResult()
 		{
@@ -3032,6 +3060,22 @@ namespace DataBase
 				}
 			}
 		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Experiencia", DbType="VarBinary(MAX)")]
+		public System.Data.Linq.Binary Experiencia
+		{
+			get
+			{
+				return this._Experiencia;
+			}
+			set
+			{
+				if ((this._Experiencia != value))
+				{
+					this._Experiencia = value;
+				}
+			}
+		}
 	}
 	
 	public partial class OrganizarPaseadorResult
@@ -3039,7 +3083,7 @@ namespace DataBase
 		
 		private int _Idpaseador;
 		
-		private string _Nombre;
+		private string _Usunombre;
 		
 		private string _Apellido;
 		
@@ -3049,9 +3093,11 @@ namespace DataBase
 		
 		private string _correo;
 		
-		private string _nombre1;
+		private string _nombre;
 		
 		private System.Nullable<double> _precio;
+		
+		private System.Data.Linq.Binary _Experiencia;
 		
 		public OrganizarPaseadorResult()
 		{
@@ -3073,18 +3119,18 @@ namespace DataBase
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Nombre
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Usunombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Usunombre
 		{
 			get
 			{
-				return this._Nombre;
+				return this._Usunombre;
 			}
 			set
 			{
-				if ((this._Nombre != value))
+				if ((this._Usunombre != value))
 				{
-					this._Nombre = value;
+					this._Usunombre = value;
 				}
 			}
 		}
@@ -3153,18 +3199,18 @@ namespace DataBase
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre1", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string nombre1
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string nombre
 		{
 			get
 			{
-				return this._nombre1;
+				return this._nombre;
 			}
 			set
 			{
-				if ((this._nombre1 != value))
+				if ((this._nombre != value))
 				{
-					this._nombre1 = value;
+					this._nombre = value;
 				}
 			}
 		}
@@ -3184,29 +3230,19 @@ namespace DataBase
 				}
 			}
 		}
-	}
-	
-	public partial class mostrarimagenResult
-	{
 		
-		private System.Data.Linq.Binary _ImgPerfil;
-		
-		public mostrarimagenResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImgPerfil", DbType="Image")]
-		public System.Data.Linq.Binary ImgPerfil
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Experiencia", DbType="VarBinary(MAX)")]
+		public System.Data.Linq.Binary Experiencia
 		{
 			get
 			{
-				return this._ImgPerfil;
+				return this._Experiencia;
 			}
 			set
 			{
-				if ((this._ImgPerfil != value))
+				if ((this._Experiencia != value))
 				{
-					this._ImgPerfil = value;
+					this._Experiencia = value;
 				}
 			}
 		}
