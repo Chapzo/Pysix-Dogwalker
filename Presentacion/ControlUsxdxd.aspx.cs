@@ -104,7 +104,7 @@ namespace Presentacion
                 try
                 {
                     int Id = int.Parse(Grpaseadores.Rows[Convert.ToInt32(e.CommandArgument)].Cells[0].Text);
-                    if (objUsuario.Inactivarpaseador(Id))
+                    if (objUsuario.Inactivarpaseador(Id,"hola"))
                     {
                         Label9.Text = objUsuario.getCodigo() + "-" + objUsuario.getRTA();
                         LlenarTablaSinMensajes();

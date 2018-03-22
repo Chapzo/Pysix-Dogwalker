@@ -99,12 +99,12 @@ namespace Presentacion
                 }
 
             }
-            else if (e.CommandName == "Inactivar")
+            else if (e.CommandName == "Cambio")
             {
                 try
                 {
                     int Id = int.Parse(GrUsuarios.Rows[Convert.ToInt32(e.CommandArgument)].Cells[0].Text);
-                    if (objUsuario.Inactivarpaseador(Id))
+                    if (objUsuario.Inactivarpaseador(Id,GrUsuarios.Rows[Convert.ToInt32(e.CommandArgument)].Cells[5].Text))
                     {
                         Label9.Text = objUsuario.getCodigo() + "-" + objUsuario.getRTA();
                         LlenarTablaSinMensajes();

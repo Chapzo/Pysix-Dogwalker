@@ -146,11 +146,11 @@ namespace Negocio
 
         }
 
-        public bool Inactivarpaseador(int id)
+        public bool Inactivarpaseador(int id,string estado)
         {
             try
             {
-                data.Inactivarpaseador(id);
+                data.Inactivarpaseador(id,estado);
                 setCodigo("ok");
                 setRTA("se inactivo correctamente");
                 return true;

@@ -25,8 +25,11 @@ namespace Presentacion
         {
             try
             {
-
-                Usuarios objUsuario = Objusuario.Login(txtUsuario.Text, txtContrasena.Text);
+                string PasswordEncriptado = string.Empty;
+                byte[] encryted = System.Text.Encoding.Unicode.GetBytes(txtContrasena.Text);
+                PasswordEncriptado = Convert.ToBase64String(encryted);
+               
+                Usuarios objUsuario = Objusuario.Login(txtUsuario.Text,PasswordEncriptado );
 
                 if (objUsuario != null)
                 {

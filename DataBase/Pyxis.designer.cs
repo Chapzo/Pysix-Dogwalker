@@ -214,13 +214,6 @@ namespace DataBase
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Inactivarpaseador")]
-		public int Inactivarpaseador([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CrearUsuario")]
 		public int CrearUsuario([global::System.Data.Linq.Mapping.ParameterAttribute(Name="NOMBRE", DbType="VarChar(50)")] string nOMBRE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="APELLIDO", DbType="VarChar(50)")] string aPELLIDO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CONTRASENA", DbType="VarChar(50)")] string cONTRASENA, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CORREO", DbType="VarChar(100)")] string cORREO, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="BigInt")] System.Nullable<long> telefono, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> localidad, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> documento, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(5)")] string tipodoc, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Image")] System.Data.Linq.Binary img)
 		{
@@ -261,6 +254,20 @@ namespace DataBase
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<OrganizarPaseadorResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Inactivarpaseador")]
+		public int Inactivarpaseador([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(10)")] string accion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD, accion);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.BusquedaServicio")]
+		public ISingleResult<BusquedaServicioResult> BusquedaServicio([global::System.Data.Linq.Mapping.ParameterAttribute(Name="HoraIni", DbType="Int")] System.Nullable<int> horaIni, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Localidad", DbType="Int")] System.Nullable<int> localidad)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), horaIni, localidad);
+			return ((ISingleResult<BusquedaServicioResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -3243,6 +3250,392 @@ namespace DataBase
 				if ((this._Experiencia != value))
 				{
 					this._Experiencia = value;
+				}
+			}
+		}
+	}
+	
+	public partial class BusquedaServicioResult
+	{
+		
+		private int _Idpaseador;
+		
+		private System.Nullable<double> _calificacion_prom;
+		
+		private string _especialidad;
+		
+		private System.Nullable<int> _pa_idusu;
+		
+		private System.Nullable<double> _precio;
+		
+		private string _estado;
+		
+		private int _Horainicio;
+		
+		private int _HoraFin;
+		
+		private string _dias;
+		
+		private System.Data.Linq.Binary _Experiencia;
+		
+		private int _Idusuario;
+		
+		private string _nombre;
+		
+		private string _apellido;
+		
+		private string _correo;
+		
+		private int _documento;
+		
+		private string _tipo_doc;
+		
+		private System.Nullable<int> _localidad;
+		
+		private System.Nullable<long> _telefono;
+		
+		private string _contrasena;
+		
+		private System.Nullable<int> _Usu_rol;
+		
+		private System.Data.Linq.Binary _ImgPerfil;
+		
+		public BusquedaServicioResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Idpaseador", DbType="Int NOT NULL")]
+		public int Idpaseador
+		{
+			get
+			{
+				return this._Idpaseador;
+			}
+			set
+			{
+				if ((this._Idpaseador != value))
+				{
+					this._Idpaseador = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_calificacion_prom", DbType="Float")]
+		public System.Nullable<double> calificacion_prom
+		{
+			get
+			{
+				return this._calificacion_prom;
+			}
+			set
+			{
+				if ((this._calificacion_prom != value))
+				{
+					this._calificacion_prom = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_especialidad", DbType="VarChar(50)")]
+		public string especialidad
+		{
+			get
+			{
+				return this._especialidad;
+			}
+			set
+			{
+				if ((this._especialidad != value))
+				{
+					this._especialidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pa_idusu", DbType="Int")]
+		public System.Nullable<int> pa_idusu
+		{
+			get
+			{
+				return this._pa_idusu;
+			}
+			set
+			{
+				if ((this._pa_idusu != value))
+				{
+					this._pa_idusu = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_precio", DbType="Float")]
+		public System.Nullable<double> precio
+		{
+			get
+			{
+				return this._precio;
+			}
+			set
+			{
+				if ((this._precio != value))
+				{
+					this._precio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_estado", DbType="VarChar(10)")]
+		public string estado
+		{
+			get
+			{
+				return this._estado;
+			}
+			set
+			{
+				if ((this._estado != value))
+				{
+					this._estado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Horainicio", DbType="Int NOT NULL")]
+		public int Horainicio
+		{
+			get
+			{
+				return this._Horainicio;
+			}
+			set
+			{
+				if ((this._Horainicio != value))
+				{
+					this._Horainicio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoraFin", DbType="Int NOT NULL")]
+		public int HoraFin
+		{
+			get
+			{
+				return this._HoraFin;
+			}
+			set
+			{
+				if ((this._HoraFin != value))
+				{
+					this._HoraFin = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dias", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string dias
+		{
+			get
+			{
+				return this._dias;
+			}
+			set
+			{
+				if ((this._dias != value))
+				{
+					this._dias = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Experiencia", DbType="VarBinary(MAX)")]
+		public System.Data.Linq.Binary Experiencia
+		{
+			get
+			{
+				return this._Experiencia;
+			}
+			set
+			{
+				if ((this._Experiencia != value))
+				{
+					this._Experiencia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Idusuario", DbType="Int NOT NULL")]
+		public int Idusuario
+		{
+			get
+			{
+				return this._Idusuario;
+			}
+			set
+			{
+				if ((this._Idusuario != value))
+				{
+					this._Idusuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string nombre
+		{
+			get
+			{
+				return this._nombre;
+			}
+			set
+			{
+				if ((this._nombre != value))
+				{
+					this._nombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_apellido", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string apellido
+		{
+			get
+			{
+				return this._apellido;
+			}
+			set
+			{
+				if ((this._apellido != value))
+				{
+					this._apellido = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_correo", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string correo
+		{
+			get
+			{
+				return this._correo;
+			}
+			set
+			{
+				if ((this._correo != value))
+				{
+					this._correo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_documento", DbType="Int NOT NULL")]
+		public int documento
+		{
+			get
+			{
+				return this._documento;
+			}
+			set
+			{
+				if ((this._documento != value))
+				{
+					this._documento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tipo_doc", DbType="VarChar(5) NOT NULL", CanBeNull=false)]
+		public string tipo_doc
+		{
+			get
+			{
+				return this._tipo_doc;
+			}
+			set
+			{
+				if ((this._tipo_doc != value))
+				{
+					this._tipo_doc = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_localidad", DbType="Int")]
+		public System.Nullable<int> localidad
+		{
+			get
+			{
+				return this._localidad;
+			}
+			set
+			{
+				if ((this._localidad != value))
+				{
+					this._localidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_telefono", DbType="BigInt")]
+		public System.Nullable<long> telefono
+		{
+			get
+			{
+				return this._telefono;
+			}
+			set
+			{
+				if ((this._telefono != value))
+				{
+					this._telefono = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_contrasena", DbType="VarChar(50)")]
+		public string contrasena
+		{
+			get
+			{
+				return this._contrasena;
+			}
+			set
+			{
+				if ((this._contrasena != value))
+				{
+					this._contrasena = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Usu_rol", DbType="Int")]
+		public System.Nullable<int> Usu_rol
+		{
+			get
+			{
+				return this._Usu_rol;
+			}
+			set
+			{
+				if ((this._Usu_rol != value))
+				{
+					this._Usu_rol = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImgPerfil", DbType="Image")]
+		public System.Data.Linq.Binary ImgPerfil
+		{
+			get
+			{
+				return this._ImgPerfil;
+			}
+			set
+			{
+				if ((this._ImgPerfil != value))
+				{
+					this._ImgPerfil = value;
 				}
 			}
 		}
