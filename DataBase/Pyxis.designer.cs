@@ -1881,7 +1881,7 @@ namespace DataBase
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImgPerfil", DbType="Image", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImgPerfil", DbType="Image", UpdateCheck=UpdateCheck.Never)]
 		public System.Data.Linq.Binary ImgPerfil
 		{
 			get
@@ -3209,7 +3209,7 @@ namespace DataBase
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImgPerfil", DbType="Image", CanBeNull=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImgPerfil", DbType="Image")]
 		public System.Data.Linq.Binary ImgPerfil
 		{
 			get
