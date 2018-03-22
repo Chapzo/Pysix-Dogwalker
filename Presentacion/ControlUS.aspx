@@ -24,7 +24,7 @@
                                 <asp:BoundField DataField="correo" HeaderText="Correo" />
                                 <asp:BoundField DataField="estado" HeaderText="Estado" />
                                 <asp:BoundField DataField="nombre" HeaderText="localidad" />
-                                <asp:BoundField Datafield="Experiencia" Headertext="hojadevida"                                           />
+                                <asp:BoundField Visible="false" Datafield="Experiencia" Headertext="hojadevida"                                           />
                                 <asp:ButtonField CommandName= "Inactivar" Text="Inactivar"/>
 
                                 <asp:ButtonField CommandName= "ver" Text="ver"/>

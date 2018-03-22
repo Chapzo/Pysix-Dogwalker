@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Negocio;
 using DataBase;
+using System.IO;
 
 namespace Presentacion
 {
@@ -119,17 +120,26 @@ namespace Presentacion
                 }
 
             }
-            else if (e.CommandName == "Inactivar")
+            else if (e.CommandName == "ver")
             {
                 try
                 {
-                    int Id = int.Parse(GrUsuarios.Rows[Convert.ToInt32(e.CommandArgument)].Cells[0].Text);
-                    if (objUsuario.Inactivarpaseador(Id))
-                    {
-                        Label9.Text = objUsuario.getCodigo() + "-" + objUsuario.getRTA();
-                        LlenarTablaSinMensajes();
-                        
-                    }
+                    int id = int.Parse(GrUsuarios.Rows[Convert.ToInt32(e.CommandArgument)].Cells[0].Text);
+                    ConsultarpaseadorResult job = objUsuario.consultarpaseador(id);
+                    ;
+
+                    byte[] jaja = null;
+                     jaja=(job.Experiencia).ToArray();
+                    Response.Clear();
+                    MemoryStream ms = new MemoryStream(jaja);
+
+                    
+                     Response.ContentType = "application / pdf";
+                     Response.AddHeader("content - disposition",   "attachment; filename = Tr.pdf");
+                     Response.Buffer = true;
+                     ms.WriteTo(Response.OutputStream);
+                     Response.End();
+                    
 
                 }
                 catch (Exception)
