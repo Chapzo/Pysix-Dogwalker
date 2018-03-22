@@ -16,22 +16,22 @@ namespace Presentacion
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            if (!IsPostBack)
-            {
-                try
-                {
-                    Usuarios objUSuario = (Usuarios)Session["Usuario"];
+            //if (!IsPostBack)
+            //{
+            //    try
+            //    {
+            //        Usuarios objUSuario = (Usuarios)Session["Usuario"];
                     
 
 
-                }
-                catch (Exception Ex)
-                {
-                    Session.Abandon();
-                    Response.Redirect("Inicio.aspx");
+            //    }
+            //    catch (Exception Ex)
+            //    {
+            //        Session.Abandon();
+            //        Response.Redirect("Inicio.aspx");
 
-                }
-            }
+            //    }
+            //}
         }
         protected void btnCrearP_Click(object sender, EventArgs e)
         {
@@ -39,9 +39,9 @@ namespace Presentacion
             {
                 Usuarios objUSuario = (Usuarios)Session["Usuario"];
 
-                objpaseador.Crearpaseador(objUSuario.Idusuario, txtExperiencia.Text,txtEspecialidad.Text,float.Parse(txtPrecio.Text), ddlHoraInicio.SelectedValue, ddlHoraFin.SelectedValue, ddlHoraFin.SelectedValue, cblDias.SelectedValue);
-                
-                
+                objpaseador.CrearPaseador(6, txtExperiencia.Text,txtEspecialidad.Text,float.Parse(txtPrecio.Text),int.Parse(ddlHoraInicio.SelectedValue),int.Parse(ddlHoraFin.SelectedValue),CblDias.SelectedValue);
+
+                Label1.Text = "hola";
 
             }
             catch (Exception ex)

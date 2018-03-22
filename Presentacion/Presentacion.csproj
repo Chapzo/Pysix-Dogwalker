@@ -181,6 +181,10 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DataBase\DataBase.csproj">
+      <Project>{c53dbcf1-9ed7-4d5b-8027-e9f8830ea745}</Project>
+      <Name>DataBase</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Negocio\Negocio.csproj">
       <Project>{98bf71ee-38c2-4122-8cb0-7678d3392580}</Project>
       <Name>Negocio</Name>
