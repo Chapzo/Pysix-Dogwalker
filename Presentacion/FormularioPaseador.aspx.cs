@@ -54,7 +54,7 @@ namespace Presentacion
 
                 objpaseador.CrearPaseador(objUSuario.Idusuario, txtEspecialidad.Text, float.Parse(txtPrecio.Text), int.Parse(ddlHoraInicio.SelectedValue), int.Parse(ddlHoraFin.SelectedValue),dias, contenido);
                 objpaseador.rolselec(objUSuario.Idusuario, 1);
-                Label1.Text = "hola";
+                Response.Redirect("Menu.aspx");
 
             }
             catch (Exception ex)

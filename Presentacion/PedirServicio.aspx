@@ -5,7 +5,7 @@
         <center>
             <table>
                 <tr>
-                    <th colspan="2" class="thPaseador">Elaboración de servicio</th>
+                    <th colspan="4" class="thPaseador">Elaboración de servicio</th>
                 </tr>
                 <tr>
                     <td>Localidad: </td>
@@ -36,11 +36,9 @@
                         </asp:DropDownList>
                        
                     </td>
-                </tr>
-                <tr>
-                    <td>Horas: </td>
+                    <td>Hora de inicio: </td>
                     <td>
-                        Inicio a las
+                        
                         <asp:DropDownList ID="ddlHora" runat="server">
                             <asp:ListItem>Seleccionar</asp:ListItem>
                             <asp:ListItem Value="100">1:00am</asp:ListItem>
@@ -70,28 +68,9 @@
                         </asp:DropDownList>
                     </td>
                 </tr>
+                
                 <tr>
-                    <td>Especialidad: </td>
-                    <td>
-                        <asp:TextBox ID="txtEspecialidad" runat="server"></asp:TextBox>
-                    </td>
-                </tr>
-                 <tr>
-                    <td>Precio del servicio:</td>
-                    <td>
-                        <asp:TextBox ID="txtPrecio" runat="server"></asp:TextBox>
-                    </td>
-                </tr>
-                 <tr>
-                    <td>Hoja de vida:</td>
-                    <td>
-                        
-                        <asp:Button ID="btnSubirHojaVida" runat="server" Text="Examinar" />
-                        
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
+                    <td colspan="4">
                         <center>
                         <asp:Button ID="btnBuscarS" CssClass="Boton1" runat="server" Text="Buscar" OnClick="btnCrearP_Click" />
 &nbsp;<br />

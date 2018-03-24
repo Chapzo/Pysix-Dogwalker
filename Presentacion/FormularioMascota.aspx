@@ -19,7 +19,12 @@
                 <tr>
                     <td>Tamaño: </td>
                     <td>
-                        <asp:TextBox ID="txtTamaño" runat="server"></asp:TextBox>
+                        <asp:DropDownList ID="ddlTamaño" runat="server">
+                            <asp:ListItem>Seleccionar</asp:ListItem>
+                            <asp:ListItem>Grande</asp:ListItem>
+                            <asp:ListItem>Mediano</asp:ListItem>
+                            <asp:ListItem Value="Pequeno">Pequeño</asp:ListItem>
+                        </asp:DropDownList>
                     </td>
                 </tr>
                 <tr>
@@ -31,28 +36,28 @@
                 <tr>
                     <td>Raza: </td>
                     <td>
-                        <asp:DropDownList ID="DropDownList1" runat="server">
-                            <asp:ListItem>Seleccionar</asp:ListItem>
-                            <asp:ListItem>Alaskan Malamute</asp:ListItem>
-                            <asp:ListItem>Beagle</asp:ListItem>
-                            <asp:ListItem>Boxer</asp:ListItem>
-                            <asp:ListItem>Bulldog</asp:ListItem>
-                            <asp:ListItem>Chihuahua</asp:ListItem>
-                            <asp:ListItem>Chow Chow</asp:ListItem>
-                            <asp:ListItem Value="Cocker Ingles">Cocker Inglés</asp:ListItem>
-                            <asp:ListItem Value="Dalmata">Dálmata</asp:ListItem>
-                            <asp:ListItem>Doberman</asp:ListItem>
-                            <asp:ListItem>Husky Siberiano</asp:ListItem>
-                            <asp:ListItem Value="Gran Danes">Gran Danés</asp:ListItem>
-                            <asp:ListItem>Golden Retriever</asp:ListItem>
-                            <asp:ListItem>Labrador Retriever</asp:ListItem>
-                            <asp:ListItem Value="Pastor Aleman">Pastor Alemán</asp:ListItem>
-                            <asp:ListItem>Pit Bull</asp:ListItem>
-                            <asp:ListItem>Rottweiler</asp:ListItem>
-                            <asp:ListItem>San Bernardo</asp:ListItem>
-                            <asp:ListItem>Samoyedo</asp:ListItem>
-                            <asp:ListItem>Schnauzer</asp:ListItem>
-                            <asp:ListItem>Yorkshire Terrier</asp:ListItem>
+                        <asp:DropDownList ID="ddlRaza" runat="server">
+                            <asp:ListItem Value="1">Seleccionar</asp:ListItem>
+                            <asp:ListItem Value="2">Alaskan Malamute</asp:ListItem>
+                            <asp:ListItem Value="3">Beagle</asp:ListItem>
+                            <asp:ListItem Value="4">Boxer</asp:ListItem>
+                            <asp:ListItem Value="5">Bulldog</asp:ListItem>
+                            <asp:ListItem Value="6">Chihuahua</asp:ListItem>
+                            <asp:ListItem Value="7">Chow Chow</asp:ListItem>
+                            <asp:ListItem Value="8">Cocker Inglés</asp:ListItem>
+                            <asp:ListItem Value="9">Dálmata</asp:ListItem>
+                            <asp:ListItem Value="10">Doberman</asp:ListItem>
+                            <asp:ListItem Value="11">Husky Siberiano</asp:ListItem>
+                            <asp:ListItem Value="12">Gran Danés</asp:ListItem>
+                            <asp:ListItem Value="13">Golden Retriever</asp:ListItem>
+                            <asp:ListItem Value="14">Labrador Retriever</asp:ListItem>
+                            <asp:ListItem Value="15">Pastor Alemán</asp:ListItem>
+                            <asp:ListItem Value="16">Pit Bull</asp:ListItem>
+                            <asp:ListItem Value="16">Rottweiler</asp:ListItem>
+                            <asp:ListItem Value="17">San Bernardo</asp:ListItem>
+                            <asp:ListItem Value="18">Samoyedo</asp:ListItem>
+                            <asp:ListItem Value="19">Schnauzer</asp:ListItem>
+                            <asp:ListItem Value="20">Yorkshire Terrier</asp:ListItem>
                         </asp:DropDownList>
                     </td>
                 </tr>

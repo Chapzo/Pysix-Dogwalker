@@ -18,7 +18,7 @@
                           <AlternatingRowStyle BackColor="White" />
                             <Columns>
                                 <asp:BoundField DataField="Idusuario" HeaderText="ID" />
-                                <asp:BoundField DataField ="usunom" HeaderText="Nombre" /> 
+                                <asp:BoundField DataField ="Usunombre" HeaderText="Nombre" /> 
                                 <asp:BoundField DataField="apellido" HeaderText="Apellido" />
                                 <asp:BoundField DataField="telefono" HeaderText="Telefono" />
                                 <asp:BoundField DataField="correo" HeaderText="Correo" />

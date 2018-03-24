@@ -91,12 +91,7 @@
                         </td>
                     </td>
                 </tr>
-                <tr>
-                    <td>Experiencia: </td>
-                    <td colspan="2">
-                        <asp:TextBox ID="txtExperiencia" runat="server"></asp:TextBox>
-                    </td>
-                </tr>
+        
                 <tr>
                     <td>Especialidad: </td>
                     <td colspan="2">

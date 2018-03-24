@@ -22,13 +22,13 @@ namespace Presentacion {
         protected global::System.Web.UI.HtmlControls.HtmlForm FormPaseador;
         
         /// <summary>
-        /// Control txtTamaño.
+        /// Control ddlTamaño.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTamaño;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTamaño;
         
         /// <summary>
         /// Control txtEdad.
@@ -40,13 +40,13 @@ namespace Presentacion {
         protected global::System.Web.UI.WebControls.TextBox txtEdad;
         
         /// <summary>
-        /// Control DropDownList1.
+        /// Control ddlRaza.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlRaza;
         
         /// <summary>
         /// Control txtNombre.

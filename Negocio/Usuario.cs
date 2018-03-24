@@ -50,7 +50,25 @@ namespace Negocio
                 return null;
             }
         }
-        public List<buscarpaseadorNResult> BuscarUsuario(string nombre)
+        public List<BuscarUsuarioNResult> BuscarUsuario(string nombre)
+        {
+            try
+            {
+                List<BuscarUsuarioNResult> objulista = data.BuscarUsuarioN(nombre).ToList();
+                setCodigo("ok");
+                setRTA("busqueda efectuada correctamente");
+                return objulista;
+            }
+            catch (Exception ex)
+            {
+                setCodigo("error");
+                setRTA(ex.Message);
+                return null;
+            }
+
+        }
+
+        public List<buscarpaseadorNResult> BuscarUpaseado(string nombre)
         {
             try
             {
@@ -67,7 +85,6 @@ namespace Negocio
             }
 
         }
-
 
         public Usuarios Login(string correo, string contreseña)
         {
@@ -107,7 +124,7 @@ namespace Negocio
             }
           
         }
-        public bool CrearMascota( int id,string tamaño, string edad, string raza, string nombre)
+        public bool CrearMascota( int id,string tamaño, string edad, int raza, string nombre)
         {
             try
             {
