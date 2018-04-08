@@ -71,6 +71,12 @@
     <Content Include="ControlPaseador.aspx" />
     <Content Include="ControlUS.aspx" />
     <Content Include="ControlUsxdxd.aspx" />
+    <Content Include="css\bootstrap-grid.css" />
+    <Content Include="css\bootstrap-grid.min.css" />
+    <Content Include="css\bootstrap-reboot.css" />
+    <Content Include="css\bootstrap-reboot.min.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\bootstrap.min.css" />
     <Content Include="css\Estilos1.css" />
     <Content Include="css\StyleSheet1.css" />
     <Content Include="EleccionFormulario.aspx" />
@@ -81,9 +87,16 @@
     <Content Include="img\PyxisLogo.png" />
     <Content Include="img\SiluetaCliente.png" />
     <Content Include="img\SiluetaPaseador.png" />
+    <Content Include="Inicio - Copia.aspx" />
     <Content Include="Menu.aspx" />
     <Content Include="packages.config" />
     <Content Include="MasterPage.Master" />
+    <Content Include="css\bootstrap-grid.css.map" />
+    <Content Include="css\bootstrap-grid.min.css.map" />
+    <Content Include="css\bootstrap-reboot.css.map" />
+    <Content Include="css\bootstrap-reboot.min.css.map" />
+    <Content Include="css\bootstrap.css.map" />
+    <Content Include="css\bootstrap.min.css.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -145,6 +158,13 @@
     </Compile>
     <Compile Include="FormularioRegistro.aspx.designer.cs">
       <DependentUpon>FormularioRegistro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inicio - Copia.aspx.cs">
+      <DependentUpon>Inicio - Copia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inicio - Copia.aspx.designer.cs">
+      <DependentUpon>Inicio - Copia.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
