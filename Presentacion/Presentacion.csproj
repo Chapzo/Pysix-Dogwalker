@@ -88,6 +88,7 @@
     <Content Include="img\SiluetaCliente.png" />
     <Content Include="img\SiluetaPaseador.png" />
     <Content Include="Inicio - Copia.aspx" />
+    <Content Include="js\jquery.js" />
     <Content Include="Menu.aspx" />
     <Content Include="packages.config" />
     <Content Include="MasterPage.Master" />
@@ -210,6 +211,7 @@
       <Name>Negocio</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
