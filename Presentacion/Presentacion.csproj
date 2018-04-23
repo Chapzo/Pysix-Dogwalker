@@ -87,7 +87,6 @@
     <Content Include="img\PyxisLogo.png" />
     <Content Include="img\SiluetaCliente.png" />
     <Content Include="img\SiluetaPaseador.png" />
-    <Content Include="Inicio - Copia.aspx" />
     <Content Include="js\jquery.js" />
     <Content Include="Menu.aspx" />
     <Content Include="packages.config" />
@@ -159,13 +158,6 @@
     </Compile>
     <Compile Include="FormularioRegistro.aspx.designer.cs">
       <DependentUpon>FormularioRegistro.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Inicio - Copia.aspx.cs">
-      <DependentUpon>Inicio - Copia.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Inicio - Copia.aspx.designer.cs">
-      <DependentUpon>Inicio - Copia.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
