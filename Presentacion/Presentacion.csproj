@@ -78,12 +78,15 @@
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\Estilos1.css" />
+    <Content Include="css\style.css" />
     <Content Include="css\StyleSheet1.css" />
     <Content Include="EleccionFormulario.aspx" />
     <Content Include="FormularioMascota.aspx" />
     <Content Include="FormularioPaseador.aspx" />
     <Content Include="FormularioRegistro.aspx" />
+    <Content Include="img\bg.jpg" />
     <Content Include="img\Fondo.png" />
+    <Content Include="img\IconoPyxis.png" />
     <Content Include="img\PyxisLogo.png" />
     <Content Include="img\SiluetaCliente.png" />
     <Content Include="img\SiluetaPaseador.png" />
@@ -203,7 +206,9 @@
       <Name>Negocio</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="fonts\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
