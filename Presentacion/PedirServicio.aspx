@@ -84,4 +84,7 @@
         </center>    
     </div>
 
+    <asp:GridView ID="GridView1" runat="server">
+    </asp:GridView>
+
 </asp:Content>
