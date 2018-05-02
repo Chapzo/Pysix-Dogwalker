@@ -33,6 +33,24 @@ namespace Negocio
             }
         }
 
+        public List<OrganizarServicioResult> organizarServicio()
+        {
+            try
+            {
+                List<OrganizarServicioResult> objlista = data.OrganizarServicio().ToList();
+                setCodigo("ok");
+                setRTA("Correcto");
+                return objlista;
+
+            }
+            catch (Exception ex)
+            {
+                setCodigo("ERROR");
+                setRTA(ex.Message);
+                return null;
+            }
+        }
+
         public List<OrganizarusuarioResult> OrganizarUsuario()
         {
             try
@@ -50,11 +68,29 @@ namespace Negocio
                 return null;
             }
         }
-        public List<BuscarUsuarioNResult> BuscarUsuario(string nombre)
+        public List<buscarResult> BuscarUsuario(string nombre)
         {
             try
             {
-                List<BuscarUsuarioNResult> objulista = data.BuscarUsuarioN(nombre).ToList();
+                List<buscarResult> objulista = data.buscar(nombre).ToList();
+                setCodigo("ok");
+                setRTA("busqueda efectuada correctamente");
+                return objulista;
+            }
+            catch (Exception ex)
+            {
+                setCodigo("error");
+                setRTA(ex.Message);
+                return null;
+            }
+
+        }
+
+        public List<PedirServicioResult> PedirServicio(int localidad, int hora)
+        {
+            try
+            {
+                List<PedirServicioResult> objulista = data.PedirServicio(localidad, hora).ToList();
                 setCodigo("ok");
                 setRTA("busqueda efectuada correctamente");
                 return objulista;
@@ -124,7 +160,7 @@ namespace Negocio
             }
           
         }
-        public bool CrearMascota( int id,string tamaño, string edad, int raza, string nombre)
+        public bool CrearMascota( int id,string tamaño, string edad, string raza, string nombre)
         {
             try
             {

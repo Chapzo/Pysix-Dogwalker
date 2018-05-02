@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="ControlPaseador.aspx.cs" Inherits="Presentacion.ControlPaseador" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     Paseador<br />
-            <asp:Button ID="ButBuscar" runat="server" Text="Buscar" OnClick="ButBuscar_Click" /><asp:TextBox ID="Textbuscar" runat="server" Width="494px"></asp:TextBox>
+            <asp:Button ID="ButBuscar" runat="server" Text="Buscar" OnClick="ButBuscar_Click" /><asp:TextBox ID="Textbuscar" runat="server" Width="494px" OnTextChanged="Textbuscar_TextChanged"></asp:TextBox>
             
              <table>
                  

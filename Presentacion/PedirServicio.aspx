@@ -72,7 +72,7 @@
                 <tr>
                     <td colspan="4">
                         <center>
-                        <asp:Button ID="btnBuscarS" CssClass="Boton1" runat="server" Text="Buscar" OnClick="btnCrearP_Click" />
+                        <asp:Button ID="btnBuscarS" CssClass="Boton1" runat="server" Text="Buscar" OnClick="bntBuscarS_Click" />
 &nbsp;<br />
                         <asp:Label ID="Label1" runat="server"></asp:Label>
                          </center>
@@ -83,8 +83,15 @@
             
         </center>    
     </div>
-
-    <asp:GridView ID="GridView1" runat="server">
+    
+    <asp:GridView ID="GvServicio" runat="server" AutoGenerateColumns="False">
+        <Columns>
+            <asp:BoundField DataField="NombreUsuario" HeaderText="Nombre" />
+            <asp:BoundField DataField="apellido" HeaderText="Apellido" />
+            <asp:BoundField DataField="nombre" HeaderText="Localidad" />
+            <asp:BoundField DataField="Horainicio" HeaderText="Hora de inicio" />
+            <asp:BoundField DataField="HoraFin" HeaderText="Hora de fin" />
+        </Columns>
     </asp:GridView>
-
+        
 </asp:Content>
