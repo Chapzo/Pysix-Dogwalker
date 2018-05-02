@@ -8,5 +8,10 @@ namespace DataBase
         {
             throw new NotImplementedException();
         }
+
+        public Usuarios DatosSesion(string correo, string contreseña)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

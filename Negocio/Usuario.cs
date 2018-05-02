@@ -11,9 +11,167 @@ namespace Negocio
 {
     public class Usuario : Respuesta
     {
+
+        private int Id;
+        private string Nombre;
+        private string Apellido;
+        private string Correo;
+        private int Documento;
+        private string TipoDoc;
+        private int Localidad;
+        private Int64 Telefono;
+        private string Password;
+        private int Rol;
+        private Image FotoPerfil;
+          
+
+
        public byte[] hola;
 
         PyxisDataContext data = new PyxisDataContext();
+
+        public int Id1
+        {
+            get
+            {
+                return Id;
+            }
+
+            set
+            {
+                Id = value;
+            }
+        }
+
+        public string Nombre1
+        {
+            get
+            {
+                return Nombre;
+            }
+
+            set
+            {
+                Nombre = value;
+            }
+        }
+
+        public string Apellido1
+        {
+            get
+            {
+                return Apellido;
+            }
+
+            set
+            {
+                Apellido = value;
+            }
+        }
+
+        public string Correo1
+        {
+            get
+            {
+                return Correo;
+            }
+
+            set
+            {
+                Correo = value;
+            }
+        }
+
+        public int Documento1
+        {
+            get
+            {
+                return Documento;
+            }
+
+            set
+            {
+                Documento = value;
+            }
+        }
+
+        public string TipoDoc1
+        {
+            get
+            {
+                return TipoDoc;
+            }
+
+            set
+            {
+                TipoDoc = value;
+            }
+        }
+
+        public int Localidad1
+        {
+            get
+            {
+                return Localidad;
+            }
+
+            set
+            {
+                Localidad = value;
+            }
+        }
+
+        public long Telefono1
+        {
+            get
+            {
+                return Telefono;
+            }
+
+            set
+            {
+                Telefono = value;
+            }
+        }
+
+        public string Password1
+        {
+            get
+            {
+                return Password;
+            }
+
+            set
+            {
+                Password = value;
+            }
+        }
+
+        public int Rol1
+        {
+            get
+            {
+                return Rol;
+            }
+
+            set
+            {
+                Rol = value;
+            }
+        }
+
+        public Image FotoPerfil1
+        {
+            get
+            {
+                return FotoPerfil;
+            }
+
+            set
+            {
+                FotoPerfil = value;
+            }
+        }
 
         public List<OrganizarPaseadorResult> Organizarpaseador()
         {
@@ -122,8 +280,29 @@ namespace Negocio
 
         }
 
+        public List<MostrarDatosPerfilResult> MostrarDatosPerfil(string correo, string contrasena)
+        {
+            try
+            {
+                List<MostrarDatosPerfilResult> ListaDeDatos = data.MostrarDatosPerfil(correo, contrasena).ToList();
+                setCodigo("ok");
+                setRTA("busqueda efectuada correctamente");
+                return ListaDeDatos;
+            }
+            catch (Exception ex)
+            {
+                setCodigo("error");
+                setRTA(ex.Message);
+                return null;
+            }
+
+        }
+
         public Usuarios Login(string correo, string contreseña)
         {
+
+            
+
             try
             {
                 Usuarios objuUsuario = (from f in data.Usuarios
@@ -142,6 +321,26 @@ namespace Negocio
             }
 
         }
+
+        //public Usuarios SesionActual(string correo, string contreseña)
+        //{
+        //    try
+        //    {
+        //        Usuarios SesionUsuario = data.DatosSesion(correo, contreseña);
+
+        //        setCodigo("ok");
+        //        setRTA("Se realizo la consulta exitosamente");
+        //        return SesionUsuario;
+        //    }
+        //    catch (Exception Ex)
+        //    {
+        //        setCodigo("Error");
+        //        setRTA(Ex.Message);
+        //        return null;
+
+        //    }
+
+        //}
         public bool CrearUsuario(string nombre, string apellido,string contraseña, string correo,int localidades,long telefono,string tipodoc,int documento,byte[]img)
         {
             try
@@ -194,10 +393,27 @@ namespace Negocio
                 setRTA(ex.Message);
                 return null;
             }
-
-
-
         }
+
+        public MostrarDatosPerfilResult DatosPerfil(string correo, string contrasena)
+        {
+            try
+            {
+                MostrarDatosPerfilResult job = data.MostrarDatosPerfil(correo, contrasena).FirstOrDefault();
+                setCodigo("ok");
+                setRTA("se consulto correctamente");
+                return job;
+
+            }
+            catch (Exception ex)
+            {
+                setCodigo("ERROR");
+                setRTA(ex.Message);
+                return null;
+            }
+        }
+
+    
 
         public bool Inactivarpaseador(int id,string estado)
         {

@@ -24,7 +24,7 @@
 	      </div>	 
 	 <div class="signin">
          <form id="form1" runat="server">
-             <asp:TextBox ID="txtUsuario" runat="server" CssClass="user" placeholder="Usuario" ></asp:TextBox >
+             <asp:TextBox ID="txtUsuario" runat="server" CssClass="user" placeholder="Correo electrónico" ></asp:TextBox >
              <%--<input type="text" class="user" value="Username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}" />--%>
              <asp:TextBox type="password" ID="txtContrasena" runat="server" CssClass="pass" placeholder="Contraseña"></asp:TextBox>
 		     <%--<input type="password" class="pass" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" />--%>

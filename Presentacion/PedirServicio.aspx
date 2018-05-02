@@ -91,6 +91,7 @@
             <asp:BoundField DataField="nombre" HeaderText="Localidad" />
             <asp:BoundField DataField="Horainicio" HeaderText="Hora de inicio" />
             <asp:BoundField DataField="HoraFin" HeaderText="Hora de fin" />
+            <asp:ButtonField CommandName= "Contratar" Text="Contratar"/>
         </Columns>
     </asp:GridView>
         
