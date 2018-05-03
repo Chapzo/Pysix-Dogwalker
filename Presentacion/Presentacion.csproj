@@ -294,6 +294,13 @@
     <Compile Include="Inicio.aspx.designer.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
     </Compile>
+    <Compile Include="VerPerfil.aspx.cs">
+      <DependentUpon>VerPerfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VerPerfil.aspx.designer.cs">
+      <DependentUpon>VerPerfil.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
