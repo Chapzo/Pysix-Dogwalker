@@ -156,7 +156,7 @@ namespace Presentacion
         {
             
         }
-        
+
         protected void ButBuscar_Click(object sender, EventArgs e)
         {
             try

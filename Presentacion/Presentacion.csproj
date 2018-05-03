@@ -84,6 +84,7 @@
     <Content Include="FormularioMascota.aspx" />
     <Content Include="FormularioPaseador.aspx" />
     <Content Include="FormularioRegistro.aspx" />
+    <Content Include="Global.asax" />
     <Content Include="img\bg.jpg" />
     <Content Include="img\Fondo.png" />
     <Content Include="img\IconoPyxis.png" />
@@ -162,6 +163,9 @@
     </Compile>
     <Compile Include="FormularioRegistro.aspx.designer.cs">
       <DependentUpon>FormularioRegistro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>

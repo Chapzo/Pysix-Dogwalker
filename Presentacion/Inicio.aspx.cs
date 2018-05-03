@@ -28,12 +28,24 @@ namespace Presentacion
                 string PasswordEncriptado = string.Empty;
                 byte[] encryted = System.Text.Encoding.Unicode.GetBytes(txtContrasena.Text);
                 PasswordEncriptado = Convert.ToBase64String(encryted);
-               
-                Usuarios objUsuario = Objusuario.Login(txtUsuario.Text,PasswordEncriptado );
+
+                Usuarios objUsuario = Objusuario.Login(txtUsuario.Text, PasswordEncriptado);
+                MostrarDatosPerfilResult SAUsuario = Objusuario.DatosPerfil(txtUsuario.Text, PasswordEncriptado);
+
 
                 if (objUsuario != null)
                 {
                     Session["Usuario"] = objUsuario;
+                    Session["UsuarioNombre"] = SAUsuario.nombre;
+                    Session["UsuarioApellido"] = SAUsuario.apellido;
+                    Session["UsuarioCorreo"] = SAUsuario.correo;
+                    Session["UsuarioDocumento"] = SAUsuario.documento;
+                    Session["UsuarioTipoDoc"] = SAUsuario.tipo_doc;
+                    Session["UsuarioLocalidad"] = SAUsuario.localidad;
+                    Session["UsuarioTelefono"] = SAUsuario.telefono;
+                    Session["UsuarioPassword"] = SAUsuario.contrasena;
+                    Session["UsuarioRol"] = SAUsuario.Usu_rol;
+                    Session["UsuarioFotoPerfil"] = SAUsuario.ImgPerfil;
 
                     Response.Redirect("Menu.aspx");
                 }

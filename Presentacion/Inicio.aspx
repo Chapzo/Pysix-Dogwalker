@@ -24,11 +24,11 @@
 	      </div>	 
 	 <div class="signin">
          <form id="form1" runat="server">
-             <asp:TextBox ID="txtUsuario" runat="server" CssClass="user" placeholder="Usuario" ></asp:TextBox >
+             <asp:TextBox ID="txtUsuario" runat="server" CssClass="user" placeholder="Correo electrónico" ></asp:TextBox >
              <%--<input type="text" class="user" value="Username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}" />--%>
              <asp:TextBox type="password" ID="txtContrasena" runat="server" CssClass="pass" placeholder="Contraseña"></asp:TextBox>
 		     <%--<input type="password" class="pass" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" />--%>
-		     <p><a href="#">¿No tienes cuenta? Registrate aquí</a></p>		  
+		     <p><a href="FormularioRegistro.aspx">¿No tienes cuenta? Registrate aquí</a></p>		  
      
       </div>
          <asp:Button ID="btnAceptar" runat="server" Text="Ingresar" class="btn btn-primary btn-block btn-large" OnClick="Button1_Click1"/>	 
@@ -41,7 +41,7 @@
       </form>
 </div>
 <div class="footer">
-     <p>Copyright &copy; 2018 Pyxis Dogwalker. Todos los derechos reservados | Desarrollado por Leonardo Avella y Juan Chaparro</p>
+     <p>Copyright &copy; 2018 Pyxis Dogwalker. Todos los derechos reservados | Desarrollado por Leonardo Avella y Juan Chaparro, pero pensado por Diego Senior XDXDX (rip :c)</p>
 </div>
 </body>
 

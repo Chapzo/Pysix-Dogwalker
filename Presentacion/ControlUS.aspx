@@ -23,7 +23,7 @@
                                 <asp:BoundField DataField="telefono" HeaderText="Telefono" />
                                 <asp:BoundField DataField="correo" HeaderText="Correo" />
                                 <asp:BoundField DataField="estado" HeaderText="Estado" />
-                                <asp:BoundField DataField="nombre" HeaderText="localidad" />
+                                <asp:BoundField DataField="nombre" HeaderText="Localidad" />
                                 <asp:BoundField Visible="false" Datafield="Experiencia" Headertext="hojadevida"                                           />
                                 <asp:ButtonField CommandName= "Cambio" Text="Cambio"/>
 
