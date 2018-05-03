@@ -20,7 +20,7 @@ namespace Presentacion
                 {
 
 
-                    Usuarios objUSuario = objusuario.Login("ilavella7@misena.edu.co","NAAzADIAMQA=");
+                    Usuarios objUSuario = (Usuarios)Session["Usuario"];
                     Txtnom.Text = objUSuario.nombre;
                     TxtApe.Text = objUSuario.apellido;
                     TxtCorreo.Text = objUSuario.correo;
