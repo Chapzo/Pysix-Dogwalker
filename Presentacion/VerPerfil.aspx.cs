@@ -42,7 +42,8 @@ namespace Presentacion
                 }
                 catch (Exception Ex)
                 {
-
+                    Session.Abandon();
+                    Response.Redirect("Inicio.aspx");
 
 
                 }
