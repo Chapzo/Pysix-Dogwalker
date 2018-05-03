@@ -12,6 +12,8 @@ body {
     
     height: 100%;
 }
+
+
 table{
     border-radius:10px;
     background-color: #F8ECE0;
@@ -128,4 +130,10 @@ a{
     background-color: #000;
     color: #FFF;
     font-family: Raleway;
+}
+
+UsuarioNombre{
+    color: #FFF;
+
+
 }

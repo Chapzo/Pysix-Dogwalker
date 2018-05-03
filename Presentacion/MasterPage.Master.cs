@@ -11,7 +11,7 @@ namespace Presentacion
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            lblUsuario.Text = Convert.ToString(Session["UsuarioNombre"]) +" "+ Convert.ToString(Session["UsuarioApellido"]);
         }
 
         protected void btnSalir_Click(object sender, EventArgs e)

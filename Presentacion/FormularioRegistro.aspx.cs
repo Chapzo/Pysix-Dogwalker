@@ -160,7 +160,7 @@ namespace Presentacion
                 Session["imagen"] = imgbyte;
                 FileUpload1.SaveAs(Server.MapPath("img") + "/EmpleadoTemporal.jpg");
                 Image1.ImageUrl = ("../img/EmpleadoTemporal.jpg");
-                Label1.Text="la imagen esta guardada"+FileUpload1.FileName;
+                Label1.Text="La imagen"+ FileUpload1.FileName +" ha cargado correctamente";
             }
         }
     }

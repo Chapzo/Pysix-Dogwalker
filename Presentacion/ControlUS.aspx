@@ -53,7 +53,7 @@
 
             <br />
             <br />
-            <center><table><tr><td><asp:Label ID="lblPrueba" runat="server"></asp:Label></td></tr></table></center>
+            
             <table id="TBlCrear" runat="server"  ></center>
                 <tr>
                     <th colspan="4">

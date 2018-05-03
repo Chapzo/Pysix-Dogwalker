@@ -107,7 +107,7 @@ namespace Presentacion
                     bool Prueba = objUsuario.Inactivarpaseador(Id, GrUsuarios.Rows[Convert.ToInt32(e.CommandArgument)].Cells[5].Text);
 
                     Session["Madremiaguilly"] = Id;
-                    lblPrueba.Text = Convert.ToString(Session["Madremiaguilly"]);
+                    
 
                     if (Prueba)
                     {
