@@ -109,6 +109,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="PedirServicio.aspx" />
+    <Content Include="VerPerfil.aspx" />
     <Content Include="Web.config" />
     <Content Include="Inicio.aspx" />
   </ItemGroup>
@@ -191,6 +192,13 @@
     </Compile>
     <Compile Include="Inicio.aspx.designer.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VerPerfil.aspx.cs">
+      <DependentUpon>VerPerfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VerPerfil.aspx.designer.cs">
+      <DependentUpon>VerPerfil.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
