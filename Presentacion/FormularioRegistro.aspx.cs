@@ -23,12 +23,12 @@ namespace Presentacion
                     Usuarios objUSuario = (Usuarios)Session["Usuario"];
                     txtNombre.Text = objUSuario.nombre;
                     txtApellido.Text = objUSuario.apellido;
-                    txtEmail.Text = objUSuario.correo;
+                    txtEmail.Text = objUSuario.Localidades.nombre;
                     txtPassword.Text = string.Empty;
-                    //txtDocumento.Text = objUSuario.tipo_doc;
+                    ddlLocalidad.SelectedValue = objUSuario.localidad.ToString();
+                    ddlDocumento.SelectedValue = objUSuario.tipo_doc;
                     txtNoDocumento.Text = Convert.ToString(objUSuario.documento);
                     txtTelefono.Text = Convert.ToString(objUSuario.telefono);
-                    //txtBarrio.Text = objUSuario.barrio;
 
                 }
                 catch (Exception Ex)
