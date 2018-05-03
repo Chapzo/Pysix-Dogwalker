@@ -104,11 +104,16 @@ namespace Presentacion
                 try
                 {
                     int Id = int.Parse(GrUsuarios.Rows[Convert.ToInt32(e.CommandArgument)].Cells[0].Text);
-                    if (objUsuario.Inactivarpaseador(Id,GrUsuarios.Rows[Convert.ToInt32(e.CommandArgument)].Cells[5].Text))
-                    {
-                        Label9.Text = objUsuario.getCodigo() + "-" + objUsuario.getRTA();
-                        LlenarTablaSinMensajes();
+                    bool Prueba = objUsuario.Inactivarpaseador(Id, GrUsuarios.Rows[Convert.ToInt32(e.CommandArgument)].Cells[5].Text);
 
+                    Session["Madremiaguilly"] = Id;
+                    lblPrueba.Text = Convert.ToString(Session["Madremiaguilly"]);
+
+                    if (Prueba)
+                    {
+                        Label9.Text = objUsuario.getCodigo() + objUsuario.getRTA();
+                        LlenarTablaSinMensajes();
+                        
                     }
 
                 }

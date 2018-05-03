@@ -91,7 +91,7 @@
         <classShapeMoniker Id="12260f0a-5a04-4ff5-a50b-cd8bbd3c40a0" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(4.5 : 6.29970540364583); (4.5 : 7.5785551875); (4.94791916666667 : 7.5785551875 : JumpStart); (5.11458583333333 : 7.5785551875 : JumpEnd); (6.25 : 7.5785551875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(4.5 : 6.29970540364583); (4.5 : 7.5785551875); (6.25 : 7.5785551875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PyxisDataContext/Usuarios/Usuarios_Paseadores" />
       <nodes>
         <classShapeMoniker Id="4aa9aa8e-fc49-4cf9-b559-6cd46e9ae8bc" />

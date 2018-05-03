@@ -50,7 +50,11 @@
                   
                 </tr>
             </table>
-            <table id="TBlCrear" runat="server"  >
+
+            <br />
+            <br />
+            <center><table><tr><td><asp:Label ID="lblPrueba" runat="server"></asp:Label></td></tr></table></center>
+            <table id="TBlCrear" runat="server"  ></center>
                 <tr>
                     <th colspan="4">
                         <asp:Label ID="lbltitulo" runat="server" Text="Crear Usuario"></asp:Label></th>
@@ -129,5 +133,9 @@
                      </td> 
                 </tr>
               </table>
+            <br />
+            <br />
+            <br />
+            
         </div>
 </asp:Content>

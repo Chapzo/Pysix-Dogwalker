@@ -420,8 +420,8 @@ namespace Negocio
             try
             {
                 data.Inactivarpaseador(id,estado);
-                setCodigo("ok");
-                setRTA("se inactivo correctamente");
+                //setCodigo("ok");
+                setRTA("El cambio de estado se efectuó correctamente.");
                 return true;
 
             }

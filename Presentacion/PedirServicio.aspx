@@ -83,9 +83,12 @@
             
         </center>    
     </div>
-    
-    <asp:GridView ID="GvServicio" runat="server" AutoGenerateColumns="False">
+    <br />
+    <br />
+    <center>
+    <asp:GridView ID="GvServicio" runat="server" AutoGenerateColumns="False" OnRowCommand="GvAcciones" OnRowCreated="GvCreado">
         <Columns>
+            <asp:BoundField DataField="IdUsuario" HeaderText="ID" />
             <asp:BoundField DataField="NombreUsuario" HeaderText="Nombre" />
             <asp:BoundField DataField="apellido" HeaderText="Apellido" />
             <asp:BoundField DataField="nombre" HeaderText="Localidad" />
@@ -94,5 +97,6 @@
             <asp:ButtonField CommandName= "Contratar" Text="Contratar"/>
         </Columns>
     </asp:GridView>
+        </center>
         
 </asp:Content>

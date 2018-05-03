@@ -25,6 +25,7 @@ namespace Presentacion
             lblLocalidad.Text = Convert.ToString(Session["UsuarioLocalidad"]);
             lblTelefono.Text = Convert.ToString(Session["UsuarioTelefono"]);
             lblRol.Text = Convert.ToString(Session["UsuarioRol"]);
+            
             //lblFotoPerfil.Text = Convert.ToString(Session["UsuarioFotoPerfil"]);
             //Session["UsuarioCorreo"] = "Correo por defecto ASAX";
             //Session["UsuarioDocumento"] = "Documento por defecto ASAX";

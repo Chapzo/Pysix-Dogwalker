@@ -259,6 +259,13 @@ namespace DataBase
 			return ((int)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MostrarDatosPerfil")]
+		public ISingleResult<MostrarDatosPerfilResult> MostrarDatosPerfil([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Correo", DbType="VarChar(100)")] string correo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="VarChar(50)")] string password)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), correo, password);
+			return ((ISingleResult<MostrarDatosPerfilResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.OrganizarServicio")]
 		public ISingleResult<OrganizarServicioResult> OrganizarServicio()
 		{
@@ -271,13 +278,6 @@ namespace DataBase
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), localidad, horaBusqueda);
 			return ((ISingleResult<PedirServicioResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MostrarDatosPerfil")]
-		public ISingleResult<MostrarDatosPerfilResult> MostrarDatosPerfil([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Correo", DbType="VarChar(100)")] string correo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="VarChar(50)")] string password)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), correo, password);
-			return ((ISingleResult<MostrarDatosPerfilResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -3517,202 +3517,6 @@ namespace DataBase
 		}
 	}
 	
-	public partial class OrganizarServicioResult
-	{
-		
-		private string _NombreUsuario;
-		
-		private string _apellido;
-		
-		private string _nombre;
-		
-		private int _Horainicio;
-		
-		private int _HoraFin;
-		
-		public OrganizarServicioResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NombreUsuario", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string NombreUsuario
-		{
-			get
-			{
-				return this._NombreUsuario;
-			}
-			set
-			{
-				if ((this._NombreUsuario != value))
-				{
-					this._NombreUsuario = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_apellido", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string apellido
-		{
-			get
-			{
-				return this._apellido;
-			}
-			set
-			{
-				if ((this._apellido != value))
-				{
-					this._apellido = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string nombre
-		{
-			get
-			{
-				return this._nombre;
-			}
-			set
-			{
-				if ((this._nombre != value))
-				{
-					this._nombre = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Horainicio", DbType="Int NOT NULL")]
-		public int Horainicio
-		{
-			get
-			{
-				return this._Horainicio;
-			}
-			set
-			{
-				if ((this._Horainicio != value))
-				{
-					this._Horainicio = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoraFin", DbType="Int NOT NULL")]
-		public int HoraFin
-		{
-			get
-			{
-				return this._HoraFin;
-			}
-			set
-			{
-				if ((this._HoraFin != value))
-				{
-					this._HoraFin = value;
-				}
-			}
-		}
-	}
-	
-	public partial class PedirServicioResult
-	{
-		
-		private string _NombreUsuario;
-		
-		private string _apellido;
-		
-		private string _nombre;
-		
-		private int _Horainicio;
-		
-		private int _HoraFin;
-		
-		public PedirServicioResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NombreUsuario", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string NombreUsuario
-		{
-			get
-			{
-				return this._NombreUsuario;
-			}
-			set
-			{
-				if ((this._NombreUsuario != value))
-				{
-					this._NombreUsuario = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_apellido", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string apellido
-		{
-			get
-			{
-				return this._apellido;
-			}
-			set
-			{
-				if ((this._apellido != value))
-				{
-					this._apellido = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string nombre
-		{
-			get
-			{
-				return this._nombre;
-			}
-			set
-			{
-				if ((this._nombre != value))
-				{
-					this._nombre = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Horainicio", DbType="Int NOT NULL")]
-		public int Horainicio
-		{
-			get
-			{
-				return this._Horainicio;
-			}
-			set
-			{
-				if ((this._Horainicio != value))
-				{
-					this._Horainicio = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoraFin", DbType="Int NOT NULL")]
-		public int HoraFin
-		{
-			get
-			{
-				return this._HoraFin;
-			}
-			set
-			{
-				if ((this._HoraFin != value))
-				{
-					this._HoraFin = value;
-				}
-			}
-		}
-	}
-	
 	public partial class MostrarDatosPerfilResult
 	{
 		
@@ -3914,6 +3718,220 @@ namespace DataBase
 				if ((this._ImgPerfil != value))
 				{
 					this._ImgPerfil = value;
+				}
+			}
+		}
+	}
+	
+	public partial class OrganizarServicioResult
+	{
+		
+		private int _IdUsuario;
+		
+		private string _NombreUsuario;
+		
+		private string _apellido;
+		
+		private string _nombre;
+		
+		private int _Horainicio;
+		
+		private int _HoraFin;
+		
+		public OrganizarServicioResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUsuario", DbType="Int NOT NULL")]
+		public int IdUsuario
+		{
+			get
+			{
+				return this._IdUsuario;
+			}
+			set
+			{
+				if ((this._IdUsuario != value))
+				{
+					this._IdUsuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NombreUsuario", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string NombreUsuario
+		{
+			get
+			{
+				return this._NombreUsuario;
+			}
+			set
+			{
+				if ((this._NombreUsuario != value))
+				{
+					this._NombreUsuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_apellido", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string apellido
+		{
+			get
+			{
+				return this._apellido;
+			}
+			set
+			{
+				if ((this._apellido != value))
+				{
+					this._apellido = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string nombre
+		{
+			get
+			{
+				return this._nombre;
+			}
+			set
+			{
+				if ((this._nombre != value))
+				{
+					this._nombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Horainicio", DbType="Int NOT NULL")]
+		public int Horainicio
+		{
+			get
+			{
+				return this._Horainicio;
+			}
+			set
+			{
+				if ((this._Horainicio != value))
+				{
+					this._Horainicio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoraFin", DbType="Int NOT NULL")]
+		public int HoraFin
+		{
+			get
+			{
+				return this._HoraFin;
+			}
+			set
+			{
+				if ((this._HoraFin != value))
+				{
+					this._HoraFin = value;
+				}
+			}
+		}
+	}
+	
+	public partial class PedirServicioResult
+	{
+		
+		private string _NombreUsuario;
+		
+		private string _apellido;
+		
+		private string _nombre;
+		
+		private int _Horainicio;
+		
+		private int _HoraFin;
+		
+		public PedirServicioResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NombreUsuario", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string NombreUsuario
+		{
+			get
+			{
+				return this._NombreUsuario;
+			}
+			set
+			{
+				if ((this._NombreUsuario != value))
+				{
+					this._NombreUsuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_apellido", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string apellido
+		{
+			get
+			{
+				return this._apellido;
+			}
+			set
+			{
+				if ((this._apellido != value))
+				{
+					this._apellido = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string nombre
+		{
+			get
+			{
+				return this._nombre;
+			}
+			set
+			{
+				if ((this._nombre != value))
+				{
+					this._nombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Horainicio", DbType="Int NOT NULL")]
+		public int Horainicio
+		{
+			get
+			{
+				return this._Horainicio;
+			}
+			set
+			{
+				if ((this._Horainicio != value))
+				{
+					this._Horainicio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoraFin", DbType="Int NOT NULL")]
+		public int HoraFin
+		{
+			get
+			{
+				return this._HoraFin;
+			}
+			set
+			{
+				if ((this._HoraFin != value))
+				{
+					this._HoraFin = value;
 				}
 			}
 		}
