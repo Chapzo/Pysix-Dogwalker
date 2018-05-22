@@ -45,6 +45,22 @@ namespace Presentacion
                     Session["UsuarioTelefono"] = SAUsuario.telefono;
                     Session["UsuarioPassword"] = SAUsuario.contrasena;
                     Session["UsuarioRol"] = SAUsuario.Usu_rol;
+
+                    switch (SAUsuario.Usu_rol)
+                    {
+                        case 1:
+                            Session["UsuarioRol"] = "Paseador";
+                            break;
+
+                        case 2:
+                            Session["UsuarioRol"] = "Cliente";
+                            break;
+
+                        case 3:
+                            Session["UsuarioRol"] = "Administrador";
+                            break;
+                    }
+
                     Session["UsuarioFotoPerfil"] = SAUsuario.ImgPerfil;
 
                     Response.Redirect("Menu.aspx");

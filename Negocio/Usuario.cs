@@ -341,11 +341,11 @@ namespace Negocio
         //    }
 
         //}
-        public bool CrearUsuario(string nombre, string apellido,string contraseña, string correo,int localidades,long telefono,string tipodoc,int documento,byte[]img)
+        public bool CrearUsuario(string nombre, string apellido,string contraseña, string correo,int localidades,long telefono,string tipodoc,long documento,byte[]img, string nickname)
         {
             try
             {
-                data.CrearUsuario(nombre, apellido,contraseña, correo, telefono,localidades,documento,tipodoc,img);
+                data.CrearUsuario(nombre, apellido,contraseña, correo, telefono,localidades,documento,tipodoc,img, nickname);
                 setCodigo ("OK");
                 setRTA ("Se ingresó el contacto correctamente");
                 return true;
@@ -359,7 +359,7 @@ namespace Negocio
             }
           
         }
-        public bool CrearMascota( int id,string tamaño, string edad, string raza, string nombre)
+        public bool CrearMascota( int id,string tamaño, string edad, int raza, string nombre)
         {
             try
             {
@@ -375,6 +375,25 @@ namespace Negocio
                 setRTA(EX.Message);
                 return false;
             }
+
+        }
+
+        public bool rolselec(int id, int numero)
+        {
+            try
+            {
+                data.RolSeleccionador(id, numero);
+                setCodigo("ok");
+                return true;
+            }
+            catch (Exception EX)
+            {
+
+                setCodigo("error");
+                setRTA(EX.Message);
+                return false;
+            }
+
 
         }
         public ConsultarpaseadorResult consultarpaseador(int id)

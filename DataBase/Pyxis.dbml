@@ -10,6 +10,28 @@
       <Association Name="Servicios_Calificaciones" Member="Servicios" ThisKey="servicioId" OtherKey="Idservicio" Type="Servicios" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.Usuarios" Member="Usuarios">
+    <Type Name="Usuarios">
+      <Column Name="Idusuario" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="apellido" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="correo" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="documento" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="tipo_doc" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="localidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="telefono" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="contrasena" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Usu_rol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ImgPerfil" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Nickname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Usuarios_Mascotas" Member="Mascotas" ThisKey="Idusuario" OtherKey="Idusuario" Type="Mascotas" />
+      <Association Name="Usuarios_Paseadores" Member="Paseadores" ThisKey="Idusuario" OtherKey="pa_idusu" Type="Paseadores" />
+      <Association Name="Usuarios_PQR" Member="PQR" ThisKey="Idusuario" OtherKey="idusu" Type="PQR" />
+      <Association Name="Usuarios_Servicios" Member="Servicios" ThisKey="Idusuario" OtherKey="se_idusuario" Type="Servicios" />
+      <Association Name="Localidades_Usuarios" Member="Localidades" ThisKey="localidad" OtherKey="idLocalidad" Type="Localidades" IsForeignKey="true" />
+      <Association Name="Roles_Usuarios" Member="Roles" ThisKey="Usu_rol" OtherKey="idrol" Type="Roles" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.Localidades" Member="Localidades">
     <Type Name="Localidades">
       <Column Name="idLocalidad" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -25,8 +47,8 @@
       <Column Name="raza" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="nombre_ma" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Idusuario" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Razas_Mascotas" Member="Razas" ThisKey="raza" OtherKey="idRaza" Type="Razas" IsForeignKey="true" />
       <Association Name="Usuarios_Mascotas" Member="Usuarios" ThisKey="Idusuario" OtherKey="Idusuario" Type="Usuarios" IsForeignKey="true" />
+      <Association Name="Razas_Mascotas" Member="Razas" ThisKey="raza" OtherKey="idRaza" Type="Razas" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Paseadores" Member="Paseadores">
@@ -53,8 +75,8 @@
       <Column Name="comentario" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="idusu" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="idpas" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Paseadores_PQR" Member="Paseadores" ThisKey="idpas" OtherKey="Idpaseador" Type="Paseadores" IsForeignKey="true" />
       <Association Name="Usuarios_PQR" Member="Usuarios" ThisKey="idusu" OtherKey="Idusuario" Type="Usuarios" IsForeignKey="true" />
+      <Association Name="Paseadores_PQR" Member="Paseadores" ThisKey="idpas" OtherKey="Idpaseador" Type="Paseadores" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Razas" Member="Razas">
@@ -84,27 +106,6 @@
       <Association Name="Usuarios_Servicios" Member="Usuarios" ThisKey="se_idusuario" OtherKey="Idusuario" Type="Usuarios" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Usuarios" Member="Usuarios">
-    <Type Name="Usuarios">
-      <Column Name="Idusuario" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="apellido" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="correo" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="documento" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="tipo_doc" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
-      <Column Name="localidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="telefono" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="contrasena" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Usu_rol" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ImgPerfil" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="Usuarios_Mascotas" Member="Mascotas" ThisKey="Idusuario" OtherKey="Idusuario" Type="Mascotas" />
-      <Association Name="Usuarios_Paseadores" Member="Paseadores" ThisKey="Idusuario" OtherKey="pa_idusu" Type="Paseadores" />
-      <Association Name="Usuarios_PQR" Member="PQR" ThisKey="Idusuario" OtherKey="idusu" Type="PQR" />
-      <Association Name="Usuarios_Servicios" Member="Servicios" ThisKey="Idusuario" OtherKey="se_idusuario" Type="Servicios" />
-      <Association Name="Roles_Usuarios" Member="Roles" ThisKey="Usu_rol" OtherKey="idrol" Type="Roles" IsForeignKey="true" />
-      <Association Name="Localidades_Usuarios" Member="Localidades" ThisKey="localidad" OtherKey="idLocalidad" Type="Localidades" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Function Name="dbo.ActualizarUsuario" Method="ActualizarUsuario">
     <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
     <Parameter Name="NOMBRE" Parameter="nOMBRE" Type="System.String" DbType="VarChar(50)" />
@@ -112,6 +113,11 @@
     <Parameter Name="TELEFONO" Parameter="tELEFONO" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="localidad" Type="System.Int32" DbType="Int" />
     <Parameter Name="CORREO" Parameter="cORREO" Type="System.String" DbType="VarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.RolSeleccionador" Method="RolSeleccionador">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="numero_rol" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.buscar" Method="buscar">
@@ -150,13 +156,14 @@
       <Column Name="nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="apellido" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="correo" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="documento" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="documento" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="tipo_doc" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
       <Column Name="localidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="telefono" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="contrasena" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Usu_rol" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ImgPerfil" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" />
+      <Column Name="Nickname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.Consultarpaseador" Method="Consultarpaseador">
@@ -169,7 +176,7 @@
       <Column Name="correo" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="localidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="tipo_doc" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
-      <Column Name="documento" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="documento" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="Experiencia" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" />
     </ElementType>
   </Function>
@@ -183,12 +190,12 @@
     <Parameter Name="Dias" Parameter="dias" Type="System.String" DbType="VarChar(100)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.CrearMascotas" Method="CrearMascotas">
-    <Parameter Name="id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="tamaño" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Edad" Parameter="edad" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="raza" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="nombre" Type="System.String" DbType="VarChar(50)" />
+  <Function Name="dbo.CrearServicio" Method="CrearServicio">
+    <Parameter Name="FechaServicio" Parameter="fechaServicio" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="EstadoServicio" Parameter="estadoServicio" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="DetallesServicio" Parameter="detallesServicio" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="IdClienteServicio" Parameter="idClienteServicio" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdPaseadorServicio" Parameter="idPaseadorServicio" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.CrearUsuario" Method="CrearUsuario">
@@ -198,23 +205,34 @@
     <Parameter Name="CORREO" Parameter="cORREO" Type="System.String" DbType="VarChar(100)" />
     <Parameter Name="telefono" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="localidad" Type="System.Int32" DbType="Int" />
-    <Parameter Name="documento" Type="System.Int32" DbType="Int" />
+    <Parameter Name="documento" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="tipodoc" Type="System.String" DbType="VarChar(5)" />
     <Parameter Name="img" Type="System.Data.Linq.Binary" DbType="Image" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.CrearServicio" Method="CrearServicio">
-    <Parameter Name="id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="fecha" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="estado_se" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="detalles" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="idpa" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Nickname" Parameter="nickname" Type="System.String" DbType="VarChar(50)" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.Inactivarpaseador" Method="Inactivarpaseador">
     <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
     <Parameter Name="accion" Type="System.String" DbType="VarChar(10)" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.MostrarDatosPerfil" Method="MostrarDatosPerfil">
+    <Parameter Name="Correo" Parameter="correo" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="MostrarDatosPerfilResult">
+      <Column Name="Idusuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="apellido" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="correo" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="documento" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="tipo_doc" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="localidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="telefono" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="contrasena" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Usu_rol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ImgPerfil" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" />
+      <Column Name="Nickname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
   </Function>
   <Function Name="dbo.mostrarimagen" Method="mostrarimagen">
     <Parameter Name="id" Type="System.Int32" DbType="Int" />
@@ -235,38 +253,6 @@
       <Column Name="Experiencia" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.Organizarusuario" Method="Organizarusuario">
-    <ElementType Name="OrganizarusuarioResult">
-      <Column Name="Idusuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="usunom" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Apellido" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="telefono" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="correo" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.RolSeleccionador" Method="RolSeleccionador">
-    <Parameter Name="id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="numero_rol" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.MostrarDatosPerfil" Method="MostrarDatosPerfil">
-    <Parameter Name="Correo" Parameter="correo" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="VarChar(50)" />
-    <ElementType Name="MostrarDatosPerfilResult">
-      <Column Name="Idusuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="apellido" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="correo" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="documento" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="tipo_doc" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
-      <Column Name="localidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="telefono" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="contrasena" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Usu_rol" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ImgPerfil" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.OrganizarServicio" Method="OrganizarServicio">
     <ElementType Name="OrganizarServicioResult">
       <Column Name="IdUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -275,6 +261,16 @@
       <Column Name="nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Horainicio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="HoraFin" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Organizarusuario" Method="Organizarusuario">
+    <ElementType Name="OrganizarusuarioResult">
+      <Column Name="Idusuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="usunom" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Apellido" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="telefono" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="correo" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
   <Function Name="dbo.PedirServicio" Method="PedirServicio">
@@ -287,5 +283,13 @@
       <Column Name="Horainicio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="HoraFin" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
+  </Function>
+  <Function Name="dbo.CrearMascotas" Method="CrearMascotas">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="tamaño" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Edad" Parameter="edad" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="raza" Type="System.Int32" DbType="Int" />
+    <Parameter Name="nombre" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
   </Function>
 </Database>

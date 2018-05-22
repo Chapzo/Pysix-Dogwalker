@@ -86,7 +86,7 @@ namespace Presentacion
                        //store the currently selected file in memeory    
                        //set the binary data    
                        FileUpload1.PostedFile.InputStream.Read(imgbyte, 0, length);
-                        objusuario.CrearUsuario(txtNombre.Text, txtApellido.Text, encriptar(), txtEmail.Text, int.Parse(ddlLocalidad.SelectedValue), Int64.Parse(txtTelefono.Text), ddlDocumento.Text, int.Parse(txtNoDocumento.Text),imgbyte);
+                        objusuario.CrearUsuario(txtNombre.Text, txtApellido.Text, encriptar(), txtEmail.Text, int.Parse(ddlLocalidad.SelectedValue), Int64.Parse(txtTelefono.Text), ddlDocumento.Text, Int64.Parse(txtNoDocumento.Text),imgbyte, txtUsuario.Text);
                         Usuarios objUsuario = objusuario.Login(txtEmail.Text, encriptar());
 
                         Session["Usuario"] = objUsuario;
@@ -96,7 +96,7 @@ namespace Presentacion
                     else
                     {
                         
-                        objusuario.CrearUsuario(txtNombre.Text, txtApellido.Text,encriptar(), txtEmail.Text,int.Parse(ddlLocalidad.SelectedValue), Int64.Parse(txtTelefono.Text), ddlDocumento.Text, int.Parse(txtNoDocumento.Text),imagen);
+                        objusuario.CrearUsuario(txtNombre.Text, txtApellido.Text,encriptar(), txtEmail.Text,int.Parse(ddlLocalidad.SelectedValue), Int64.Parse(txtTelefono.Text), ddlDocumento.Text, Int64.Parse(txtNoDocumento.Text),imagen, txtUsuario.Text);
                     Usuarios objUsuario = objusuario.Login(txtEmail.Text, encriptar());
 
                     Session["Usuario"] = objUsuario;
@@ -113,7 +113,7 @@ namespace Presentacion
                         //store the currently selected file in memeory    
                         //set the binary data    
                         FileUpload1.PostedFile.InputStream.Read(imgbyte, 0, length);
-                        objusuario.CrearUsuario(txtNombre.Text, txtApellido.Text, encriptar(), txtEmail.Text, int.Parse(ddlLocalidad.SelectedValue), Int64.Parse(txtTelefono.Text), ddlDocumento.Text, int.Parse(txtNoDocumento.Text), imgbyte);
+                        objusuario.CrearUsuario(txtNombre.Text, txtApellido.Text, encriptar(), txtEmail.Text, int.Parse(ddlLocalidad.SelectedValue), Int64.Parse(txtTelefono.Text), ddlDocumento.Text, Int64.Parse(txtNoDocumento.Text), imgbyte, txtUsuario.Text);
                         Usuarios objUsuario = objusuario.Login(txtEmail.Text, encriptar());
 
                         Session["Usuario"] = objUsuario;
@@ -161,7 +161,7 @@ namespace Presentacion
                 Session["imagen"] = imgbyte;
                 FileUpload1.SaveAs(Server.MapPath("img") + "/EmpleadoTemporal.jpg");
                 Image1.ImageUrl = ("../img/EmpleadoTemporal.jpg");
-                Label1.Text="La imagen"+ FileUpload1.FileName +" ha cargado correctamente";
+                Label1.Text="La imagen "+ FileUpload1.FileName +" ha cargado correctamente";
             }
         }
     }

@@ -15,6 +15,9 @@ namespace Presentacion
         Usuario SessionUsuario = new Usuario();
         protected void Page_Load(object sender, EventArgs e)
         {
+           
+
+
             lblSaludo.Text = "¡Bienvenido "+Session["UsuarioNombre"]+" a Pyxis Dogwalker!";
 
             lblNombre.Text = Convert.ToString(Session["UsuarioNombre"]);
@@ -24,7 +27,15 @@ namespace Presentacion
             lblTipoDoc.Text = Convert.ToString(Session["UsuarioTipoDoc"]);
             lblLocalidad.Text = Convert.ToString(Session["UsuarioLocalidad"]);
             lblTelefono.Text = Convert.ToString(Session["UsuarioTelefono"]);
+
+          
+
             lblRol.Text = Convert.ToString(Session["UsuarioRol"]);
+
+            
+            
+
+            
             
             //lblFotoPerfil.Text = Convert.ToString(Session["UsuarioFotoPerfil"]);
             //Session["UsuarioCorreo"] = "Correo por defecto ASAX";
