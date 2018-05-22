@@ -31,7 +31,8 @@
                 <tr>
                     <td>Usuario: </td>
                     <td>
-                        <asp:TextBox ID="txtUsuario" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtUsuario" runat="server" ></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="Hace falta usuario" ControlToValidate="txtUsuario"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -50,18 +51,20 @@
                     <td class="auto-style2">Nombre: </td>
                     <td>
                         <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Hace falta nombre" ControlToValidate="txtNombre" ></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
                     <td class="auto-style2">Apellido: </td>
                     <td>
                         <asp:TextBox ID="txtApellido" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Hace falta apellido" ControlToValidate="txtApellido"   ></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
                     <td class="auto-style2">Correo electronico: </td>
                     <td>
-                        <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox><asp:RequiredFieldValidator  ControlToValidate="txtEmail"  ID="RequiredFieldValidator1" runat="server" ErrorMessage="Hace falta el correo" ></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                  <tr>
@@ -97,6 +100,7 @@
                     <td class="auto-style6">Telefono</td>
                     <td class="auto-style7">
                         <asp:TextBox ID="txtTelefono" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="seleccione localidad" ControlToValidate="txtTelefono"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -110,12 +114,14 @@
                             <asp:ListItem Value="P">Pasaporte</asp:ListItem>
                             <asp:ListItem value="RUT">RUT</asp:ListItem>
                         </asp:DropDownList>
+                          <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Seleccione su documento" ControlToValidate="ddlDocumento"></asp:RequiredFieldValidator>
                           </td>
                 </tr>
                 <tr>
                     <td class="auto-style4">No. de documento: </td>
                     <td class="auto-style5">
                         <asp:TextBox ID="txtNoDocumento" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="Hace falta numero de documento" ControlToValidate="txtNoDocumento"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr><center>

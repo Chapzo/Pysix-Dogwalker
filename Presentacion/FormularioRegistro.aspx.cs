@@ -61,6 +61,7 @@ namespace Presentacion
         
         protected void btnCrearU_Click(object sender, EventArgs e)
         {
+
             byte[] imagen = (byte[])Session["imagen"];
 
             try
