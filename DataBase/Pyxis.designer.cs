@@ -203,13 +203,6 @@ namespace DataBase
 			return ((ISingleResult<ConsultarpaseadorResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CrearMascotas")]
-		public int CrearMascotas([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string tamaño, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Edad", DbType="VarChar(50)")] string edad, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string raza, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string nombre)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id, tamaño, edad, raza, nombre);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Crearpaseador")]
 		public int Crearpaseador([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Experiencia", DbType="VarBinary(MAX)")] System.Data.Linq.Binary experiencia, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Especialidad", DbType="VarChar(50)")] string especialidad, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Float")] System.Nullable<double> precio, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HoraIni", DbType="Int")] System.Nullable<int> horaIni, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HoraFin", DbType="Int")] System.Nullable<int> horaFin, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Dias", DbType="VarChar(100)")] string dias)
 		{
@@ -278,6 +271,13 @@ namespace DataBase
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), localidad, horaBusqueda);
 			return ((ISingleResult<PedirServicioResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CrearMascotas")]
+		public int CrearMascotas([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string tamaño, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Edad", DbType="VarChar(50)")] string edad, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> raza, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string nombre)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id, tamaño, edad, raza, nombre);
+			return ((int)(result.ReturnValue));
 		}
 	}
 	

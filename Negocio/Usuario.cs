@@ -359,7 +359,7 @@ namespace Negocio
             }
           
         }
-        public bool CrearMascota( int id,string tamaño, string edad, string raza, string nombre)
+        public bool CrearMascota( int id,string tamaño, string edad, int raza, string nombre)
         {
             try
             {
@@ -375,6 +375,25 @@ namespace Negocio
                 setRTA(EX.Message);
                 return false;
             }
+
+        }
+
+        public bool rolselec(int id, int numero)
+        {
+            try
+            {
+                data.RolSeleccionador(id, numero);
+                setCodigo("ok");
+                return true;
+            }
+            catch (Exception EX)
+            {
+
+                setCodigo("error");
+                setRTA(EX.Message);
+                return false;
+            }
+
 
         }
         public ConsultarpaseadorResult consultarpaseador(int id)
