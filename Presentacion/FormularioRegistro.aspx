@@ -32,7 +32,7 @@
                     <td>Usuario: </td>
                     <td>
                         <asp:TextBox ID="txtUsuario" runat="server" ></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="Hace falta usuario" ControlToValidate="txtUsuario"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="Hace falta usuario" ControlToValidate="txtUsuario" ForeColor="#CC0000"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -45,33 +45,34 @@
                     <td class="auto-style3"> Confirmar Contraseña: </td>
                     <td class="auto-style1">
                         <asp:TextBox ID="txtPasswordConfirm"  runat="server" TextMode="Password"></asp:TextBox>
+                            <asp:CompareValidator ID="CompareValidator3" runat="server" Operator="Equal" ControlToCompare="txtPassword"  Type="Integer"  ControlToValidate="txtPasswordConfirm" ErrorMessage="No concuerdan" ForeColor="#CC0000"></asp:CompareValidator>
                     </td>
                 </tr>
                 <tr>
                     <td class="auto-style2">Nombre: </td>
                     <td>
                         <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Hace falta nombre" ControlToValidate="txtNombre" ></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Hace falta nombre" ControlToValidate="txtNombre" ForeColor="#CC0000" ></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
                     <td class="auto-style2">Apellido: </td>
                     <td>
                         <asp:TextBox ID="txtApellido" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Hace falta apellido" ControlToValidate="txtApellido"   ></asp:RequiredFieldValidator>
+                      <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Hace falta apellido" ControlToValidate="txtApellido" ForeColor="#CC0000"   ></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
                     <td class="auto-style2">Correo electronico: </td>
                     <td>
-                        <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox><asp:RequiredFieldValidator  ControlToValidate="txtEmail"  ID="RequiredFieldValidator1" runat="server" ErrorMessage="Hace falta el correo" ></asp:RequiredFieldValidator>
+                        <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox><asp:RequiredFieldValidator  ControlToValidate="txtEmail"  ID="RequiredFieldValidator1" runat="server" ErrorMessage="Hace falta el correo" ForeColor="#CC0000" ></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                  <tr>
                     <td class="auto-style6">Localidad</td>
                     <td class="auto-style7">
                         <asp:DropDownList ID="ddlLocalidad" runat="server" style="margin-left: 0px" >
-                            <asp:ListItem>Seleccionar</asp:ListItem>
+                            <asp:ListItem Value=0>Seleccionar</asp:ListItem>
                             <asp:ListItem Value="1">Usaquén</asp:ListItem>
                             <asp:ListItem Value="2">Chapinero</asp:ListItem>
                             <asp:ListItem Value="3">Santa fe</asp:ListItem>
@@ -94,34 +95,36 @@
                             <asp:ListItem Value="20">Sumapaz</asp:ListItem>
                         </asp:DropDownList>
                        
+                        <asp:CompareValidator ID="CompareValidator1" runat="server" Operator="NotEqual" ValueToCompare=0  Type="Integer"  ControlToValidate="ddlLocalidad" ErrorMessage="Selecione una localidad" ForeColor="#CC0000"></asp:CompareValidator>
+                       
                     </td>
                 </tr>
                  <tr>
                     <td class="auto-style6">Telefono</td>
                     <td class="auto-style7">
                         <asp:TextBox ID="txtTelefono" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="seleccione localidad" ControlToValidate="txtTelefono"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="seleccione localidad" ControlToValidate="txtTelefono" ForeColor="#CC0000"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
                     <td class="auto-style2">Tipo de documento: </td>
                     <td>
                         <asp:DropDownList ID="ddlDocumento" runat="server">
-                            <asp:ListItem>Seleccionar</asp:ListItem>
+                            <asp:ListItem Value=0>Seleccionar</asp:ListItem>
                             <asp:ListItem Value="C.C">Cedula de ciudadanía</asp:ListItem>
                             <asp:ListItem Value="R.C">Registro civil</asp:ListItem>
                             <asp:ListItem Value="T.I">Tarjeta de identidad</asp:ListItem>
                             <asp:ListItem Value="P">Pasaporte</asp:ListItem>
                             <asp:ListItem value="RUT">RUT</asp:ListItem>
                         </asp:DropDownList>
-                          <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Seleccione su documento" ControlToValidate="ddlDocumento"></asp:RequiredFieldValidator>
+                              <asp:CompareValidator ID="CompareValidator2" runat="server" Operator="NotEqual" ValueToCompare=0  Type="Integer"  ControlToValidate="ddlDocumento" ErrorMessage="Selecione un Documento" ForeColor="#CC0000"></asp:CompareValidator>
                           </td>
                 </tr>
                 <tr>
                     <td class="auto-style4">No. de documento: </td>
                     <td class="auto-style5">
                         <asp:TextBox ID="txtNoDocumento" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="Hace falta numero de documento" ControlToValidate="txtNoDocumento"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="Hace falta numero de documento" ControlToValidate="txtNoDocumento" ForeColor="#CC0000"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr><center>

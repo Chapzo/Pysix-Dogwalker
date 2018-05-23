@@ -85,6 +85,15 @@ namespace Presentacion {
         protected global::System.Web.UI.WebControls.TextBox txtPasswordConfirm;
         
         /// <summary>
+        /// Control CompareValidator3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator3;
+        
+        /// <summary>
         /// Control txtNombre.
         /// </summary>
         /// <remarks>
@@ -148,6 +157,15 @@ namespace Presentacion {
         protected global::System.Web.UI.WebControls.DropDownList ddlLocalidad;
         
         /// <summary>
+        /// Control CompareValidator1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
+        
+        /// <summary>
         /// Control txtTelefono.
         /// </summary>
         /// <remarks>
@@ -175,13 +193,13 @@ namespace Presentacion {
         protected global::System.Web.UI.WebControls.DropDownList ddlDocumento;
         
         /// <summary>
-        /// Control RequiredFieldValidator5.
+        /// Control CompareValidator2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
+        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator2;
         
         /// <summary>
         /// Control txtNoDocumento.
