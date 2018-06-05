@@ -11,6 +11,30 @@ namespace Negocio
     {
 
         PyxisDataContext data = new PyxisDataContext();
+
+        public Paseadores ObtenerPerfil(int Idusu)
+        {
+
+
+
+            try
+            {
+                Paseadores objuUsuario = (from f in data.Paseadores
+                                        where f.pa_idusu == Idusu
+                                        select f).FirstOrDefault();
+                setCodigo("ok");
+                setRTA("se realizo la consulta exitosamente");
+                return objuUsuario;
+            }
+            catch (Exception Ex)
+            {
+                setCodigo("Error");
+                setRTA(Ex.Message);
+                return null;
+
+            }
+
+        }
         public bool CrearPaseador(int id,  string especialidad, float precio, int HoraIni, int HoraFin, string Dias, byte[] pdf)
         {
             try

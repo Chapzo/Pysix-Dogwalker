@@ -12,6 +12,7 @@ namespace Presentacion
     public partial class VerPerfil : System.Web.UI.Page
     {
         Usuario objusuario = new Usuario();
+        Paseador objupase = new Paseador();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -19,10 +20,18 @@ namespace Presentacion
                 try
                 {
 
-
+                    
                     Usuarios objUSuario = (Usuarios)Session["Usuario"];
+                    
+                   Paseadores objUpase =objupase.ObtenerPerfil(objUSuario.Idusuario);
+                    Txtdisponibilidad.Text = objUpase.dias;
+                    TxtPrec.Text = objUpase.precio.ToString();
+                    LblCResul.Text = objUpase.calificacion_prom.ToString();
                     Txtnom.Text = objUSuario.nombre;
                     TxtApe.Text = objUSuario.apellido;
+                    ddlHoraInicio.SelectedValue = objUpase.Horainicio.ToString();
+                    ddlHoraFin.SelectedValue = objUpase.HoraFin.ToString();
+                    LblEsR.Text = objUpase.estado;
                     TxtCorreo.Text = objUSuario.correo;
                     ddlLocalidad.SelectedValue = objUSuario.localidad.ToString();
                     //txtDocumento.Text = objUSuario.tipo_doc;

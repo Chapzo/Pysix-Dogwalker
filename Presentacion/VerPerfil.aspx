@@ -70,11 +70,11 @@
           <asp:TableCell>  <asp:Label ID="LblPrecio" runat="server" Text="Precio"></asp:Label>  </asp:TableCell>
             <asp:TableCell> <asp:TextBox ID="TxtPrec" runat="server" > </asp:TextBox> </asp:TableCell>    
              <asp:TableCell>  <asp:Label ID="Lblcalif" runat="server" Text="Calificacion"></asp:Label>  </asp:TableCell>
-            <asp:TableCell> <asp:TextBox ID="TxtCalif" runat="server" > </asp:TextBox> </asp:TableCell>    
+            <asp:TableCell><asp:Label ID="LblCResul" runat="server"></asp:Label> </asp:TableCell>    
         </asp:TableRow>
          <asp:TableRow>
           <asp:TableCell>  <asp:Label ID="LblEstado" runat="server" Text="Estado"></asp:Label>  </asp:TableCell>
-            <asp:TableCell> <asp:TextBox ID="Txtestado" runat="server" > </asp:TextBox> </asp:TableCell>  
+            <asp:TableCell> <asp:Label ID="LblEsR" runat="server" Text="Label"></asp:Label></asp:TableCell>  
                <asp:TableCell>  <asp:Label ID="LblDisp" runat="server" Text="disponibilidad"></asp:Label>  </asp:TableCell>
             <asp:TableCell> <asp:TextBox ID="Txtdisponibilidad" runat="server" > </asp:TextBox> </asp:TableCell> 
         </asp:TableRow>

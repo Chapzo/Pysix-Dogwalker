@@ -193,13 +193,13 @@ namespace Presentacion {
         protected global::System.Web.UI.WebControls.Label Lblcalif;
         
         /// <summary>
-        /// Control TxtCalif.
+        /// Control LblCResul.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtCalif;
+        protected global::System.Web.UI.WebControls.Label LblCResul;
         
         /// <summary>
         /// Control LblEstado.
@@ -211,13 +211,13 @@ namespace Presentacion {
         protected global::System.Web.UI.WebControls.Label LblEstado;
         
         /// <summary>
-        /// Control Txtestado.
+        /// Control LblEsR.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Txtestado;
+        protected global::System.Web.UI.WebControls.Label LblEsR;
         
         /// <summary>
         /// Control LblDisp.

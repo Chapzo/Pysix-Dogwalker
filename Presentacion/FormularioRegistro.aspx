@@ -110,14 +110,14 @@
                     <td class="auto-style2">Tipo de documento: </td>
                     <td>
                         <asp:DropDownList ID="ddlDocumento" runat="server">
-                            <asp:ListItem Value=0>Seleccionar</asp:ListItem>
+                            <asp:ListItem Value="none">Seleccionar</asp:ListItem>
                             <asp:ListItem Value="C.C">Cedula de ciudadanía</asp:ListItem>
                             <asp:ListItem Value="R.C">Registro civil</asp:ListItem>
                             <asp:ListItem Value="T.I">Tarjeta de identidad</asp:ListItem>
                             <asp:ListItem Value="P">Pasaporte</asp:ListItem>
                             <asp:ListItem value="RUT">RUT</asp:ListItem>
                         </asp:DropDownList>
-                              <asp:CompareValidator ID="CompareValidator2" runat="server" Operator="NotEqual" ValueToCompare=0  ControlToValidate="ddlDocumento" ErrorMessage="Selecione un Documento" ForeColor="#CC0000"></asp:CompareValidator>
+                              <asp:CompareValidator ID="CompareValidator2" runat="server" Operator="NotEqual" ValueToCompare="none"  type="String" ControlToValidate="ddlDocumento" ErrorMessage="Selecione un Documento" ForeColor="#CC0000"></asp:CompareValidator>
                           </td>
                 </tr>
                 <tr>
