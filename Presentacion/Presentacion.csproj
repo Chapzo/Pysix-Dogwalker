@@ -68,6 +68,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BandejaDeEntrada.aspx" />
     <Content Include="ControlPaseador.aspx" />
     <Content Include="ControlUS.aspx" />
     <Content Include="ControlUsxdxd.aspx" />
@@ -86,10 +87,13 @@
     <Content Include="css\style2.css" />
     <Content Include="css\StyleSheet1.css" />
     <Content Include="EleccionFormulario.aspx" />
+    <Content Include="FinalizarServicio.aspx" />
+    <Content Include="FinServicio.aspx" />
     <Content Include="FormularioMascota.aspx" />
     <Content Include="FormularioPaseador.aspx" />
     <Content Include="FormularioRegistro.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Historial.aspx" />
     <Content Include="images\a1.jpg" />
     <Content Include="images\a11.jpg" />
     <Content Include="images\a2.jpg" />
@@ -201,11 +205,19 @@
   <ItemGroup>
     <Content Include="PedirServicio.aspx" />
     <Content Include="Principal.aspx" />
+    <Content Include="Servicio.aspx" />
     <Content Include="VerPerfil.aspx" />
     <Content Include="Web.config" />
     <Content Include="Inicio.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BandejaDeEntrada.aspx.cs">
+      <DependentUpon>BandejaDeEntrada.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BandejaDeEntrada.aspx.designer.cs">
+      <DependentUpon>BandejaDeEntrada.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ControlPaseador.aspx.cs">
       <DependentUpon>ControlPaseador.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -234,6 +246,20 @@
     <Compile Include="EleccionFormulario.aspx.designer.cs">
       <DependentUpon>EleccionFormulario.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FinalizarServicio.aspx.cs">
+      <DependentUpon>FinalizarServicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FinalizarServicio.aspx.designer.cs">
+      <DependentUpon>FinalizarServicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FinServicio.aspx.cs">
+      <DependentUpon>FinServicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FinServicio.aspx.designer.cs">
+      <DependentUpon>FinServicio.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FormularioMascota.aspx.cs">
       <DependentUpon>FormularioMascota.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -257,6 +283,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Historial.aspx.cs">
+      <DependentUpon>Historial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Historial.aspx.designer.cs">
+      <DependentUpon>Historial.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
@@ -294,6 +327,13 @@
     </Compile>
     <Compile Include="Inicio.aspx.designer.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Servicio.aspx.cs">
+      <DependentUpon>Servicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Servicio.aspx.designer.cs">
+      <DependentUpon>Servicio.aspx</DependentUpon>
     </Compile>
     <Compile Include="VerPerfil.aspx.cs">
       <DependentUpon>VerPerfil.aspx</DependentUpon>

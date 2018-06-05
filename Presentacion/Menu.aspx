@@ -38,6 +38,10 @@
             <td>Rol:</td>
             <td><asp:Label ID="lblRol" runat="server"></asp:Label></td>
         </tr>
+        <tr>
+            <td>Id Paseador:</td>
+            <td><asp:Label ID="lblIdPaseador" runat="server"></asp:Label></td>
+        </tr>
     </table>
     <br />
     

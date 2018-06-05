@@ -14,7 +14,7 @@
                     <td id="esto" runat="server" colspan="3" style="text-align:center" class="auto-style5">
                         
                         
-                        <asp:GridView ID="GrUsuarios" runat="server" AutoGenerateColumns="false" CellPadding="4" ForeColor="Brown" GridLines="none" OnRowCommand="grpa_Comand" OnRowCreated="Gr_created"  >
+                        <asp:GridView ID="GrUsuarios" runat="server" AutoGenerateColumns="false" CellPadding="4" ForeColor="Brown" GridLines="none" OnRowCommand="grpa_Comand" OnRowCreated="Gr_created" AllowCustomPaging="True"  >
                           <AlternatingRowStyle BackColor="White" />
                             <Columns>
                                 <asp:BoundField DataField="Idpaseador" HeaderText="ID" />

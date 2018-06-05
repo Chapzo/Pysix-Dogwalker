@@ -33,6 +33,14 @@ namespace Presentacion
             Session["UsuarioRol"] = "Rol por defecto ASAX";
             Session["UsuarioFotoPerfil"] = "Foto de perfil por defecto ASAX";
 
+            Session["SerIdPas"] = "";
+            Session["SerPasNom"] = "";
+            Session["SerPasApe"] = "";
+            Session["SerPasLoc"] = "";
+            Session["SerPasSer"] = "";
+            Session["SerPasHI"] = "";
+            Session["SerPasHF"] = "";
+
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)

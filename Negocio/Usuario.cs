@@ -191,6 +191,42 @@ namespace Negocio
             }
         }
 
+        public List<OrganizarBandejaResult> OrganizarBandeja(int Id)
+        {
+            try
+            {
+                List<OrganizarBandejaResult> objlista = data.OrganizarBandeja(Id).ToList();
+                setCodigo("ok");
+                setRTA("Correcto");
+                return objlista;
+
+            }
+            catch (Exception ex)
+            {
+                setCodigo("ERROR");
+                setRTA(ex.Message);
+                return null;
+            }
+        }
+
+        public List<OrganizarHistorialResult> OrganizarHistorial(int Id)
+        {
+            try
+            {
+                List<OrganizarHistorialResult> objlista = data.OrganizarHistorial(Id).ToList();
+                setCodigo("ok");
+                setRTA("Correcto");
+                return objlista;
+
+            }
+            catch (Exception ex)
+            {
+                setCodigo("ERROR");
+                setRTA(ex.Message);
+                return null;
+            }
+        }
+
         public List<OrganizarServicioResult> organizarServicio()
         {
             try
@@ -359,6 +395,25 @@ namespace Negocio
             }
           
         }
+
+        public bool CrearServicio(string Detalles, int IdCliente, int IdPaseador, int IdMascota, int HoraIni, int HoraFin)
+        {
+            try
+            {
+                data.CrearServicio(Detalles, IdCliente, IdPaseador, IdMascota, HoraIni, HoraFin);
+                setCodigo("OK");
+                setRTA("Se ingresó el contacto correctamente");
+                return true;
+            }
+            catch (Exception EX)
+            {
+
+
+                setCodigo("error");
+                setRTA(EX.Message);
+                return false;
+            }
+        }
         public bool CrearMascota( int id,string tamaño, string edad, int raza, string nombre)
         {
             try
@@ -414,6 +469,59 @@ namespace Negocio
             }
         }
 
+        public ConsultarPaseadorServicioResult ServicioPaseador(int id)
+        {
+            try
+            {
+                ConsultarPaseadorServicioResult job = data.ConsultarPaseadorServicio(id).FirstOrDefault();
+                setCodigo("ok");
+                setRTA("se consulto correctamente");
+                return job;
+
+            }
+            catch (Exception ex)
+            {
+                setCodigo("ERROR");
+                setRTA(ex.Message);
+                return null;
+            }
+        }
+
+        public ListarServicioResult ServicioFin(int Id)
+        {
+            try
+            {
+                ListarServicioResult objlista = data.ListarServicio(Id).FirstOrDefault();
+                setCodigo("ok");
+                setRTA("Correcto");
+                return objlista;
+
+            }
+            catch (Exception ex)
+            {
+                setCodigo("ERROR");
+                setRTA(ex.Message);
+                return null;
+            }
+        }
+        public ListarServicioCliResult ServicioFinCli(int Id)
+        {
+            try
+            {
+                ListarServicioCliResult objlista = data.ListarServicioCli(Id).FirstOrDefault();
+                setCodigo("ok");
+                setRTA("Correcto");
+                return objlista;
+
+            }
+            catch (Exception ex)
+            {
+                setCodigo("ERROR");
+                setRTA(ex.Message);
+                return null;
+            }
+        }
+
         public MostrarDatosPerfilResult DatosPerfil(string correo, string contrasena)
         {
             try
@@ -432,7 +540,26 @@ namespace Negocio
             }
         }
 
-    
+
+        public MostrarDatosPaseadorResult DatosPaseador(string correo, string contrasena)
+        {
+            try
+            {
+                MostrarDatosPaseadorResult job = data.MostrarDatosPaseador(correo, contrasena).FirstOrDefault();
+                setCodigo("ok");
+                setRTA("se consulto correctamente");
+                return job;
+
+            }
+            catch (Exception ex)
+            {
+                setCodigo("ERROR");
+                setRTA(ex.Message);
+                return null;
+            }
+        }
+
+
 
         public bool Inactivarpaseador(int id,string estado)
         {
@@ -451,6 +578,78 @@ namespace Negocio
                 return false;
             }
 
+        }
+
+        public bool AceptarServicio(int id)
+        {
+            try
+            {
+                data.AceptarServicio(id);
+                //setCodigo("ok");
+                setRTA("El cambio de estado se efectuó correctamente.");
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+                setCodigo("Error");
+                setRTA(ex.Message);
+                return false;
+            }
+        }
+
+        public bool FinalizarServicio(int id, string ComentarioPaseador)
+        {
+            try
+            {
+                data.FinalizarServicio(id, ComentarioPaseador);
+                //setCodigo("ok");
+                setRTA("El cambio de estado se efectuó correctamente.");
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+                setCodigo("Error");
+                setRTA(ex.Message);
+                return false;
+            }
+        }
+
+        public bool FinalizarServicioCli(int id, string ComentarioCliente, int Calificacion)
+        {
+            try
+            {
+                data.FinalizarServicioCli(id, ComentarioCliente, Calificacion);
+                //setCodigo("ok");
+                setRTA("El cambio de estado se efectuó correctamente.");
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+                setCodigo("Error");
+                setRTA(ex.Message);
+                return false;
+            }
+        }
+
+        public bool CancelarServicio(int id)
+        {
+            try
+            {
+                data.RechazarServicio(id);
+                //setCodigo("ok");
+                setRTA("El cambio de estado se efectuó correctamente.");
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+                setCodigo("Error");
+                setRTA(ex.Message);
+                return false;
+            }
         }
 
         public bool ActualizarUsuario(int id, string nombre, string apellido, long telefono, string correo, int localidad, string tiusuario)

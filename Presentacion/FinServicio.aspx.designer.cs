@@ -10,105 +10,105 @@
 namespace Presentacion {
     
     
-    public partial class MasterPage {
+    public partial class FinServicio {
         
         /// <summary>
-        /// Control head.
+        /// Control lblIdSer.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.Label lblIdSer;
         
         /// <summary>
-        /// Control form1.
+        /// Control lblFechaSer.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Label lblFechaSer;
         
         /// <summary>
-        /// Control btnClientes.
+        /// Control lblIdUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnClientes;
+        protected global::System.Web.UI.WebControls.Label lblIdUsuario;
         
         /// <summary>
-        /// Control btnPaseadores.
+        /// Control lblMascota.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPaseadores;
+        protected global::System.Web.UI.WebControls.Label lblMascota;
         
         /// <summary>
-        /// Control btnServicio.
+        /// Control lblDetalles.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnServicio;
+        protected global::System.Web.UI.WebControls.Label lblDetalles;
         
         /// <summary>
-        /// Control btnPendiente.
+        /// Control lblIdPaseador.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPendiente;
+        protected global::System.Web.UI.WebControls.Label lblIdPaseador;
         
         /// <summary>
-        /// Control btnPerfil.
+        /// Control lblHoraIni.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPerfil;
+        protected global::System.Web.UI.WebControls.Label lblHoraIni;
         
         /// <summary>
-        /// Control btnHistorial.
+        /// Control lblHoraFin.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnHistorial;
+        protected global::System.Web.UI.WebControls.Label lblHoraFin;
         
         /// <summary>
-        /// Control btnSalir.
+        /// Control txtComentarioPaseador.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSalir;
+        protected global::System.Web.UI.WebControls.TextBox txtComentarioPaseador;
         
         /// <summary>
-        /// Control lblUsuario.
+        /// Control btnFinalizar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUsuario;
+        protected global::System.Web.UI.WebControls.Button btnFinalizar;
         
         /// <summary>
-        /// Control ContentPlaceHolder1.
+        /// Control btnCancelar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        protected global::System.Web.UI.WebControls.Button btnCancelar;
     }
 }

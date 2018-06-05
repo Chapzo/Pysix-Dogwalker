@@ -36,6 +36,7 @@ namespace Presentacion
                 if (objUsuario != null)
                 {
                     Session["Usuario"] = objUsuario;
+                    Session["UsuarioID"] = SAUsuario.Idusuario;
                     Session["UsuarioNombre"] = SAUsuario.nombre;
                     Session["UsuarioApellido"] = SAUsuario.apellido;
                     Session["UsuarioCorreo"] = SAUsuario.correo;
@@ -58,12 +59,30 @@ namespace Presentacion
 
                         case 3:
                             Session["UsuarioRol"] = "Administrador";
+
+                            
                             break;
+
+
                     }
 
                     Session["UsuarioFotoPerfil"] = SAUsuario.ImgPerfil;
 
+                    string Rol = Convert.ToString(Session["UsuarioRol"]);
+
+                    if (Rol == "Paseador")
+                    {
+                        MostrarDatosPaseadorResult SAPaseador = Objusuario.DatosPaseador(txtUsuario.Text, PasswordEncriptado);
+
+                        Session["PaseadorID"] = SAPaseador.Idpaseador;
+
+                    }
+
                     Response.Redirect("Menu.aspx");
+
+                    
+
+
                 }
                 else
                 {

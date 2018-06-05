@@ -30,12 +30,12 @@ namespace DataBase
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnCreated();
-    partial void InsertCalificaciones(Calificaciones instance);
-    partial void UpdateCalificaciones(Calificaciones instance);
-    partial void DeleteCalificaciones(Calificaciones instance);
     partial void InsertUsuarios(Usuarios instance);
     partial void UpdateUsuarios(Usuarios instance);
     partial void DeleteUsuarios(Usuarios instance);
+    partial void InsertCalificaciones(Calificaciones instance);
+    partial void UpdateCalificaciones(Calificaciones instance);
+    partial void DeleteCalificaciones(Calificaciones instance);
     partial void InsertLocalidades(Localidades instance);
     partial void UpdateLocalidades(Localidades instance);
     partial void DeleteLocalidades(Localidades instance);
@@ -89,19 +89,19 @@ namespace DataBase
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Calificaciones> Calificaciones
-		{
-			get
-			{
-				return this.GetTable<Calificaciones>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Usuarios> Usuarios
 		{
 			get
 			{
 				return this.GetTable<Usuarios>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Calificaciones> Calificaciones
+		{
+			get
+			{
+				return this.GetTable<Calificaciones>();
 			}
 		}
 		
@@ -161,17 +161,24 @@ namespace DataBase
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ActualizarUsuario")]
-		public int ActualizarUsuario([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NOMBRE", DbType="VarChar(50)")] string nOMBRE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="APELLIDO", DbType="VarChar(50)")] string aPELLIDO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TELEFONO", DbType="BigInt")] System.Nullable<long> tELEFONO, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> localidad, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CORREO", DbType="VarChar(100)")] string cORREO)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD, nOMBRE, aPELLIDO, tELEFONO, localidad, cORREO);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.RolSeleccionador")]
 		public int RolSeleccionador([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> numero_rol)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id, numero_rol);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AceptarServicio")]
+		public int AceptarServicio([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ActualizarUsuario")]
+		public int ActualizarUsuario([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NOMBRE", DbType="VarChar(50)")] string nOMBRE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="APELLIDO", DbType="VarChar(50)")] string aPELLIDO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TELEFONO", DbType="BigInt")] System.Nullable<long> tELEFONO, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> localidad, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CORREO", DbType="VarChar(100)")] string cORREO)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD, nOMBRE, aPELLIDO, tELEFONO, localidad, cORREO);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -203,6 +210,20 @@ namespace DataBase
 			return ((ISingleResult<ConsultarpaseadorResult>)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ConsultarPaseadorServicio")]
+		public ISingleResult<ConsultarPaseadorServicioResult> ConsultarPaseadorServicio([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD);
+			return ((ISingleResult<ConsultarPaseadorServicioResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CrearMascotas")]
+		public int CrearMascotas([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string tamaño, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Edad", DbType="VarChar(50)")] string edad, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> raza, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string nombre)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id, tamaño, edad, raza, nombre);
+			return ((int)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Crearpaseador")]
 		public int Crearpaseador([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Experiencia", DbType="VarBinary(MAX)")] System.Data.Linq.Binary experiencia, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Especialidad", DbType="VarChar(50)")] string especialidad, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Float")] System.Nullable<double> precio, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HoraIni", DbType="Int")] System.Nullable<int> horaIni, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HoraFin", DbType="Int")] System.Nullable<int> horaFin, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Dias", DbType="VarChar(100)")] string dias)
 		{
@@ -211,9 +232,9 @@ namespace DataBase
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CrearServicio")]
-		public int CrearServicio([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaServicio", DbType="Date")] System.Nullable<System.DateTime> fechaServicio, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EstadoServicio", DbType="VarChar(20)")] string estadoServicio, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DetallesServicio", DbType="VarChar(50)")] string detallesServicio, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdClienteServicio", DbType="Int")] System.Nullable<int> idClienteServicio, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdPaseadorServicio", DbType="Int")] System.Nullable<int> idPaseadorServicio)
+		public int CrearServicio([global::System.Data.Linq.Mapping.ParameterAttribute(Name="DetallesServicio", DbType="VarChar(300)")] string detallesServicio, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdClienteServicio", DbType="Int")] System.Nullable<int> idClienteServicio, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdPaseadorServicio", DbType="Int")] System.Nullable<int> idPaseadorServicio, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdMascotaCliente", DbType="Int")] System.Nullable<int> idMascotaCliente, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HoraInicioServicio", DbType="Int")] System.Nullable<int> horaInicioServicio, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HoraFinServicio", DbType="Int")] System.Nullable<int> horaFinServicio)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fechaServicio, estadoServicio, detallesServicio, idClienteServicio, idPaseadorServicio);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), detallesServicio, idClienteServicio, idPaseadorServicio, idMascotaCliente, horaInicioServicio, horaFinServicio);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -224,11 +245,39 @@ namespace DataBase
 			return ((int)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.dboddlMascota")]
+		public ISingleResult<dboddlMascotaResult> dboddlMascota([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD);
+			return ((ISingleResult<dboddlMascotaResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.FinalizarServicio")]
+		public int FinalizarServicio([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ComPaseador", DbType="VarChar(300)")] string comPaseador)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD, comPaseador);
+			return ((int)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Inactivarpaseador")]
 		public int Inactivarpaseador([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(10)")] string accion)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD, accion);
 			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ListarServicio")]
+		public ISingleResult<ListarServicioResult> ListarServicio([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Id", DbType="Int")] System.Nullable<int> id)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id);
+			return ((ISingleResult<ListarServicioResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MostrarDatosPaseador")]
+		public ISingleResult<MostrarDatosPaseadorResult> MostrarDatosPaseador([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Correo", DbType="VarChar(100)")] string correo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="VarChar(50)")] string password)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), correo, password);
+			return ((ISingleResult<MostrarDatosPaseadorResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MostrarDatosPerfil")]
@@ -243,6 +292,13 @@ namespace DataBase
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id);
 			return ((ISingleResult<mostrarimagenResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.OrganizarBandeja")]
+		public ISingleResult<OrganizarBandejaResult> OrganizarBandeja([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Id", DbType="Int")] System.Nullable<int> id)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id);
+			return ((ISingleResult<OrganizarBandejaResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.OrganizarPaseador")]
@@ -273,210 +329,32 @@ namespace DataBase
 			return ((ISingleResult<PedirServicioResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CrearMascotas")]
-		public int CrearMascotas([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string tamaño, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Edad", DbType="VarChar(50)")] string edad, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> raza, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string nombre)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.RechazarServicio")]
+		public int RechazarServicio([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id, tamaño, edad, raza, nombre);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD);
 			return ((int)(result.ReturnValue));
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Calificaciones")]
-	public partial class Calificaciones : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Idcalificacion;
-		
-		private string _opinion;
-		
-		private int _puntuacion;
-		
-		private System.Nullable<System.DateTime> _fecha_ca;
-		
-		private System.Nullable<int> _servicioId;
-		
-		private EntityRef<Servicios> _Servicios;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdcalificacionChanging(int value);
-    partial void OnIdcalificacionChanged();
-    partial void OnopinionChanging(string value);
-    partial void OnopinionChanged();
-    partial void OnpuntuacionChanging(int value);
-    partial void OnpuntuacionChanged();
-    partial void Onfecha_caChanging(System.Nullable<System.DateTime> value);
-    partial void Onfecha_caChanged();
-    partial void OnservicioIdChanging(System.Nullable<int> value);
-    partial void OnservicioIdChanged();
-    #endregion
-		
-		public Calificaciones()
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.OrganizarHistorial")]
+		public ISingleResult<OrganizarHistorialResult> OrganizarHistorial([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Id", DbType="Int")] System.Nullable<int> id)
 		{
-			this._Servicios = default(EntityRef<Servicios>);
-			OnCreated();
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id);
+			return ((ISingleResult<OrganizarHistorialResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Idcalificacion", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int Idcalificacion
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ListarServicioCli")]
+		public ISingleResult<ListarServicioCliResult> ListarServicioCli([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Id", DbType="Int")] System.Nullable<int> id)
 		{
-			get
-			{
-				return this._Idcalificacion;
-			}
-			set
-			{
-				if ((this._Idcalificacion != value))
-				{
-					this.OnIdcalificacionChanging(value);
-					this.SendPropertyChanging();
-					this._Idcalificacion = value;
-					this.SendPropertyChanged("Idcalificacion");
-					this.OnIdcalificacionChanged();
-				}
-			}
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id);
+			return ((ISingleResult<ListarServicioCliResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_opinion", DbType="VarChar(150) NOT NULL", CanBeNull=false)]
-		public string opinion
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.FinalizarServicioCli")]
+		public int FinalizarServicioCli([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ComCliente", DbType="VarChar(300)")] string comCliente, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cali", DbType="Int")] System.Nullable<int> cali)
 		{
-			get
-			{
-				return this._opinion;
-			}
-			set
-			{
-				if ((this._opinion != value))
-				{
-					this.OnopinionChanging(value);
-					this.SendPropertyChanging();
-					this._opinion = value;
-					this.SendPropertyChanged("opinion");
-					this.OnopinionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_puntuacion", DbType="Int NOT NULL")]
-		public int puntuacion
-		{
-			get
-			{
-				return this._puntuacion;
-			}
-			set
-			{
-				if ((this._puntuacion != value))
-				{
-					this.OnpuntuacionChanging(value);
-					this.SendPropertyChanging();
-					this._puntuacion = value;
-					this.SendPropertyChanged("puntuacion");
-					this.OnpuntuacionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha_ca", DbType="Date")]
-		public System.Nullable<System.DateTime> fecha_ca
-		{
-			get
-			{
-				return this._fecha_ca;
-			}
-			set
-			{
-				if ((this._fecha_ca != value))
-				{
-					this.Onfecha_caChanging(value);
-					this.SendPropertyChanging();
-					this._fecha_ca = value;
-					this.SendPropertyChanged("fecha_ca");
-					this.Onfecha_caChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_servicioId", DbType="Int")]
-		public System.Nullable<int> servicioId
-		{
-			get
-			{
-				return this._servicioId;
-			}
-			set
-			{
-				if ((this._servicioId != value))
-				{
-					if (this._Servicios.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnservicioIdChanging(value);
-					this.SendPropertyChanging();
-					this._servicioId = value;
-					this.SendPropertyChanged("servicioId");
-					this.OnservicioIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Servicios_Calificaciones", Storage="_Servicios", ThisKey="servicioId", OtherKey="Idservicio", IsForeignKey=true)]
-		public Servicios Servicios
-		{
-			get
-			{
-				return this._Servicios.Entity;
-			}
-			set
-			{
-				Servicios previousValue = this._Servicios.Entity;
-				if (((previousValue != value) 
-							|| (this._Servicios.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Servicios.Entity = null;
-						previousValue.Calificaciones.Remove(this);
-					}
-					this._Servicios.Entity = value;
-					if ((value != null))
-					{
-						value.Calificaciones.Add(this);
-						this._servicioId = value.Idservicio;
-					}
-					else
-					{
-						this._servicioId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Servicios");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD, comCliente, cali);
+			return ((int)(result.ReturnValue));
 		}
 	}
 	
@@ -997,6 +875,205 @@ namespace DataBase
 		{
 			this.SendPropertyChanging();
 			entity.Usuarios = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Calificaciones")]
+	public partial class Calificaciones : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Idcalificacion;
+		
+		private string _opinion;
+		
+		private int _puntuacion;
+		
+		private System.Nullable<System.DateTime> _fecha_ca;
+		
+		private System.Nullable<int> _servicioId;
+		
+		private EntityRef<Servicios> _Servicios;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdcalificacionChanging(int value);
+    partial void OnIdcalificacionChanged();
+    partial void OnopinionChanging(string value);
+    partial void OnopinionChanged();
+    partial void OnpuntuacionChanging(int value);
+    partial void OnpuntuacionChanged();
+    partial void Onfecha_caChanging(System.Nullable<System.DateTime> value);
+    partial void Onfecha_caChanged();
+    partial void OnservicioIdChanging(System.Nullable<int> value);
+    partial void OnservicioIdChanged();
+    #endregion
+		
+		public Calificaciones()
+		{
+			this._Servicios = default(EntityRef<Servicios>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Idcalificacion", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Idcalificacion
+		{
+			get
+			{
+				return this._Idcalificacion;
+			}
+			set
+			{
+				if ((this._Idcalificacion != value))
+				{
+					this.OnIdcalificacionChanging(value);
+					this.SendPropertyChanging();
+					this._Idcalificacion = value;
+					this.SendPropertyChanged("Idcalificacion");
+					this.OnIdcalificacionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_opinion", DbType="VarChar(150) NOT NULL", CanBeNull=false)]
+		public string opinion
+		{
+			get
+			{
+				return this._opinion;
+			}
+			set
+			{
+				if ((this._opinion != value))
+				{
+					this.OnopinionChanging(value);
+					this.SendPropertyChanging();
+					this._opinion = value;
+					this.SendPropertyChanged("opinion");
+					this.OnopinionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_puntuacion", DbType="Int NOT NULL")]
+		public int puntuacion
+		{
+			get
+			{
+				return this._puntuacion;
+			}
+			set
+			{
+				if ((this._puntuacion != value))
+				{
+					this.OnpuntuacionChanging(value);
+					this.SendPropertyChanging();
+					this._puntuacion = value;
+					this.SendPropertyChanged("puntuacion");
+					this.OnpuntuacionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha_ca", DbType="Date")]
+		public System.Nullable<System.DateTime> fecha_ca
+		{
+			get
+			{
+				return this._fecha_ca;
+			}
+			set
+			{
+				if ((this._fecha_ca != value))
+				{
+					this.Onfecha_caChanging(value);
+					this.SendPropertyChanging();
+					this._fecha_ca = value;
+					this.SendPropertyChanged("fecha_ca");
+					this.Onfecha_caChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_servicioId", DbType="Int")]
+		public System.Nullable<int> servicioId
+		{
+			get
+			{
+				return this._servicioId;
+			}
+			set
+			{
+				if ((this._servicioId != value))
+				{
+					if (this._Servicios.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnservicioIdChanging(value);
+					this.SendPropertyChanging();
+					this._servicioId = value;
+					this.SendPropertyChanged("servicioId");
+					this.OnservicioIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Servicios_Calificaciones", Storage="_Servicios", ThisKey="servicioId", OtherKey="Idservicio", IsForeignKey=true)]
+		public Servicios Servicios
+		{
+			get
+			{
+				return this._Servicios.Entity;
+			}
+			set
+			{
+				Servicios previousValue = this._Servicios.Entity;
+				if (((previousValue != value) 
+							|| (this._Servicios.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Servicios.Entity = null;
+						previousValue.Calificaciones.Remove(this);
+					}
+					this._Servicios.Entity = value;
+					if ((value != null))
+					{
+						value.Calificaciones.Add(this);
+						this._servicioId = value.Idservicio;
+					}
+					else
+					{
+						this._servicioId = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Servicios");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	
@@ -2239,6 +2316,18 @@ namespace DataBase
 		
 		private System.Nullable<int> _pa_serv;
 		
+		private System.Nullable<int> _IdMascotaCliente;
+		
+		private System.Nullable<int> _HoraIni;
+		
+		private System.Nullable<int> _HoraFin;
+		
+		private string _ComentarioPaseador;
+		
+		private string _ComentarioCliente;
+		
+		private System.Nullable<int> _Calificacion;
+		
 		private EntitySet<Calificaciones> _Calificaciones;
 		
 		private EntityRef<Paseadores> _Paseadores;
@@ -2261,6 +2350,18 @@ namespace DataBase
     partial void Onse_idusuarioChanged();
     partial void Onpa_servChanging(System.Nullable<int> value);
     partial void Onpa_servChanged();
+    partial void OnIdMascotaClienteChanging(System.Nullable<int> value);
+    partial void OnIdMascotaClienteChanged();
+    partial void OnHoraIniChanging(System.Nullable<int> value);
+    partial void OnHoraIniChanged();
+    partial void OnHoraFinChanging(System.Nullable<int> value);
+    partial void OnHoraFinChanged();
+    partial void OnComentarioPaseadorChanging(string value);
+    partial void OnComentarioPaseadorChanged();
+    partial void OnComentarioClienteChanging(string value);
+    partial void OnComentarioClienteChanged();
+    partial void OnCalificacionChanging(System.Nullable<int> value);
+    partial void OnCalificacionChanged();
     #endregion
 		
 		public Servicios()
@@ -2311,7 +2412,7 @@ namespace DataBase
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_estado_se", DbType="VarChar(20)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_estado_se", DbType="VarChar(30)")]
 		public string estado_se
 		{
 			get
@@ -2331,7 +2432,7 @@ namespace DataBase
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_detalles_se", DbType="VarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_detalles_se", DbType="VarChar(300)")]
 		public string detalles_se
 		{
 			get
@@ -2395,6 +2496,126 @@ namespace DataBase
 					this._pa_serv = value;
 					this.SendPropertyChanged("pa_serv");
 					this.Onpa_servChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdMascotaCliente", DbType="Int")]
+		public System.Nullable<int> IdMascotaCliente
+		{
+			get
+			{
+				return this._IdMascotaCliente;
+			}
+			set
+			{
+				if ((this._IdMascotaCliente != value))
+				{
+					this.OnIdMascotaClienteChanging(value);
+					this.SendPropertyChanging();
+					this._IdMascotaCliente = value;
+					this.SendPropertyChanged("IdMascotaCliente");
+					this.OnIdMascotaClienteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoraIni", DbType="Int")]
+		public System.Nullable<int> HoraIni
+		{
+			get
+			{
+				return this._HoraIni;
+			}
+			set
+			{
+				if ((this._HoraIni != value))
+				{
+					this.OnHoraIniChanging(value);
+					this.SendPropertyChanging();
+					this._HoraIni = value;
+					this.SendPropertyChanged("HoraIni");
+					this.OnHoraIniChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoraFin", DbType="Int")]
+		public System.Nullable<int> HoraFin
+		{
+			get
+			{
+				return this._HoraFin;
+			}
+			set
+			{
+				if ((this._HoraFin != value))
+				{
+					this.OnHoraFinChanging(value);
+					this.SendPropertyChanging();
+					this._HoraFin = value;
+					this.SendPropertyChanged("HoraFin");
+					this.OnHoraFinChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ComentarioPaseador", DbType="VarChar(300)")]
+		public string ComentarioPaseador
+		{
+			get
+			{
+				return this._ComentarioPaseador;
+			}
+			set
+			{
+				if ((this._ComentarioPaseador != value))
+				{
+					this.OnComentarioPaseadorChanging(value);
+					this.SendPropertyChanging();
+					this._ComentarioPaseador = value;
+					this.SendPropertyChanged("ComentarioPaseador");
+					this.OnComentarioPaseadorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ComentarioCliente", DbType="VarChar(300)")]
+		public string ComentarioCliente
+		{
+			get
+			{
+				return this._ComentarioCliente;
+			}
+			set
+			{
+				if ((this._ComentarioCliente != value))
+				{
+					this.OnComentarioClienteChanging(value);
+					this.SendPropertyChanging();
+					this._ComentarioCliente = value;
+					this.SendPropertyChanged("ComentarioCliente");
+					this.OnComentarioClienteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Calificacion", DbType="Int")]
+		public System.Nullable<int> Calificacion
+		{
+			get
+			{
+				return this._Calificacion;
+			}
+			set
+			{
+				if ((this._Calificacion != value))
+				{
+					this.OnCalificacionChanging(value);
+					this.SendPropertyChanging();
+					this._Calificacion = value;
+					this.SendPropertyChanged("Calificacion");
+					this.OnCalificacionChanged();
 				}
 			}
 		}
@@ -3247,6 +3468,758 @@ namespace DataBase
 		}
 	}
 	
+	public partial class ConsultarPaseadorServicioResult
+	{
+		
+		private int _Idpaseador;
+		
+		private string _Nombre;
+		
+		private string _Apellido;
+		
+		private System.Nullable<int> _localidad;
+		
+		private int _Horainicio;
+		
+		private int _HoraFin;
+		
+		private System.Nullable<double> _precio;
+		
+		public ConsultarPaseadorServicioResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Idpaseador", DbType="Int NOT NULL")]
+		public int Idpaseador
+		{
+			get
+			{
+				return this._Idpaseador;
+			}
+			set
+			{
+				if ((this._Idpaseador != value))
+				{
+					this._Idpaseador = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Nombre
+		{
+			get
+			{
+				return this._Nombre;
+			}
+			set
+			{
+				if ((this._Nombre != value))
+				{
+					this._Nombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Apellido", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Apellido
+		{
+			get
+			{
+				return this._Apellido;
+			}
+			set
+			{
+				if ((this._Apellido != value))
+				{
+					this._Apellido = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_localidad", DbType="Int")]
+		public System.Nullable<int> localidad
+		{
+			get
+			{
+				return this._localidad;
+			}
+			set
+			{
+				if ((this._localidad != value))
+				{
+					this._localidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Horainicio", DbType="Int NOT NULL")]
+		public int Horainicio
+		{
+			get
+			{
+				return this._Horainicio;
+			}
+			set
+			{
+				if ((this._Horainicio != value))
+				{
+					this._Horainicio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoraFin", DbType="Int NOT NULL")]
+		public int HoraFin
+		{
+			get
+			{
+				return this._HoraFin;
+			}
+			set
+			{
+				if ((this._HoraFin != value))
+				{
+					this._HoraFin = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_precio", DbType="Float")]
+		public System.Nullable<double> precio
+		{
+			get
+			{
+				return this._precio;
+			}
+			set
+			{
+				if ((this._precio != value))
+				{
+					this._precio = value;
+				}
+			}
+		}
+	}
+	
+	public partial class dboddlMascotaResult
+	{
+		
+		private int _Idmascota;
+		
+		private string _nombre_ma;
+		
+		public dboddlMascotaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Idmascota", DbType="Int NOT NULL")]
+		public int Idmascota
+		{
+			get
+			{
+				return this._Idmascota;
+			}
+			set
+			{
+				if ((this._Idmascota != value))
+				{
+					this._Idmascota = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre_ma", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string nombre_ma
+		{
+			get
+			{
+				return this._nombre_ma;
+			}
+			set
+			{
+				if ((this._nombre_ma != value))
+				{
+					this._nombre_ma = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ListarServicioResult
+	{
+		
+		private int _Idservicio;
+		
+		private System.DateTime _fecha_se;
+		
+		private string _estado_se;
+		
+		private string _detalles_se;
+		
+		private System.Nullable<int> _se_idusuario;
+		
+		private System.Nullable<int> _pa_serv;
+		
+		private System.Nullable<int> _IdMascotaCliente;
+		
+		private System.Nullable<int> _HoraIni;
+		
+		private System.Nullable<int> _HoraFin;
+		
+		public ListarServicioResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Idservicio", DbType="Int NOT NULL")]
+		public int Idservicio
+		{
+			get
+			{
+				return this._Idservicio;
+			}
+			set
+			{
+				if ((this._Idservicio != value))
+				{
+					this._Idservicio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha_se", DbType="Date NOT NULL")]
+		public System.DateTime fecha_se
+		{
+			get
+			{
+				return this._fecha_se;
+			}
+			set
+			{
+				if ((this._fecha_se != value))
+				{
+					this._fecha_se = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_estado_se", DbType="VarChar(30)")]
+		public string estado_se
+		{
+			get
+			{
+				return this._estado_se;
+			}
+			set
+			{
+				if ((this._estado_se != value))
+				{
+					this._estado_se = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_detalles_se", DbType="VarChar(300)")]
+		public string detalles_se
+		{
+			get
+			{
+				return this._detalles_se;
+			}
+			set
+			{
+				if ((this._detalles_se != value))
+				{
+					this._detalles_se = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_se_idusuario", DbType="Int")]
+		public System.Nullable<int> se_idusuario
+		{
+			get
+			{
+				return this._se_idusuario;
+			}
+			set
+			{
+				if ((this._se_idusuario != value))
+				{
+					this._se_idusuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pa_serv", DbType="Int")]
+		public System.Nullable<int> pa_serv
+		{
+			get
+			{
+				return this._pa_serv;
+			}
+			set
+			{
+				if ((this._pa_serv != value))
+				{
+					this._pa_serv = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdMascotaCliente", DbType="Int")]
+		public System.Nullable<int> IdMascotaCliente
+		{
+			get
+			{
+				return this._IdMascotaCliente;
+			}
+			set
+			{
+				if ((this._IdMascotaCliente != value))
+				{
+					this._IdMascotaCliente = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoraIni", DbType="Int")]
+		public System.Nullable<int> HoraIni
+		{
+			get
+			{
+				return this._HoraIni;
+			}
+			set
+			{
+				if ((this._HoraIni != value))
+				{
+					this._HoraIni = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoraFin", DbType="Int")]
+		public System.Nullable<int> HoraFin
+		{
+			get
+			{
+				return this._HoraFin;
+			}
+			set
+			{
+				if ((this._HoraFin != value))
+				{
+					this._HoraFin = value;
+				}
+			}
+		}
+	}
+	
+	public partial class MostrarDatosPaseadorResult
+	{
+		
+		private int _Idpaseador;
+		
+		private System.Nullable<double> _calificacion_prom;
+		
+		private string _especialidad;
+		
+		private System.Nullable<int> _pa_idusu;
+		
+		private System.Nullable<double> _precio;
+		
+		private string _estado;
+		
+		private int _Horainicio;
+		
+		private int _HoraFin;
+		
+		private string _dias;
+		
+		private System.Data.Linq.Binary _Experiencia;
+		
+		private int _Idusuario;
+		
+		private string _nombre;
+		
+		private string _apellido;
+		
+		private string _correo;
+		
+		private System.Nullable<long> _documento;
+		
+		private string _tipo_doc;
+		
+		private System.Nullable<int> _localidad;
+		
+		private System.Nullable<long> _telefono;
+		
+		private string _contrasena;
+		
+		private System.Nullable<int> _Usu_rol;
+		
+		private System.Data.Linq.Binary _ImgPerfil;
+		
+		private string _Nickname;
+		
+		public MostrarDatosPaseadorResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Idpaseador", DbType="Int NOT NULL")]
+		public int Idpaseador
+		{
+			get
+			{
+				return this._Idpaseador;
+			}
+			set
+			{
+				if ((this._Idpaseador != value))
+				{
+					this._Idpaseador = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_calificacion_prom", DbType="Float")]
+		public System.Nullable<double> calificacion_prom
+		{
+			get
+			{
+				return this._calificacion_prom;
+			}
+			set
+			{
+				if ((this._calificacion_prom != value))
+				{
+					this._calificacion_prom = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_especialidad", DbType="VarChar(50)")]
+		public string especialidad
+		{
+			get
+			{
+				return this._especialidad;
+			}
+			set
+			{
+				if ((this._especialidad != value))
+				{
+					this._especialidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pa_idusu", DbType="Int")]
+		public System.Nullable<int> pa_idusu
+		{
+			get
+			{
+				return this._pa_idusu;
+			}
+			set
+			{
+				if ((this._pa_idusu != value))
+				{
+					this._pa_idusu = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_precio", DbType="Float")]
+		public System.Nullable<double> precio
+		{
+			get
+			{
+				return this._precio;
+			}
+			set
+			{
+				if ((this._precio != value))
+				{
+					this._precio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_estado", DbType="VarChar(10)")]
+		public string estado
+		{
+			get
+			{
+				return this._estado;
+			}
+			set
+			{
+				if ((this._estado != value))
+				{
+					this._estado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Horainicio", DbType="Int NOT NULL")]
+		public int Horainicio
+		{
+			get
+			{
+				return this._Horainicio;
+			}
+			set
+			{
+				if ((this._Horainicio != value))
+				{
+					this._Horainicio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoraFin", DbType="Int NOT NULL")]
+		public int HoraFin
+		{
+			get
+			{
+				return this._HoraFin;
+			}
+			set
+			{
+				if ((this._HoraFin != value))
+				{
+					this._HoraFin = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dias", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string dias
+		{
+			get
+			{
+				return this._dias;
+			}
+			set
+			{
+				if ((this._dias != value))
+				{
+					this._dias = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Experiencia", DbType="VarBinary(MAX)")]
+		public System.Data.Linq.Binary Experiencia
+		{
+			get
+			{
+				return this._Experiencia;
+			}
+			set
+			{
+				if ((this._Experiencia != value))
+				{
+					this._Experiencia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Idusuario", DbType="Int NOT NULL")]
+		public int Idusuario
+		{
+			get
+			{
+				return this._Idusuario;
+			}
+			set
+			{
+				if ((this._Idusuario != value))
+				{
+					this._Idusuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string nombre
+		{
+			get
+			{
+				return this._nombre;
+			}
+			set
+			{
+				if ((this._nombre != value))
+				{
+					this._nombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_apellido", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string apellido
+		{
+			get
+			{
+				return this._apellido;
+			}
+			set
+			{
+				if ((this._apellido != value))
+				{
+					this._apellido = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_correo", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string correo
+		{
+			get
+			{
+				return this._correo;
+			}
+			set
+			{
+				if ((this._correo != value))
+				{
+					this._correo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_documento", DbType="BigInt")]
+		public System.Nullable<long> documento
+		{
+			get
+			{
+				return this._documento;
+			}
+			set
+			{
+				if ((this._documento != value))
+				{
+					this._documento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tipo_doc", DbType="VarChar(5) NOT NULL", CanBeNull=false)]
+		public string tipo_doc
+		{
+			get
+			{
+				return this._tipo_doc;
+			}
+			set
+			{
+				if ((this._tipo_doc != value))
+				{
+					this._tipo_doc = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_localidad", DbType="Int")]
+		public System.Nullable<int> localidad
+		{
+			get
+			{
+				return this._localidad;
+			}
+			set
+			{
+				if ((this._localidad != value))
+				{
+					this._localidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_telefono", DbType="BigInt")]
+		public System.Nullable<long> telefono
+		{
+			get
+			{
+				return this._telefono;
+			}
+			set
+			{
+				if ((this._telefono != value))
+				{
+					this._telefono = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_contrasena", DbType="VarChar(50)")]
+		public string contrasena
+		{
+			get
+			{
+				return this._contrasena;
+			}
+			set
+			{
+				if ((this._contrasena != value))
+				{
+					this._contrasena = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Usu_rol", DbType="Int")]
+		public System.Nullable<int> Usu_rol
+		{
+			get
+			{
+				return this._Usu_rol;
+			}
+			set
+			{
+				if ((this._Usu_rol != value))
+				{
+					this._Usu_rol = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImgPerfil", DbType="Image")]
+		public System.Data.Linq.Binary ImgPerfil
+		{
+			get
+			{
+				return this._ImgPerfil;
+			}
+			set
+			{
+				if ((this._ImgPerfil != value))
+				{
+					this._ImgPerfil = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nickname", DbType="VarChar(50)")]
+		public string Nickname
+		{
+			get
+			{
+				return this._Nickname;
+			}
+			set
+			{
+				if ((this._Nickname != value))
+				{
+					this._Nickname = value;
+				}
+			}
+		}
+	}
+	
 	public partial class MostrarDatosPerfilResult
 	{
 		
@@ -3497,6 +4470,176 @@ namespace DataBase
 		}
 	}
 	
+	public partial class OrganizarBandejaResult
+	{
+		
+		private int _Idservicio;
+		
+		private System.DateTime _fecha_se;
+		
+		private string _estado_se;
+		
+		private string _detalles_se;
+		
+		private System.Nullable<int> _se_idusuario;
+		
+		private System.Nullable<int> _pa_serv;
+		
+		private System.Nullable<int> _IdMascotaCliente;
+		
+		private System.Nullable<int> _HoraIni;
+		
+		private System.Nullable<int> _HoraFin;
+		
+		public OrganizarBandejaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Idservicio", DbType="Int NOT NULL")]
+		public int Idservicio
+		{
+			get
+			{
+				return this._Idservicio;
+			}
+			set
+			{
+				if ((this._Idservicio != value))
+				{
+					this._Idservicio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha_se", DbType="Date NOT NULL")]
+		public System.DateTime fecha_se
+		{
+			get
+			{
+				return this._fecha_se;
+			}
+			set
+			{
+				if ((this._fecha_se != value))
+				{
+					this._fecha_se = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_estado_se", DbType="VarChar(30)")]
+		public string estado_se
+		{
+			get
+			{
+				return this._estado_se;
+			}
+			set
+			{
+				if ((this._estado_se != value))
+				{
+					this._estado_se = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_detalles_se", DbType="VarChar(300)")]
+		public string detalles_se
+		{
+			get
+			{
+				return this._detalles_se;
+			}
+			set
+			{
+				if ((this._detalles_se != value))
+				{
+					this._detalles_se = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_se_idusuario", DbType="Int")]
+		public System.Nullable<int> se_idusuario
+		{
+			get
+			{
+				return this._se_idusuario;
+			}
+			set
+			{
+				if ((this._se_idusuario != value))
+				{
+					this._se_idusuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pa_serv", DbType="Int")]
+		public System.Nullable<int> pa_serv
+		{
+			get
+			{
+				return this._pa_serv;
+			}
+			set
+			{
+				if ((this._pa_serv != value))
+				{
+					this._pa_serv = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdMascotaCliente", DbType="Int")]
+		public System.Nullable<int> IdMascotaCliente
+		{
+			get
+			{
+				return this._IdMascotaCliente;
+			}
+			set
+			{
+				if ((this._IdMascotaCliente != value))
+				{
+					this._IdMascotaCliente = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoraIni", DbType="Int")]
+		public System.Nullable<int> HoraIni
+		{
+			get
+			{
+				return this._HoraIni;
+			}
+			set
+			{
+				if ((this._HoraIni != value))
+				{
+					this._HoraIni = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoraFin", DbType="Int")]
+		public System.Nullable<int> HoraFin
+		{
+			get
+			{
+				return this._HoraFin;
+			}
+			set
+			{
+				if ((this._HoraFin != value))
+				{
+					this._HoraFin = value;
+				}
+			}
+		}
+	}
+	
 	public partial class OrganizarPaseadorResult
 	{
 		
@@ -3672,6 +4815,8 @@ namespace DataBase
 		
 		private int _IdUsuario;
 		
+		private int _IdPaseador;
+		
 		private string _NombreUsuario;
 		
 		private string _apellido;
@@ -3698,6 +4843,22 @@ namespace DataBase
 				if ((this._IdUsuario != value))
 				{
 					this._IdUsuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdPaseador", DbType="Int NOT NULL")]
+		public int IdPaseador
+		{
+			get
+			{
+				return this._IdPaseador;
+			}
+			set
+			{
+				if ((this._IdPaseador != value))
+				{
+					this._IdPaseador = value;
 				}
 			}
 		}
@@ -3902,6 +5063,10 @@ namespace DataBase
 	public partial class PedirServicioResult
 	{
 		
+		private int _IdUsuario;
+		
+		private int _IdPaseador;
+		
 		private string _NombreUsuario;
 		
 		private string _apellido;
@@ -3914,6 +5079,38 @@ namespace DataBase
 		
 		public PedirServicioResult()
 		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUsuario", DbType="Int NOT NULL")]
+		public int IdUsuario
+		{
+			get
+			{
+				return this._IdUsuario;
+			}
+			set
+			{
+				if ((this._IdUsuario != value))
+				{
+					this._IdUsuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdPaseador", DbType="Int NOT NULL")]
+		public int IdPaseador
+		{
+			get
+			{
+				return this._IdPaseador;
+			}
+			set
+			{
+				if ((this._IdPaseador != value))
+				{
+					this._IdPaseador = value;
+				}
+			}
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NombreUsuario", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
@@ -3992,6 +5189,364 @@ namespace DataBase
 				if ((this._HoraFin != value))
 				{
 					this._HoraFin = value;
+				}
+			}
+		}
+	}
+	
+	public partial class OrganizarHistorialResult
+	{
+		
+		private int _Idservicio;
+		
+		private System.DateTime _fecha_se;
+		
+		private string _estado_se;
+		
+		private string _detalles_se;
+		
+		private System.Nullable<int> _se_idusuario;
+		
+		private System.Nullable<int> _pa_serv;
+		
+		private System.Nullable<int> _IdMascotaCliente;
+		
+		private System.Nullable<int> _HoraIni;
+		
+		private System.Nullable<int> _HoraFin;
+		
+		public OrganizarHistorialResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Idservicio", DbType="Int NOT NULL")]
+		public int Idservicio
+		{
+			get
+			{
+				return this._Idservicio;
+			}
+			set
+			{
+				if ((this._Idservicio != value))
+				{
+					this._Idservicio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha_se", DbType="Date NOT NULL")]
+		public System.DateTime fecha_se
+		{
+			get
+			{
+				return this._fecha_se;
+			}
+			set
+			{
+				if ((this._fecha_se != value))
+				{
+					this._fecha_se = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_estado_se", DbType="VarChar(30)")]
+		public string estado_se
+		{
+			get
+			{
+				return this._estado_se;
+			}
+			set
+			{
+				if ((this._estado_se != value))
+				{
+					this._estado_se = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_detalles_se", DbType="VarChar(300)")]
+		public string detalles_se
+		{
+			get
+			{
+				return this._detalles_se;
+			}
+			set
+			{
+				if ((this._detalles_se != value))
+				{
+					this._detalles_se = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_se_idusuario", DbType="Int")]
+		public System.Nullable<int> se_idusuario
+		{
+			get
+			{
+				return this._se_idusuario;
+			}
+			set
+			{
+				if ((this._se_idusuario != value))
+				{
+					this._se_idusuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pa_serv", DbType="Int")]
+		public System.Nullable<int> pa_serv
+		{
+			get
+			{
+				return this._pa_serv;
+			}
+			set
+			{
+				if ((this._pa_serv != value))
+				{
+					this._pa_serv = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdMascotaCliente", DbType="Int")]
+		public System.Nullable<int> IdMascotaCliente
+		{
+			get
+			{
+				return this._IdMascotaCliente;
+			}
+			set
+			{
+				if ((this._IdMascotaCliente != value))
+				{
+					this._IdMascotaCliente = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoraIni", DbType="Int")]
+		public System.Nullable<int> HoraIni
+		{
+			get
+			{
+				return this._HoraIni;
+			}
+			set
+			{
+				if ((this._HoraIni != value))
+				{
+					this._HoraIni = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoraFin", DbType="Int")]
+		public System.Nullable<int> HoraFin
+		{
+			get
+			{
+				return this._HoraFin;
+			}
+			set
+			{
+				if ((this._HoraFin != value))
+				{
+					this._HoraFin = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ListarServicioCliResult
+	{
+		
+		private int _Idservicio;
+		
+		private System.DateTime _fecha_se;
+		
+		private string _estado_se;
+		
+		private string _detalles_se;
+		
+		private System.Nullable<int> _se_idusuario;
+		
+		private System.Nullable<int> _pa_serv;
+		
+		private System.Nullable<int> _IdMascotaCliente;
+		
+		private System.Nullable<int> _HoraIni;
+		
+		private System.Nullable<int> _HoraFin;
+		
+		private string _ComentarioPaseador;
+		
+		public ListarServicioCliResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Idservicio", DbType="Int NOT NULL")]
+		public int Idservicio
+		{
+			get
+			{
+				return this._Idservicio;
+			}
+			set
+			{
+				if ((this._Idservicio != value))
+				{
+					this._Idservicio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha_se", DbType="Date NOT NULL")]
+		public System.DateTime fecha_se
+		{
+			get
+			{
+				return this._fecha_se;
+			}
+			set
+			{
+				if ((this._fecha_se != value))
+				{
+					this._fecha_se = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_estado_se", DbType="VarChar(30)")]
+		public string estado_se
+		{
+			get
+			{
+				return this._estado_se;
+			}
+			set
+			{
+				if ((this._estado_se != value))
+				{
+					this._estado_se = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_detalles_se", DbType="VarChar(300)")]
+		public string detalles_se
+		{
+			get
+			{
+				return this._detalles_se;
+			}
+			set
+			{
+				if ((this._detalles_se != value))
+				{
+					this._detalles_se = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_se_idusuario", DbType="Int")]
+		public System.Nullable<int> se_idusuario
+		{
+			get
+			{
+				return this._se_idusuario;
+			}
+			set
+			{
+				if ((this._se_idusuario != value))
+				{
+					this._se_idusuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pa_serv", DbType="Int")]
+		public System.Nullable<int> pa_serv
+		{
+			get
+			{
+				return this._pa_serv;
+			}
+			set
+			{
+				if ((this._pa_serv != value))
+				{
+					this._pa_serv = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdMascotaCliente", DbType="Int")]
+		public System.Nullable<int> IdMascotaCliente
+		{
+			get
+			{
+				return this._IdMascotaCliente;
+			}
+			set
+			{
+				if ((this._IdMascotaCliente != value))
+				{
+					this._IdMascotaCliente = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoraIni", DbType="Int")]
+		public System.Nullable<int> HoraIni
+		{
+			get
+			{
+				return this._HoraIni;
+			}
+			set
+			{
+				if ((this._HoraIni != value))
+				{
+					this._HoraIni = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoraFin", DbType="Int")]
+		public System.Nullable<int> HoraFin
+		{
+			get
+			{
+				return this._HoraFin;
+			}
+			set
+			{
+				if ((this._HoraFin != value))
+				{
+					this._HoraFin = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ComentarioPaseador", DbType="VarChar(300)")]
+		public string ComentarioPaseador
+		{
+			get
+			{
+				return this._ComentarioPaseador;
+			}
+			set
+			{
+				if ((this._ComentarioPaseador != value))
+				{
+					this._ComentarioPaseador = value;
 				}
 			}
 		}

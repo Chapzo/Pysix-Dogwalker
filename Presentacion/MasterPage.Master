@@ -9,19 +9,41 @@
     <link href="css/Estilos1.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+   <%-- <script type="text/javascript">
+        window.onload = function ocultar() {
+            <%string Rol = Convert.ToString(Session["UsuarioRol"]);%>
+            
+            if(<%Rol;%> == "3"){}
+            document.getElementById('btnServicio').style.display = 'none';
+        }
+
+        function OcultarBotones() {
+
+        }
+    </script>--%>
 </head>
 <body>
+
+    
     <form id="form1" runat="server">
         <div>
             <ul>
+
   			    <li class="liLeft"><a href="Menu.aspx"><img class="LogoHeader" src="img/PyxisLogo.png"></a></li> 
-  			    <li class="liLeft"><a href="ControlUSxdxd.aspx"><input type="button" class="btnMasterPage" value="Clientes"/></a></li>
-                <li class="liLeft"><a href="ControlUS.aspx"><input type="button" class="btnMasterPage" value="Paseadores"/></a></li>
-  			    <li class="liLeft"><a href="PedirServicio.aspx"><input type="button" class="btnMasterPage" value="Pedir servicio"/></a></li>
-                <li class="liLeft"><a href="VerPerfil.aspx"><input type="button" class="btnMasterPage" value="Perfil"/></a></li>
+  			    <li class="liLeft"><asp:Button ID="btnClientes" CssClass="btnMasterPage" runat="server" Text="Clientes" OnClick="btnClientes_Click"/></li>
+                <li class="liLeft"><asp:Button ID="btnPaseadores" CssClass="btnMasterPage" runat="server" Text="Paseadores" OnClick="btnPaseadores_Click"/></li>
+  			    <li class="liLeft"><asp:Button ID="btnServicio" CssClass="btnMasterPage" runat="server" Text="Pedir servicio" OnClick="btnServicio_Click"/></li>
+                <li class="liLeft"><asp:Button ID="btnPendiente" CssClass="btnMasterPage" runat="server" Text="Bandeja de entrada" OnClick="btnPendiente_Click"/></li>
+                <li class="liLeft"><asp:Button ID="btnPerfil" CssClass="btnMasterPage" runat="server" Text="Ver perfil" OnClick="btnPerfil_Click"/></li>
+                <li class="liLeft"><asp:Button ID="btnHistorial" CssClass="btnMasterPage" runat="server" Text="Historial" OnClick="btnHistorial_Click"/></li>
+                
+                
                 
                 <li class="liRight"><asp:Button ID="btnSalir" CssClass="btnMasterPage" runat="server" Text="Salir" OnClick="btnSalir_Click"/></li>
                 <li class="liRight"><asp:Label ID="lblUsuario" CssClass="UsuarioNombre" runat="server" ForeColor="White"></asp:Label></li>
+
+
+
 		    </ul>
         </div>
     <div>

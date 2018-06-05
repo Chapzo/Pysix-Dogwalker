@@ -89,14 +89,18 @@
     <asp:GridView ID="GvServicio" runat="server" AutoGenerateColumns="False" OnRowCommand="GvAcciones" OnRowCreated="GvCreado">
         <Columns>
             <asp:BoundField DataField="IdUsuario" HeaderText="ID" />
+            <asp:BoundField DataField="IdPaseador" HeaderText="IdPaseador" />
             <asp:BoundField DataField="NombreUsuario" HeaderText="Nombre" />
             <asp:BoundField DataField="apellido" HeaderText="Apellido" />
             <asp:BoundField DataField="nombre" HeaderText="Localidad" />
             <asp:BoundField DataField="Horainicio" HeaderText="Hora de inicio" />
             <asp:BoundField DataField="HoraFin" HeaderText="Hora de fin" />
             <asp:ButtonField CommandName= "Contratar" Text="Contratar"/>
+            <asp:ButtonField CommandName= "VerPerfil" Text="Ver Perfil"/>
         </Columns>
     </asp:GridView>
         </center>
+        
+    <asp:Label ID="lblText" runat="server"></asp:Label>
         
 </asp:Content>

@@ -45,7 +45,7 @@
                     <td class="auto-style3"> Confirmar Contraseña: </td>
                     <td class="auto-style1">
                         <asp:TextBox ID="txtPasswordConfirm"  runat="server" TextMode="Password"></asp:TextBox>
-                            <asp:CompareValidator ID="CompareValidator3" runat="server" Operator="Equal" ControlToCompare="txtPassword"  Type="Integer"  ControlToValidate="txtPasswordConfirm" ErrorMessage="No concuerdan" ForeColor="#CC0000"></asp:CompareValidator>
+                            <asp:CompareValidator ID="CompareValidator3" runat="server" Operator="Equal" ControlToCompare="txtPassword"  ControlToValidate="txtPasswordConfirm" ErrorMessage="No concuerdan" ForeColor="#CC0000"></asp:CompareValidator>
                     </td>
                 </tr>
                 <tr>
@@ -117,7 +117,7 @@
                             <asp:ListItem Value="P">Pasaporte</asp:ListItem>
                             <asp:ListItem value="RUT">RUT</asp:ListItem>
                         </asp:DropDownList>
-                              <asp:CompareValidator ID="CompareValidator2" runat="server" Operator="NotEqual" ValueToCompare=0  Type="Integer"  ControlToValidate="ddlDocumento" ErrorMessage="Selecione un Documento" ForeColor="#CC0000"></asp:CompareValidator>
+                              <asp:CompareValidator ID="CompareValidator2" runat="server" Operator="NotEqual" ValueToCompare=0  ControlToValidate="ddlDocumento" ErrorMessage="Selecione un Documento" ForeColor="#CC0000"></asp:CompareValidator>
                           </td>
                 </tr>
                 <tr>

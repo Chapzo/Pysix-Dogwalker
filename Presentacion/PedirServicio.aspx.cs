@@ -16,7 +16,7 @@ namespace Presentacion
             if (!IsPostBack)
             {
                 LlenarTablaPedirServicio();
-                
+
             }
 
         }
@@ -45,35 +45,36 @@ namespace Presentacion
 
         protected void GvAcciones(object sender, GridViewCommandEventArgs e)
         {
-            //if (e.CommandName == "Contratar")
-            //{
-            //    try
-            //    {
+            if (e.CommandName == "Contratar")
+            {
+                //try
+                //{
+
+                    int id = int.Parse(GvServicio.Rows[Convert.ToInt32(e.CommandArgument)].Cells[1].Text);
+                    ConsultarPaseadorServicioResult Pas = PSUsuario.ServicioPaseador(id);
+
+    
+                        Session["SerIdPas"] = Pas.Idpaseador;
+                        Session["SerPasNom"] = Pas.Nombre;
+                        Session["SerPasApe"] = Pas.Apellido;
+                        Session["SerPasLoc"] = Pas.localidad.ToString();
+                        Session["SerPasSer"] = "Paseo";
+                        Session["SerPasHI"] = Pas.Horainicio;
+                        Session["SerPasHF"] = Pas.HoraFin;
+                        Session["SerPasPre"] = Pas.precio;
+
+
+                Response.Redirect("Servicio.aspx");
+
                     
-            //        int id = int.Parse(GvServicio.Rows[Convert.ToInt32(e.CommandArgument)].Cells[0].Text);
-            //        ConsultarpaseadorResult job = PSUsuario.consultarpaseador(id);
-            //        {
-            //            ViewState["IDusuario"] = job.Idpaseador.ToString();
-            //            txtNombre.Text = job.Nombre;
-            //            txtApellido.Text = job.Apellido;
-            //            txtTelefono.Text = job.telefono.ToString();
-            //            txtDireccion.Text = job.localidad.ToString();
-            //            txtCorreo.Text = job.correo;
-            //            GrUsuarios.Enabled = false;
-            //            BTActualizar.Visible = true;
+                //}
+                //catch (Exception ex)
+                //{
+                //    lblText.Text = "Error";
 
-
-            //        }
-            //        Label9.Text = objUsuario.getCodigo() + " - " + objUsuario.getRTA();
-            //        TBlCrear.Visible = false;
-
-            //    }
-            //    catch (Exception ex)
-            //    {
-
-            //        Label9.Text = ex.Message;
-            //    }
+                //}
 
             }
         }
     }
+}

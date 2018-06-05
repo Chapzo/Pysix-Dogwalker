@@ -32,6 +32,8 @@ namespace Presentacion
 
             lblRol.Text = Convert.ToString(Session["UsuarioRol"]);
 
+            lblIdPaseador.Text = Convert.ToString(Session["PaseadorID"]);
+
             
             
 
