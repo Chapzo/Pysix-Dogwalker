@@ -173,6 +173,8 @@ namespace Negocio
             }
         }
 
+      
+
         public List<OrganizarPaseadorResult> Organizarpaseador()
         {
             try
@@ -377,11 +379,11 @@ namespace Negocio
         //    }
 
         //}
-        public bool CrearUsuario(string nombre, string apellido,string contraseña, string correo,int localidades,long telefono,string tipodoc,long documento,byte[]img, string nickname)
+        public bool CrearUsuario(string nombre, string apellido,string contraseña, string correo,int localidades,long telefono,string tipodoc,long documento,int barrio, string nickname)
         {
             try
             {
-                data.CrearUsuario(nombre, apellido,contraseña, correo, telefono,localidades,documento,tipodoc,img, nickname);
+                data.CrearUsuario(nombre, apellido,contraseña, correo, telefono,localidades,documento,tipodoc,barrio, nickname);
                 setCodigo ("OK");
                 setRTA ("Se ingresó el contacto correctamente");
                 return true;

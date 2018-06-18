@@ -20,6 +20,7 @@ namespace Presentacion
             {
                 try
                 {
+                    
                     Usuarios objUSuario = (Usuarios)Session["Usuario"];
                     txtNombre.Text = objUSuario.nombre;
                     txtApellido.Text = objUSuario.apellido;
@@ -29,7 +30,8 @@ namespace Presentacion
                     ddlDocumento.SelectedValue = objUSuario.tipo_doc;
                     txtNoDocumento.Text = Convert.ToString(objUSuario.documento);
                     txtTelefono.Text = Convert.ToString(objUSuario.telefono);
-
+                    
+                    
                 }
                 catch (Exception Ex)
                 {
@@ -40,15 +42,13 @@ namespace Presentacion
             }
         }
        
-        public byte[] imagebyte()
+        public void imagenver()
         {
-            int length = FileUpload1.PostedFile.ContentLength;
-            //create a byte array to store the binary image data    
-            byte[] imgbyte = new byte[length];
-            //store the currently selected file in memeory    
-            //set the binary data    
-            FileUpload1.PostedFile.InputStream.Read(imgbyte, 0, length);
-            return imgbyte;
+
+            FileUpload1.SaveAs(Server.MapPath("UsuariosImg") + "/azucar.jpg");
+            Image1.ImageUrl = ("../UsuariosImg/azucar.jpg");
+            Label1.Text = "La imagen " + FileUpload1.FileName + " ha cargado correctamente";
+
         }
        
         public string encriptar()
@@ -58,79 +58,45 @@ namespace Presentacion
             PasswordEncriptado = Convert.ToBase64String(encryted);
             return PasswordEncriptado;
         }
-        
+     
         protected void btnCrearU_Click(object sender, EventArgs e)
         {
 
-            byte[] imagen = (byte[])Session["imagen"];
 
             try
             {
-                if (txtNombre.Text != null &&
-                    txtApellido.Text != null &&
-                    txtPassword.Text != null &&
-                    txtPasswordConfirm.Text != null &&
-                    txtEmail.Text != null &&
-                    ddlLocalidad.Text != null &&
-                    txtTelefono.Text != null &&
-                    ddlDocumento.Text != null &&
-                    txtNoDocumento.Text != null &&
-                    txtPassword.Text == txtPasswordConfirm.Text)
-                {
-                    if (!FileUpload1.HasFile)
-                    {
-                      if (imagen==null)
-                    { int length = FileUpload1.PostedFile.ContentLength;
-                       //create a byte array to store the binary image data    
-                       byte[] imgbyte= new byte[length];
-                       //store the currently selected file in memeory    
-                       //set the binary data    
-                       FileUpload1.PostedFile.InputStream.Read(imgbyte, 0, length);
-                        objusuario.CrearUsuario(txtNombre.Text, txtApellido.Text, encriptar(), txtEmail.Text, int.Parse(ddlLocalidad.SelectedValue), Int64.Parse(txtTelefono.Text), ddlDocumento.Text, Int64.Parse(txtNoDocumento.Text),imgbyte, txtUsuario.Text);
-                        Usuarios objUsuario = objusuario.Login(txtEmail.Text, encriptar());
 
-                        Session["Usuario"] = objUsuario;
-                        Label1.Text = " haz sido creado correctamente Usuario ";
-                        Response.Redirect("EleccionFormulario.aspx");
-                    }
-                    else
-                    {
-                        
-                        objusuario.CrearUsuario(txtNombre.Text, txtApellido.Text,encriptar(), txtEmail.Text,int.Parse(ddlLocalidad.SelectedValue), Int64.Parse(txtTelefono.Text), ddlDocumento.Text, Int64.Parse(txtNoDocumento.Text),imagen, txtUsuario.Text);
+                if (!FileUpload1.HasFile)
+                {
+
+                    imagenver();
+                    objusuario.CrearUsuario(txtNombre.Text, txtApellido.Text, encriptar(), txtEmail.Text, int.Parse(ddlLocalidad.SelectedValue), Int64.Parse(txtTelefono.Text), ddlDocumento.Text, Int64.Parse(txtNoDocumento.Text), int.Parse(DropDownList1.SelectedValue), txtUsuario.Text);
                     Usuarios objUsuario = objusuario.Login(txtEmail.Text, encriptar());
 
                     Session["Usuario"] = objUsuario;
                     Label1.Text = " haz sido creado correctamente Usuario ";
-                            Response.Redirect("EleccionFormulario.aspx");
-
-                        }
-                    }
-                    else
-                    {
-                        int length = FileUpload1.PostedFile.ContentLength;
-                        //create a byte array to store the binary image data    
-                        byte[] imgbyte = new byte[length];
-                        //store the currently selected file in memeory    
-                        //set the binary data    
-                        FileUpload1.PostedFile.InputStream.Read(imgbyte, 0, length);
-                        objusuario.CrearUsuario(txtNombre.Text, txtApellido.Text, encriptar(), txtEmail.Text, int.Parse(ddlLocalidad.SelectedValue), Int64.Parse(txtTelefono.Text), ddlDocumento.Text, Int64.Parse(txtNoDocumento.Text), imgbyte, txtUsuario.Text);
-                        Usuarios objUsuario = objusuario.Login(txtEmail.Text, encriptar());
-
-                        Session["Usuario"] = objUsuario;
-                        Label1.Text = " haz sido creado correctamente Usuario ";
-                        Response.Redirect("EleccionFormulario.aspx");
-                    }
-
-
-
-
-
-
+                    
+                    table_reguistro.Visible = false;
+                    Table_final.Visible = true;
                 }
+
                 else
-                {                   
-                            Label1.Text = "Todos los datos son requeridos. Por favor revise que todo esté correctamente.";
+                {
+                    imagenver();
+                    objusuario.CrearUsuario(txtNombre.Text, txtApellido.Text, encriptar(), txtEmail.Text, int.Parse(ddlLocalidad.SelectedValue), Int64.Parse(txtTelefono.Text), ddlDocumento.Text, Int64.Parse(txtNoDocumento.Text), int.Parse(DropDownList1.SelectedValue), txtUsuario.Text);
+                    Usuarios objUsuario = objusuario.Login(txtEmail.Text, encriptar());
+                    Session["Usuario"] = objUsuario;
+                    table_reguistro.Visible = false;
+                    Table_final.Visible = true ;
+                    Lblinfo.Text = ("El usuario con el nombre" + objUsuario.nombre +" "+ objUsuario.apellido + " ha sido creado");    
                 }
+
+
+
+
+
+
+                
             }
             catch (Exception ex)
             {
@@ -151,18 +117,26 @@ namespace Presentacion
         {
             if (!string.IsNullOrEmpty(FileUpload1.FileName))
             {
-                int length = FileUpload1.PostedFile.ContentLength;
-                //create a byte array to store the binary image data    
-                byte[] imgbyte = new byte[length];
-                //store the currently selected file in memeory    
-                //set the binary data    
-                FileUpload1.PostedFile.InputStream.Read(imgbyte, 0, length);
                                       
-                Session["imagen"] = imgbyte;
-                FileUpload1.SaveAs(Server.MapPath("img") + "/EmpleadoTemporal.jpg");
-                Image1.ImageUrl = ("../img/EmpleadoTemporal.jpg");
+                
+                FileUpload1.SaveAs(Server.MapPath("UsuariosImg") + "/azucar.jpg");
+                Image1.ImageUrl = ("../UsuariosImg/azucar.jpg");
                 Label1.Text="La imagen "+ FileUpload1.FileName +" ha cargado correctamente";
-            }
+               
+           }
+        }
+
+        protected void btnCancelar2_click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Response.Redirect("inicio.aspx");
+
+        }
+        protected void btnContinuar_Click(object sender,EventArgs e)
+        {
+            Response.Write("Usuariocreado");
+            Response.Redirect("EleccionFormulario.aspx");
+            
         }
     }
 }

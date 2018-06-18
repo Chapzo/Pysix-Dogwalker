@@ -30,6 +30,9 @@ namespace DataBase
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnCreated();
+    partial void InsertBarrios(Barrios instance);
+    partial void UpdateBarrios(Barrios instance);
+    partial void DeleteBarrios(Barrios instance);
     partial void InsertUsuarios(Usuarios instance);
     partial void UpdateUsuarios(Usuarios instance);
     partial void DeleteUsuarios(Usuarios instance);
@@ -60,7 +63,7 @@ namespace DataBase
     #endregion
 		
 		public PyxisDataContext() : 
-				base(global::DataBase.Properties.Settings.Default.PyxisConnectionString4, mappingSource)
+				base(global::DataBase.Properties.Settings.Default.PyxisConnectionString3, mappingSource)
 		{
 			OnCreated();
 		}
@@ -87,6 +90,14 @@ namespace DataBase
 				base(connection, mappingSource)
 		{
 			OnCreated();
+		}
+		
+		public System.Data.Linq.Table<Barrios> Barrios
+		{
+			get
+			{
+				return this.GetTable<Barrios>();
+			}
 		}
 		
 		public System.Data.Linq.Table<Usuarios> Usuarios
@@ -161,17 +172,17 @@ namespace DataBase
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.RolSeleccionador")]
-		public int RolSeleccionador([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> numero_rol)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id, numero_rol);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AceptarServicio")]
 		public int AceptarServicio([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.RolSeleccionador")]
+		public int RolSeleccionador([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> numero_rol)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id, numero_rol);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -238,13 +249,6 @@ namespace DataBase
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CrearUsuario")]
-		public int CrearUsuario([global::System.Data.Linq.Mapping.ParameterAttribute(Name="NOMBRE", DbType="VarChar(50)")] string nOMBRE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="APELLIDO", DbType="VarChar(50)")] string aPELLIDO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CONTRASENA", DbType="VarChar(50)")] string cONTRASENA, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CORREO", DbType="VarChar(100)")] string cORREO, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="BigInt")] System.Nullable<long> telefono, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> localidad, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="BigInt")] System.Nullable<long> documento, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(5)")] string tipodoc, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Image")] System.Data.Linq.Binary img, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nickname", DbType="VarChar(50)")] string nickname)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nOMBRE, aPELLIDO, cONTRASENA, cORREO, telefono, localidad, documento, tipodoc, img, nickname);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.dboddlMascota")]
 		public ISingleResult<dboddlMascotaResult> dboddlMascota([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD)
 		{
@@ -256,6 +260,13 @@ namespace DataBase
 		public int FinalizarServicio([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ComPaseador", DbType="VarChar(300)")] string comPaseador)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD, comPaseador);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.FinalizarServicioCli")]
+		public int FinalizarServicioCli([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ComCliente", DbType="VarChar(300)")] string comCliente, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cali", DbType="Int")] System.Nullable<int> cali)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD, comCliente, cali);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -271,6 +282,13 @@ namespace DataBase
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id);
 			return ((ISingleResult<ListarServicioResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ListarServicioCli")]
+		public ISingleResult<ListarServicioCliResult> ListarServicioCli([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Id", DbType="Int")] System.Nullable<int> id)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id);
+			return ((ISingleResult<ListarServicioCliResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MostrarDatosPaseador")]
@@ -299,6 +317,13 @@ namespace DataBase
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id);
 			return ((ISingleResult<OrganizarBandejaResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.OrganizarHistorial")]
+		public ISingleResult<OrganizarHistorialResult> OrganizarHistorial([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Id", DbType="Int")] System.Nullable<int> id)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id);
+			return ((ISingleResult<OrganizarHistorialResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.OrganizarPaseador")]
@@ -336,25 +361,169 @@ namespace DataBase
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.OrganizarHistorial")]
-		public ISingleResult<OrganizarHistorialResult> OrganizarHistorial([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Id", DbType="Int")] System.Nullable<int> id)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ListarBarrios")]
+		public ISingleResult<ListarBarriosResult> ListarBarrios([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> localidad)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id);
-			return ((ISingleResult<OrganizarHistorialResult>)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), localidad);
+			return ((ISingleResult<ListarBarriosResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ListarServicioCli")]
-		public ISingleResult<ListarServicioCliResult> ListarServicioCli([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Id", DbType="Int")] System.Nullable<int> id)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CrearUsuario")]
+		public int CrearUsuario([global::System.Data.Linq.Mapping.ParameterAttribute(Name="NOMBRE", DbType="VarChar(50)")] string nOMBRE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="APELLIDO", DbType="VarChar(50)")] string aPELLIDO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CONTRASENA", DbType="VarChar(50)")] string cONTRASENA, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CORREO", DbType="VarChar(100)")] string cORREO, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="BigInt")] System.Nullable<long> telefono, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> localidad, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="BigInt")] System.Nullable<long> documento, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(5)")] string tipodoc, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> barrio, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nickname", DbType="VarChar(50)")] string nickname)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id);
-			return ((ISingleResult<ListarServicioCliResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.FinalizarServicioCli")]
-		public int FinalizarServicioCli([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ComCliente", DbType="VarChar(300)")] string comCliente, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cali", DbType="Int")] System.Nullable<int> cali)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD, comCliente, cali);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nOMBRE, aPELLIDO, cONTRASENA, cORREO, telefono, localidad, documento, tipodoc, barrio, nickname);
 			return ((int)(result.ReturnValue));
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Barrios")]
+	public partial class Barrios : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _IdBarrio;
+		
+		private System.Nullable<int> _IdLocalidad;
+		
+		private string _Nombre_barrio;
+		
+		private EntityRef<Localidades> _Localidades;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdBarrioChanging(int value);
+    partial void OnIdBarrioChanged();
+    partial void OnIdLocalidadChanging(System.Nullable<int> value);
+    partial void OnIdLocalidadChanged();
+    partial void OnNombre_barrioChanging(string value);
+    partial void OnNombre_barrioChanged();
+    #endregion
+		
+		public Barrios()
+		{
+			this._Localidades = default(EntityRef<Localidades>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdBarrio", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int IdBarrio
+		{
+			get
+			{
+				return this._IdBarrio;
+			}
+			set
+			{
+				if ((this._IdBarrio != value))
+				{
+					this.OnIdBarrioChanging(value);
+					this.SendPropertyChanging();
+					this._IdBarrio = value;
+					this.SendPropertyChanged("IdBarrio");
+					this.OnIdBarrioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdLocalidad", DbType="Int")]
+		public System.Nullable<int> IdLocalidad
+		{
+			get
+			{
+				return this._IdLocalidad;
+			}
+			set
+			{
+				if ((this._IdLocalidad != value))
+				{
+					if (this._Localidades.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIdLocalidadChanging(value);
+					this.SendPropertyChanging();
+					this._IdLocalidad = value;
+					this.SendPropertyChanged("IdLocalidad");
+					this.OnIdLocalidadChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre_barrio", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Nombre_barrio
+		{
+			get
+			{
+				return this._Nombre_barrio;
+			}
+			set
+			{
+				if ((this._Nombre_barrio != value))
+				{
+					this.OnNombre_barrioChanging(value);
+					this.SendPropertyChanging();
+					this._Nombre_barrio = value;
+					this.SendPropertyChanged("Nombre_barrio");
+					this.OnNombre_barrioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Localidades_Barrios", Storage="_Localidades", ThisKey="IdLocalidad", OtherKey="idLocalidad", IsForeignKey=true)]
+		public Localidades Localidades
+		{
+			get
+			{
+				return this._Localidades.Entity;
+			}
+			set
+			{
+				Localidades previousValue = this._Localidades.Entity;
+				if (((previousValue != value) 
+							|| (this._Localidades.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Localidades.Entity = null;
+						previousValue.Barrios.Remove(this);
+					}
+					this._Localidades.Entity = value;
+					if ((value != null))
+					{
+						value.Barrios.Add(this);
+						this._IdLocalidad = value.idLocalidad;
+					}
+					else
+					{
+						this._IdLocalidad = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Localidades");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	
@@ -1087,6 +1256,8 @@ namespace DataBase
 		
 		private string _nombre;
 		
+		private EntitySet<Barrios> _Barrios;
+		
 		private EntitySet<Usuarios> _Usuarios;
 		
     #region Definiciones de métodos de extensibilidad
@@ -1101,6 +1272,7 @@ namespace DataBase
 		
 		public Localidades()
 		{
+			this._Barrios = new EntitySet<Barrios>(new Action<Barrios>(this.attach_Barrios), new Action<Barrios>(this.detach_Barrios));
 			this._Usuarios = new EntitySet<Usuarios>(new Action<Usuarios>(this.attach_Usuarios), new Action<Usuarios>(this.detach_Usuarios));
 			OnCreated();
 		}
@@ -1145,6 +1317,19 @@ namespace DataBase
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Localidades_Barrios", Storage="_Barrios", ThisKey="idLocalidad", OtherKey="IdLocalidad")]
+		public EntitySet<Barrios> Barrios
+		{
+			get
+			{
+				return this._Barrios;
+			}
+			set
+			{
+				this._Barrios.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Localidades_Usuarios", Storage="_Usuarios", ThisKey="idLocalidad", OtherKey="localidad")]
 		public EntitySet<Usuarios> Usuarios
 		{
@@ -1176,6 +1361,18 @@ namespace DataBase
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_Barrios(Barrios entity)
+		{
+			this.SendPropertyChanging();
+			entity.Localidades = this;
+		}
+		
+		private void detach_Barrios(Barrios entity)
+		{
+			this.SendPropertyChanging();
+			entity.Localidades = null;
 		}
 		
 		private void attach_Usuarios(Usuarios entity)
@@ -3816,6 +4013,194 @@ namespace DataBase
 		}
 	}
 	
+	public partial class ListarServicioCliResult
+	{
+		
+		private int _Idservicio;
+		
+		private System.DateTime _fecha_se;
+		
+		private string _estado_se;
+		
+		private string _detalles_se;
+		
+		private System.Nullable<int> _se_idusuario;
+		
+		private System.Nullable<int> _pa_serv;
+		
+		private System.Nullable<int> _IdMascotaCliente;
+		
+		private System.Nullable<int> _HoraIni;
+		
+		private System.Nullable<int> _HoraFin;
+		
+		private string _ComentarioPaseador;
+		
+		public ListarServicioCliResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Idservicio", DbType="Int NOT NULL")]
+		public int Idservicio
+		{
+			get
+			{
+				return this._Idservicio;
+			}
+			set
+			{
+				if ((this._Idservicio != value))
+				{
+					this._Idservicio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha_se", DbType="Date NOT NULL")]
+		public System.DateTime fecha_se
+		{
+			get
+			{
+				return this._fecha_se;
+			}
+			set
+			{
+				if ((this._fecha_se != value))
+				{
+					this._fecha_se = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_estado_se", DbType="VarChar(30)")]
+		public string estado_se
+		{
+			get
+			{
+				return this._estado_se;
+			}
+			set
+			{
+				if ((this._estado_se != value))
+				{
+					this._estado_se = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_detalles_se", DbType="VarChar(300)")]
+		public string detalles_se
+		{
+			get
+			{
+				return this._detalles_se;
+			}
+			set
+			{
+				if ((this._detalles_se != value))
+				{
+					this._detalles_se = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_se_idusuario", DbType="Int")]
+		public System.Nullable<int> se_idusuario
+		{
+			get
+			{
+				return this._se_idusuario;
+			}
+			set
+			{
+				if ((this._se_idusuario != value))
+				{
+					this._se_idusuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pa_serv", DbType="Int")]
+		public System.Nullable<int> pa_serv
+		{
+			get
+			{
+				return this._pa_serv;
+			}
+			set
+			{
+				if ((this._pa_serv != value))
+				{
+					this._pa_serv = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdMascotaCliente", DbType="Int")]
+		public System.Nullable<int> IdMascotaCliente
+		{
+			get
+			{
+				return this._IdMascotaCliente;
+			}
+			set
+			{
+				if ((this._IdMascotaCliente != value))
+				{
+					this._IdMascotaCliente = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoraIni", DbType="Int")]
+		public System.Nullable<int> HoraIni
+		{
+			get
+			{
+				return this._HoraIni;
+			}
+			set
+			{
+				if ((this._HoraIni != value))
+				{
+					this._HoraIni = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoraFin", DbType="Int")]
+		public System.Nullable<int> HoraFin
+		{
+			get
+			{
+				return this._HoraFin;
+			}
+			set
+			{
+				if ((this._HoraFin != value))
+				{
+					this._HoraFin = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ComentarioPaseador", DbType="VarChar(300)")]
+		public string ComentarioPaseador
+		{
+			get
+			{
+				return this._ComentarioPaseador;
+			}
+			set
+			{
+				if ((this._ComentarioPaseador != value))
+				{
+					this._ComentarioPaseador = value;
+				}
+			}
+		}
+	}
+	
 	public partial class MostrarDatosPaseadorResult
 	{
 		
@@ -4640,6 +5025,176 @@ namespace DataBase
 		}
 	}
 	
+	public partial class OrganizarHistorialResult
+	{
+		
+		private int _Idservicio;
+		
+		private System.DateTime _fecha_se;
+		
+		private string _estado_se;
+		
+		private string _detalles_se;
+		
+		private System.Nullable<int> _se_idusuario;
+		
+		private System.Nullable<int> _pa_serv;
+		
+		private System.Nullable<int> _IdMascotaCliente;
+		
+		private System.Nullable<int> _HoraIni;
+		
+		private System.Nullable<int> _HoraFin;
+		
+		public OrganizarHistorialResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Idservicio", DbType="Int NOT NULL")]
+		public int Idservicio
+		{
+			get
+			{
+				return this._Idservicio;
+			}
+			set
+			{
+				if ((this._Idservicio != value))
+				{
+					this._Idservicio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha_se", DbType="Date NOT NULL")]
+		public System.DateTime fecha_se
+		{
+			get
+			{
+				return this._fecha_se;
+			}
+			set
+			{
+				if ((this._fecha_se != value))
+				{
+					this._fecha_se = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_estado_se", DbType="VarChar(30)")]
+		public string estado_se
+		{
+			get
+			{
+				return this._estado_se;
+			}
+			set
+			{
+				if ((this._estado_se != value))
+				{
+					this._estado_se = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_detalles_se", DbType="VarChar(300)")]
+		public string detalles_se
+		{
+			get
+			{
+				return this._detalles_se;
+			}
+			set
+			{
+				if ((this._detalles_se != value))
+				{
+					this._detalles_se = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_se_idusuario", DbType="Int")]
+		public System.Nullable<int> se_idusuario
+		{
+			get
+			{
+				return this._se_idusuario;
+			}
+			set
+			{
+				if ((this._se_idusuario != value))
+				{
+					this._se_idusuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pa_serv", DbType="Int")]
+		public System.Nullable<int> pa_serv
+		{
+			get
+			{
+				return this._pa_serv;
+			}
+			set
+			{
+				if ((this._pa_serv != value))
+				{
+					this._pa_serv = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdMascotaCliente", DbType="Int")]
+		public System.Nullable<int> IdMascotaCliente
+		{
+			get
+			{
+				return this._IdMascotaCliente;
+			}
+			set
+			{
+				if ((this._IdMascotaCliente != value))
+				{
+					this._IdMascotaCliente = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoraIni", DbType="Int")]
+		public System.Nullable<int> HoraIni
+		{
+			get
+			{
+				return this._HoraIni;
+			}
+			set
+			{
+				if ((this._HoraIni != value))
+				{
+					this._HoraIni = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoraFin", DbType="Int")]
+		public System.Nullable<int> HoraFin
+		{
+			get
+			{
+				return this._HoraFin;
+			}
+			set
+			{
+				if ((this._HoraFin != value))
+				{
+					this._HoraFin = value;
+				}
+			}
+		}
+	}
+	
 	public partial class OrganizarPaseadorResult
 	{
 		
@@ -5194,359 +5749,27 @@ namespace DataBase
 		}
 	}
 	
-	public partial class OrganizarHistorialResult
+	public partial class ListarBarriosResult
 	{
 		
-		private int _Idservicio;
+		private string _Nombre_barrio;
 		
-		private System.DateTime _fecha_se;
-		
-		private string _estado_se;
-		
-		private string _detalles_se;
-		
-		private System.Nullable<int> _se_idusuario;
-		
-		private System.Nullable<int> _pa_serv;
-		
-		private System.Nullable<int> _IdMascotaCliente;
-		
-		private System.Nullable<int> _HoraIni;
-		
-		private System.Nullable<int> _HoraFin;
-		
-		public OrganizarHistorialResult()
+		public ListarBarriosResult()
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Idservicio", DbType="Int NOT NULL")]
-		public int Idservicio
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre_barrio", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Nombre_barrio
 		{
 			get
 			{
-				return this._Idservicio;
+				return this._Nombre_barrio;
 			}
 			set
 			{
-				if ((this._Idservicio != value))
+				if ((this._Nombre_barrio != value))
 				{
-					this._Idservicio = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha_se", DbType="Date NOT NULL")]
-		public System.DateTime fecha_se
-		{
-			get
-			{
-				return this._fecha_se;
-			}
-			set
-			{
-				if ((this._fecha_se != value))
-				{
-					this._fecha_se = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_estado_se", DbType="VarChar(30)")]
-		public string estado_se
-		{
-			get
-			{
-				return this._estado_se;
-			}
-			set
-			{
-				if ((this._estado_se != value))
-				{
-					this._estado_se = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_detalles_se", DbType="VarChar(300)")]
-		public string detalles_se
-		{
-			get
-			{
-				return this._detalles_se;
-			}
-			set
-			{
-				if ((this._detalles_se != value))
-				{
-					this._detalles_se = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_se_idusuario", DbType="Int")]
-		public System.Nullable<int> se_idusuario
-		{
-			get
-			{
-				return this._se_idusuario;
-			}
-			set
-			{
-				if ((this._se_idusuario != value))
-				{
-					this._se_idusuario = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pa_serv", DbType="Int")]
-		public System.Nullable<int> pa_serv
-		{
-			get
-			{
-				return this._pa_serv;
-			}
-			set
-			{
-				if ((this._pa_serv != value))
-				{
-					this._pa_serv = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdMascotaCliente", DbType="Int")]
-		public System.Nullable<int> IdMascotaCliente
-		{
-			get
-			{
-				return this._IdMascotaCliente;
-			}
-			set
-			{
-				if ((this._IdMascotaCliente != value))
-				{
-					this._IdMascotaCliente = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoraIni", DbType="Int")]
-		public System.Nullable<int> HoraIni
-		{
-			get
-			{
-				return this._HoraIni;
-			}
-			set
-			{
-				if ((this._HoraIni != value))
-				{
-					this._HoraIni = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoraFin", DbType="Int")]
-		public System.Nullable<int> HoraFin
-		{
-			get
-			{
-				return this._HoraFin;
-			}
-			set
-			{
-				if ((this._HoraFin != value))
-				{
-					this._HoraFin = value;
-				}
-			}
-		}
-	}
-	
-	public partial class ListarServicioCliResult
-	{
-		
-		private int _Idservicio;
-		
-		private System.DateTime _fecha_se;
-		
-		private string _estado_se;
-		
-		private string _detalles_se;
-		
-		private System.Nullable<int> _se_idusuario;
-		
-		private System.Nullable<int> _pa_serv;
-		
-		private System.Nullable<int> _IdMascotaCliente;
-		
-		private System.Nullable<int> _HoraIni;
-		
-		private System.Nullable<int> _HoraFin;
-		
-		private string _ComentarioPaseador;
-		
-		public ListarServicioCliResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Idservicio", DbType="Int NOT NULL")]
-		public int Idservicio
-		{
-			get
-			{
-				return this._Idservicio;
-			}
-			set
-			{
-				if ((this._Idservicio != value))
-				{
-					this._Idservicio = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha_se", DbType="Date NOT NULL")]
-		public System.DateTime fecha_se
-		{
-			get
-			{
-				return this._fecha_se;
-			}
-			set
-			{
-				if ((this._fecha_se != value))
-				{
-					this._fecha_se = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_estado_se", DbType="VarChar(30)")]
-		public string estado_se
-		{
-			get
-			{
-				return this._estado_se;
-			}
-			set
-			{
-				if ((this._estado_se != value))
-				{
-					this._estado_se = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_detalles_se", DbType="VarChar(300)")]
-		public string detalles_se
-		{
-			get
-			{
-				return this._detalles_se;
-			}
-			set
-			{
-				if ((this._detalles_se != value))
-				{
-					this._detalles_se = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_se_idusuario", DbType="Int")]
-		public System.Nullable<int> se_idusuario
-		{
-			get
-			{
-				return this._se_idusuario;
-			}
-			set
-			{
-				if ((this._se_idusuario != value))
-				{
-					this._se_idusuario = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pa_serv", DbType="Int")]
-		public System.Nullable<int> pa_serv
-		{
-			get
-			{
-				return this._pa_serv;
-			}
-			set
-			{
-				if ((this._pa_serv != value))
-				{
-					this._pa_serv = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdMascotaCliente", DbType="Int")]
-		public System.Nullable<int> IdMascotaCliente
-		{
-			get
-			{
-				return this._IdMascotaCliente;
-			}
-			set
-			{
-				if ((this._IdMascotaCliente != value))
-				{
-					this._IdMascotaCliente = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoraIni", DbType="Int")]
-		public System.Nullable<int> HoraIni
-		{
-			get
-			{
-				return this._HoraIni;
-			}
-			set
-			{
-				if ((this._HoraIni != value))
-				{
-					this._HoraIni = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoraFin", DbType="Int")]
-		public System.Nullable<int> HoraFin
-		{
-			get
-			{
-				return this._HoraFin;
-			}
-			set
-			{
-				if ((this._HoraFin != value))
-				{
-					this._HoraFin = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ComentarioPaseador", DbType="VarChar(300)")]
-		public string ComentarioPaseador
-		{
-			get
-			{
-				return this._ComentarioPaseador;
-			}
-			set
-			{
-				if ((this._ComentarioPaseador != value))
-				{
-					this._ComentarioPaseador = value;
+					this._Nombre_barrio = value;
 				}
 			}
 		}
