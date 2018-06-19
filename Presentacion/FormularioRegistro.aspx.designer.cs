@@ -175,13 +175,13 @@ namespace Presentacion {
         protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
         
         /// <summary>
-        /// Control DropDownList1.
+        /// Control DdlBarrio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.DropDownList DdlBarrio;
         
         /// <summary>
         /// Control SqlDataSource1.
@@ -301,22 +301,22 @@ namespace Presentacion {
         protected global::System.Web.UI.WebControls.CompareValidator CVConfirmarCon;
         
         /// <summary>
-        /// Control btnCrearU.
+        /// Control BtnCrearU.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCrearU;
+        protected global::System.Web.UI.WebControls.Button BtnCrearU;
         
         /// <summary>
-        /// Control btnCancelar.
+        /// Control BtnCancelar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancelar;
+        protected global::System.Web.UI.WebControls.Button BtnCancelar;
         
         /// <summary>
         /// Control Label1.
@@ -346,21 +346,21 @@ namespace Presentacion {
         protected global::System.Web.UI.WebControls.Label Lblinfo;
         
         /// <summary>
-        /// Control btnContinuar.
+        /// Control BtnContinuar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnContinuar;
+        protected global::System.Web.UI.WebControls.Button BtnContinuar;
         
         /// <summary>
-        /// Control btnCancelar2.
+        /// Control BtnCancelar2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancelar2;
+        protected global::System.Web.UI.WebControls.Button BtnCancelar2;
     }
 }

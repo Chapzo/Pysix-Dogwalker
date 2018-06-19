@@ -115,7 +115,7 @@
                  <asp:TableRow>
                     <asp:TableCell >Barrio </asp:TableCell>
                     <asp:TableCell>
-                       <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="Nombre_barrio" AppendDataBoundItems="True" DataValueField="IdBarrio" >
+                       <asp:DropDownList ID="DdlBarrio" runat="server" DataSourceID="SqlDataSource1" DataTextField="Nombre_barrio" AppendDataBoundItems="True" DataValueField="IdBarrio" >
                            <asp:ListItem  Value="-1">Seleccionar</asp:ListItem>
                         </asp:DropDownList>
                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PyxisConnectionString %>" SelectCommand="ListarBarrios" SelectCommandType="StoredProcedure">
@@ -182,8 +182,8 @@
                      </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableFooterRow >
-                    <asp:TableCell ColumnSpan="3" HorizontalAlign="Center" >&nbsp;<asp:Button CssClass="Boton1" ID="btnCrearU" runat="server" OnClick="btnCrearU_Click" Text="Aceptar" />
-                        &nbsp;<asp:Button CssClass="Boton2" ID="btnCancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
+                    <asp:TableCell ColumnSpan="3" HorizontalAlign="Center" >&nbsp;<asp:Button CssClass="Boton1" ID="BtnCrearU" runat="server" OnClick="BtnCrearU_Click" Text="Aceptar" />
+                        &nbsp;<asp:Button CssClass="Boton2" ID="BtnCancelar" runat="server" Text="Cancelar" OnClick="BtnCancelar_Click" />
                         <br />
                         <asp:Label ID="Label1" runat="server"></asp:Label>
                         </asp:TableCell>
@@ -200,8 +200,8 @@
               </asp:TableRow>
             <asp:TableHeaderRow>
                 <asp:TableCell>
-                    <asp:Button runat="server" CssClass="Boton1"   ID="btnContinuar" Text="Continuar"  OnClick="btnContinuar_Click" />
-                    <asp:Button runat ="server" ID="btnCancelar2" Text="Cancelar" CssClass="Boton2" OnClientClick="btnCancelar2_click" />
+                    <asp:Button runat="server" CssClass="Boton1"   ID="BtnContinuar" Text="Continuar"  OnClick="BtnContinuar_Click" />
+                    <asp:Button runat ="server" ID="BtnCancelar2" Text="Cancelar" CssClass="Boton2" OnClientClick="BtnCancelar2_click" />
                 </asp:TableCell>
             </asp:TableHeaderRow>     
         </asp:Table>  

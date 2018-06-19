@@ -24,34 +24,36 @@ namespace Presentacion
                     Usuarios objUSuario = (Usuarios)Session["Usuario"];
                     txtNombre.Text = objUSuario.nombre;
                     txtApellido.Text = objUSuario.apellido;
-                    txtEmail.Text = objUSuario.Localidades.nombre;
+                    txtEmail.Text = objUSuario.correo;
                     txtPassword.Text = string.Empty;
-                    ddlLocalidad.SelectedValue = objUSuario.localidad.ToString();
+                    txtPasswordConfirm.Text = string.Empty;
+                    ddlLocalidad.SelectedValue = objUSuario.Localidades.nombre;
                     ddlDocumento.SelectedValue = objUSuario.tipo_doc;
                     txtNoDocumento.Text = Convert.ToString(objUSuario.documento);
                     txtTelefono.Text = Convert.ToString(objUSuario.telefono);
-                    
+                    DdlBarrio.SelectedValue = objUSuario.Barrios.Nombre_barrio;
+                    Image1.ImageUrl = ("../UsuariosImg/" + objUSuario.Idusuario + objUSuario.nombre + objUSuario.apellido + ".jpg");
                     
                 }
                 catch (Exception Ex)
                 {
 
-
+                    Lblinfo.Text = Ex.Message;
 
                 }
             }
         }
        
-        public void imagenver()
+        public void Imagenver()
         {
-
-            FileUpload1.SaveAs(Server.MapPath("UsuariosImg") + "/azucar.jpg");
+            Usuarios objUSuario = (Usuarios)Session["Usuario"];
+            FileUpload1.SaveAs(Server.MapPath("UsuariosImg") + ("/" + objUSuario.Idusuario + objUSuario.nombre + objUSuario.apellido+ ".jpg"));
             Image1.ImageUrl = ("../UsuariosImg/azucar.jpg");
             Label1.Text = "La imagen " + FileUpload1.FileName + " ha cargado correctamente";
 
         }
        
-        public string encriptar()
+        public string Encriptar()
         {
             string PasswordEncriptado = string.Empty;
             byte[] encryted = System.Text.Encoding.Unicode.GetBytes(txtPassword.Text);
@@ -59,33 +61,24 @@ namespace Presentacion
             return PasswordEncriptado;
         }
      
-        protected void btnCrearU_Click(object sender, EventArgs e)
+        protected void BtnCrearU_Click(object sender, EventArgs e)
         {
-
+            Usuarios objUSuario = (Usuarios)Session["Usuario"];
 
             try
             {
-
-                if (!FileUpload1.HasFile)
+                if (objUSuario.Idusuario > 0)
                 {
-
-                    imagenver();
-                    objusuario.CrearUsuario(txtNombre.Text, txtApellido.Text, encriptar(), txtEmail.Text, int.Parse(ddlLocalidad.SelectedValue), Int64.Parse(txtTelefono.Text), ddlDocumento.Text, Int64.Parse(txtNoDocumento.Text), int.Parse(DropDownList1.SelectedValue), txtUsuario.Text);
-                    Usuarios objUsuario = objusuario.Login(txtEmail.Text, encriptar());
-
-                    Session["Usuario"] = objUsuario;
-                    Label1.Text = " haz sido creado correctamente Usuario ";
-                    
-                    table_reguistro.Visible = false;
-                    Table_final.Visible = true;
+                    objusuario.ActualizarUsuario(objUSuario.Idusuario, txtNombre.Text, txtApellido.Text, Int64.Parse(txtTelefono.Text), txtEmail.Text, int.Parse(ddlLocalidad.SelectedValue), ddlDocumento.Text, Encriptar(), txtUsuario.Text, int.Parse(DdlBarrio.SelectedValue), Int64.Parse(txtNoDocumento.Text));
                 }
 
                 else
                 {
-                    imagenver();
-                    objusuario.CrearUsuario(txtNombre.Text, txtApellido.Text, encriptar(), txtEmail.Text, int.Parse(ddlLocalidad.SelectedValue), Int64.Parse(txtTelefono.Text), ddlDocumento.Text, Int64.Parse(txtNoDocumento.Text), int.Parse(DropDownList1.SelectedValue), txtUsuario.Text);
-                    Usuarios objUsuario = objusuario.Login(txtEmail.Text, encriptar());
+                    
+                    objusuario.CrearUsuario(txtNombre.Text, txtApellido.Text, Encriptar(), txtEmail.Text, int.Parse(ddlLocalidad.SelectedValue), Int64.Parse(txtTelefono.Text), ddlDocumento.Text, Int64.Parse(txtNoDocumento.Text), int.Parse(DdlBarrio.SelectedValue), txtUsuario.Text);
+                    Usuarios objUsuario = objusuario.Login(txtEmail.Text, Encriptar());
                     Session["Usuario"] = objUsuario;
+                    Imagenver();
                     table_reguistro.Visible = false;
                     Table_final.Visible = true ;
                     Lblinfo.Text = ("El usuario con el nombre" + objUsuario.nombre +" "+ objUsuario.apellido + " ha sido creado");    
@@ -106,14 +99,14 @@ namespace Presentacion
 
         }
 
-        protected void btnCancelar_Click(object sender, EventArgs e)
+        protected void BtnCancelar_Click(object sender, EventArgs e)
         {
             Session.Abandon();
             Response.Redirect("inicio.aspx");
             
         }
 
-        protected void btnmirar_Click(object sender, EventArgs e)
+        protected void Btnmirar_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(FileUpload1.FileName))
             {
@@ -126,15 +119,15 @@ namespace Presentacion
            }
         }
 
-        protected void btnCancelar2_click(object sender, EventArgs e)
+        protected void BtnCancelar2_click(object sender, EventArgs e)
         {
             Session.Abandon();
             Response.Redirect("inicio.aspx");
 
         }
-        protected void btnContinuar_Click(object sender,EventArgs e)
+        protected void BtnContinuar_Click(object sender,EventArgs e)
         {
-            Response.Write("Usuariocreado");
+            
             Response.Redirect("EleccionFormulario.aspx");
             
         }
