@@ -61,6 +61,16 @@
                             <asp:ListItem Value="2300">11:00pm</asp:ListItem>
                             <asp:ListItem Value="2400">12:00am</asp:ListItem>
                         </asp:DropDownList>
+                        <br
+                        <asp:DropDownList ID="DdlBarrio" runat="server" DataTextField="Nombre_barrio" AppendDataBoundItems="True" DataValueField="IdBarrio" DataSourceID="SqlDataSource1">
+                           <asp:ListItem  Value="-1">Seleccionar</asp:ListItem>
+                        
+
+                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PyxisConnectionString %>" SelectCommand="ListarBarrios" SelectCommandType="StoredProcedure" DataSourceID="SqlDataSource1">
+                            <SelectParameters>
+                                <asp:ControlParameter ControlID="ddlLocalidad" Name="localidad" PropertyName="SelectedValue" Type="Int32" />
+                            </SelectParameters>
+                        </asp:SqlDataSource>
                         <br />
                         Hasta
                         <br />

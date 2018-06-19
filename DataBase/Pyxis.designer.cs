@@ -30,12 +30,12 @@ namespace DataBase
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnCreated();
-    partial void InsertUsuarios(Usuarios instance);
-    partial void UpdateUsuarios(Usuarios instance);
-    partial void DeleteUsuarios(Usuarios instance);
     partial void InsertBarrios(Barrios instance);
     partial void UpdateBarrios(Barrios instance);
     partial void DeleteBarrios(Barrios instance);
+    partial void InsertUsuarios(Usuarios instance);
+    partial void UpdateUsuarios(Usuarios instance);
+    partial void DeleteUsuarios(Usuarios instance);
     partial void InsertCalificaciones(Calificaciones instance);
     partial void UpdateCalificaciones(Calificaciones instance);
     partial void DeleteCalificaciones(Calificaciones instance);
@@ -63,7 +63,7 @@ namespace DataBase
     #endregion
 		
 		public PyxisDataContext() : 
-				base(global::DataBase.Properties.Settings.Default.PyxisConnectionString4, mappingSource)
+				base(global::DataBase.Properties.Settings.Default.PyxisConnectionString3, mappingSource)
 		{
 			OnCreated();
 		}
@@ -92,19 +92,19 @@ namespace DataBase
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Usuarios> Usuarios
-		{
-			get
-			{
-				return this.GetTable<Usuarios>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Barrios> Barrios
 		{
 			get
 			{
 				return this.GetTable<Barrios>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Usuarios> Usuarios
+		{
+			get
+			{
+				return this.GetTable<Usuarios>();
 			}
 		}
 		
@@ -240,6 +240,13 @@ namespace DataBase
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD);
 			return ((ISingleResult<ConsultarPaseadorServicioResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Crear_raza")]
+		public int Crear_raza([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nombre", DbType="VarChar(50)")] string nombre)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nombre);
+			return ((int)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CrearMascotas")]
@@ -387,6 +394,185 @@ namespace DataBase
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD);
 			return ((int)(result.ReturnValue));
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Barrios")]
+	public partial class Barrios : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _IdBarrio;
+		
+		private System.Nullable<int> _IdLocalidad;
+		
+		private string _Nombre_barrio;
+		
+		private EntitySet<Usuarios> _Usuarios;
+		
+		private EntityRef<Localidades> _Localidades;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdBarrioChanging(int value);
+    partial void OnIdBarrioChanged();
+    partial void OnIdLocalidadChanging(System.Nullable<int> value);
+    partial void OnIdLocalidadChanged();
+    partial void OnNombre_barrioChanging(string value);
+    partial void OnNombre_barrioChanged();
+    #endregion
+		
+		public Barrios()
+		{
+			this._Usuarios = new EntitySet<Usuarios>(new Action<Usuarios>(this.attach_Usuarios), new Action<Usuarios>(this.detach_Usuarios));
+			this._Localidades = default(EntityRef<Localidades>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdBarrio", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int IdBarrio
+		{
+			get
+			{
+				return this._IdBarrio;
+			}
+			set
+			{
+				if ((this._IdBarrio != value))
+				{
+					this.OnIdBarrioChanging(value);
+					this.SendPropertyChanging();
+					this._IdBarrio = value;
+					this.SendPropertyChanged("IdBarrio");
+					this.OnIdBarrioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdLocalidad", DbType="Int")]
+		public System.Nullable<int> IdLocalidad
+		{
+			get
+			{
+				return this._IdLocalidad;
+			}
+			set
+			{
+				if ((this._IdLocalidad != value))
+				{
+					if (this._Localidades.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIdLocalidadChanging(value);
+					this.SendPropertyChanging();
+					this._IdLocalidad = value;
+					this.SendPropertyChanged("IdLocalidad");
+					this.OnIdLocalidadChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre_barrio", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Nombre_barrio
+		{
+			get
+			{
+				return this._Nombre_barrio;
+			}
+			set
+			{
+				if ((this._Nombre_barrio != value))
+				{
+					this.OnNombre_barrioChanging(value);
+					this.SendPropertyChanging();
+					this._Nombre_barrio = value;
+					this.SendPropertyChanged("Nombre_barrio");
+					this.OnNombre_barrioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Barrios_Usuarios", Storage="_Usuarios", ThisKey="IdBarrio", OtherKey="Barrio")]
+		public EntitySet<Usuarios> Usuarios
+		{
+			get
+			{
+				return this._Usuarios;
+			}
+			set
+			{
+				this._Usuarios.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Localidades_Barrios", Storage="_Localidades", ThisKey="IdLocalidad", OtherKey="idLocalidad", IsForeignKey=true)]
+		public Localidades Localidades
+		{
+			get
+			{
+				return this._Localidades.Entity;
+			}
+			set
+			{
+				Localidades previousValue = this._Localidades.Entity;
+				if (((previousValue != value) 
+							|| (this._Localidades.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Localidades.Entity = null;
+						previousValue.Barrios.Remove(this);
+					}
+					this._Localidades.Entity = value;
+					if ((value != null))
+					{
+						value.Barrios.Add(this);
+						this._IdLocalidad = value.idLocalidad;
+					}
+					else
+					{
+						this._IdLocalidad = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Localidades");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Usuarios(Usuarios entity)
+		{
+			this.SendPropertyChanging();
+			entity.Barrios = this;
+		}
+		
+		private void detach_Usuarios(Usuarios entity)
+		{
+			this.SendPropertyChanging();
+			entity.Barrios = null;
 		}
 	}
 	
@@ -975,185 +1161,6 @@ namespace DataBase
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Barrios")]
-	public partial class Barrios : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _IdBarrio;
-		
-		private System.Nullable<int> _IdLocalidad;
-		
-		private string _Nombre_barrio;
-		
-		private EntitySet<Usuarios> _Usuarios;
-		
-		private EntityRef<Localidades> _Localidades;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdBarrioChanging(int value);
-    partial void OnIdBarrioChanged();
-    partial void OnIdLocalidadChanging(System.Nullable<int> value);
-    partial void OnIdLocalidadChanged();
-    partial void OnNombre_barrioChanging(string value);
-    partial void OnNombre_barrioChanged();
-    #endregion
-		
-		public Barrios()
-		{
-			this._Usuarios = new EntitySet<Usuarios>(new Action<Usuarios>(this.attach_Usuarios), new Action<Usuarios>(this.detach_Usuarios));
-			this._Localidades = default(EntityRef<Localidades>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdBarrio", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int IdBarrio
-		{
-			get
-			{
-				return this._IdBarrio;
-			}
-			set
-			{
-				if ((this._IdBarrio != value))
-				{
-					this.OnIdBarrioChanging(value);
-					this.SendPropertyChanging();
-					this._IdBarrio = value;
-					this.SendPropertyChanged("IdBarrio");
-					this.OnIdBarrioChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdLocalidad", DbType="Int")]
-		public System.Nullable<int> IdLocalidad
-		{
-			get
-			{
-				return this._IdLocalidad;
-			}
-			set
-			{
-				if ((this._IdLocalidad != value))
-				{
-					if (this._Localidades.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIdLocalidadChanging(value);
-					this.SendPropertyChanging();
-					this._IdLocalidad = value;
-					this.SendPropertyChanged("IdLocalidad");
-					this.OnIdLocalidadChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre_barrio", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Nombre_barrio
-		{
-			get
-			{
-				return this._Nombre_barrio;
-			}
-			set
-			{
-				if ((this._Nombre_barrio != value))
-				{
-					this.OnNombre_barrioChanging(value);
-					this.SendPropertyChanging();
-					this._Nombre_barrio = value;
-					this.SendPropertyChanged("Nombre_barrio");
-					this.OnNombre_barrioChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Barrios_Usuarios", Storage="_Usuarios", ThisKey="IdBarrio", OtherKey="Barrio")]
-		public EntitySet<Usuarios> Usuarios
-		{
-			get
-			{
-				return this._Usuarios;
-			}
-			set
-			{
-				this._Usuarios.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Localidades_Barrios", Storage="_Localidades", ThisKey="IdLocalidad", OtherKey="idLocalidad", IsForeignKey=true)]
-		public Localidades Localidades
-		{
-			get
-			{
-				return this._Localidades.Entity;
-			}
-			set
-			{
-				Localidades previousValue = this._Localidades.Entity;
-				if (((previousValue != value) 
-							|| (this._Localidades.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Localidades.Entity = null;
-						previousValue.Barrios.Remove(this);
-					}
-					this._Localidades.Entity = value;
-					if ((value != null))
-					{
-						value.Barrios.Add(this);
-						this._IdLocalidad = value.idLocalidad;
-					}
-					else
-					{
-						this._IdLocalidad = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Localidades");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Usuarios(Usuarios entity)
-		{
-			this.SendPropertyChanging();
-			entity.Barrios = this;
-		}
-		
-		private void detach_Usuarios(Usuarios entity)
-		{
-			this.SendPropertyChanging();
-			entity.Barrios = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Calificaciones")]
 	public partial class Calificaciones : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1363,9 +1370,9 @@ namespace DataBase
 		
 		private string _nombre;
 		
-		private EntitySet<Usuarios> _Usuarios;
-		
 		private EntitySet<Barrios> _Barrios;
+		
+		private EntitySet<Usuarios> _Usuarios;
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
@@ -1379,8 +1386,8 @@ namespace DataBase
 		
 		public Localidades()
 		{
-			this._Usuarios = new EntitySet<Usuarios>(new Action<Usuarios>(this.attach_Usuarios), new Action<Usuarios>(this.detach_Usuarios));
 			this._Barrios = new EntitySet<Barrios>(new Action<Barrios>(this.attach_Barrios), new Action<Barrios>(this.detach_Barrios));
+			this._Usuarios = new EntitySet<Usuarios>(new Action<Usuarios>(this.attach_Usuarios), new Action<Usuarios>(this.detach_Usuarios));
 			OnCreated();
 		}
 		
@@ -1424,19 +1431,6 @@ namespace DataBase
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Localidades_Usuarios", Storage="_Usuarios", ThisKey="idLocalidad", OtherKey="localidad")]
-		public EntitySet<Usuarios> Usuarios
-		{
-			get
-			{
-				return this._Usuarios;
-			}
-			set
-			{
-				this._Usuarios.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Localidades_Barrios", Storage="_Barrios", ThisKey="idLocalidad", OtherKey="IdLocalidad")]
 		public EntitySet<Barrios> Barrios
 		{
@@ -1447,6 +1441,19 @@ namespace DataBase
 			set
 			{
 				this._Barrios.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Localidades_Usuarios", Storage="_Usuarios", ThisKey="idLocalidad", OtherKey="localidad")]
+		public EntitySet<Usuarios> Usuarios
+		{
+			get
+			{
+				return this._Usuarios;
+			}
+			set
+			{
+				this._Usuarios.Assign(value);
 			}
 		}
 		
@@ -1470,18 +1477,6 @@ namespace DataBase
 			}
 		}
 		
-		private void attach_Usuarios(Usuarios entity)
-		{
-			this.SendPropertyChanging();
-			entity.Localidades = this;
-		}
-		
-		private void detach_Usuarios(Usuarios entity)
-		{
-			this.SendPropertyChanging();
-			entity.Localidades = null;
-		}
-		
 		private void attach_Barrios(Barrios entity)
 		{
 			this.SendPropertyChanging();
@@ -1489,6 +1484,18 @@ namespace DataBase
 		}
 		
 		private void detach_Barrios(Barrios entity)
+		{
+			this.SendPropertyChanging();
+			entity.Localidades = null;
+		}
+		
+		private void attach_Usuarios(Usuarios entity)
+		{
+			this.SendPropertyChanging();
+			entity.Localidades = this;
+		}
+		
+		private void detach_Usuarios(Usuarios entity)
 		{
 			this.SendPropertyChanging();
 			entity.Localidades = null;

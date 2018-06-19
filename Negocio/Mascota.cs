@@ -30,7 +30,11 @@ public class Mascota : Respuesta
 
         }
 
-
+        public void Crear_Raza(string nombre)
+        {
+            Mascotas mascotas = new Mascotas();
+            data.Crear_raza(nombre);
+        }
         //public bool CrearPaseador(int id, string especialidad, float precio, int HoraIni, int HoraFin, string Dias, byte[] pdf)
     }
 }

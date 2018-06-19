@@ -54,7 +54,7 @@ namespace Presentacion
         {
             Usuarios objUSuario = (Usuarios)Session["Usuario"];
             FileUpload1.SaveAs(Server.MapPath("UsuariosImg") + ("/" + objUSuario.Idusuario + objUSuario.nombre + objUSuario.apellido+ ".jpg"));
-            Image1.ImageUrl = ("../UsuariosImg/azucar.jpg");
+            Image1.ImageUrl = ("../UsuariosImg/" + objUSuario.Idusuario + objUSuario.nombre + objUSuario.apellido+ ".jpg");
             Label1.Text = "La imagen " + FileUpload1.FileName + " ha cargado correctamente";
 
         }
@@ -116,12 +116,9 @@ namespace Presentacion
         {
             if (!string.IsNullOrEmpty(FileUpload1.FileName))
             {
-                                      
+
+                Imagenver();
                 
-                FileUpload1.SaveAs(Server.MapPath("UsuariosImg") + "/azucar.jpg");
-                Image1.ImageUrl = ("../UsuariosImg/azucar.jpg");
-                Label1.Text="La imagen "+ FileUpload1.FileName +" ha cargado correctamente";
-               
            }
         }
 

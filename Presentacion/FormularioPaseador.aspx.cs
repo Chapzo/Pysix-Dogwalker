@@ -18,7 +18,8 @@ namespace Presentacion
 
             if (!IsPostBack)
             {
-                if ((Usuarios)Session["Usuario"] != null)
+                Usuarios objusuario = (Usuarios)Session["Usuario"];
+                if (objusuario == null)
                 {
                     Response.Redirect("Menu.aspx");
 
