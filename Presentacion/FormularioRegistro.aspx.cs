@@ -17,40 +17,43 @@ namespace Presentacion
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            {Usuarios objUSuario = (Usuarios)Session["Usuario"];
-                if (objUSuario.Idusuario==null)
+            {
+                Usuarios objUSuario = (Usuarios)Session["Usuario"];
+
+
+                try
                 {
-                    try
-                    {
 
 
-                        txtNombre.Text = objUSuario.nombre;
-                        txtApellido.Text = objUSuario.apellido;
-                        txtEmail.Text = objUSuario.correo;
-                        txtPassword.Text = string.Empty;
-                        txtPasswordConfirm.Text = string.Empty;
-                        ddlLocalidad.SelectedValue = objUSuario.Localidades.nombre;
-                        ddlDocumento.SelectedValue = objUSuario.tipo_doc;
-                        txtNoDocumento.Text = Convert.ToString(objUSuario.documento);
-                        txtTelefono.Text = Convert.ToString(objUSuario.telefono);
-                        DdlBarrio.SelectedValue = objUSuario.Barrios.Nombre_barrio;
-                        Image1.ImageUrl = ("../UsuariosImg/" + objUSuario.Idusuario + objUSuario.nombre + objUSuario.apellido + ".jpg");
+                    txtNombre.Text = objUSuario.nombre;
+                    txtApellido.Text = objUSuario.apellido;
+                    txtEmail.Text = objUSuario.correo;
+                    txtPassword.Text = string.Empty;
+                    txtPasswordConfirm.Text = string.Empty;
+                    ddlLocalidad.SelectedValue = objUSuario.Localidades.nombre;
+                    ddlDocumento.SelectedValue = objUSuario.tipo_doc;
+                    txtNoDocumento.Text = Convert.ToString(objUSuario.documento);
+                    txtTelefono.Text = Convert.ToString(objUSuario.telefono);
+                    DdlBarrio.SelectedValue = objUSuario.Barrios.Nombre_barrio;
+                    Image1.ImageUrl = ("../UsuariosImg/" + objUSuario.Idusuario + objUSuario.nombre + objUSuario.apellido + ".jpg");
 
-                    }
-                    catch (Exception Ex)
-                    {
-
-                        Lblinfo.Text = Ex.Message;
-                    }
                 }
-                   else
-	{              Session.Abandon();
-                    Response.Redirect("Inicio.aspx");
-                }
+                catch (Exception Ex)
+                {
+
+                    Lblinfo.Text = Ex.Message;
                 }
 
             }
-        
+            else
+            {
+                Session.Abandon();
+                Response.Redirect("Inicio.aspx");
+
+            }
+
+        }
+    
        
         public void Imagenver()
         {
