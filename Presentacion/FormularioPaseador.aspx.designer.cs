@@ -94,6 +94,15 @@ namespace Presentacion {
         protected global::System.Web.UI.WebControls.CheckBoxList CblDias;
         
         /// <summary>
+        /// Control CustomValidator1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator CustomValidator1;
+        
+        /// <summary>
         /// Control DdlEspecialidad.
         /// </summary>
         /// <remarks>
@@ -103,13 +112,13 @@ namespace Presentacion {
         protected global::System.Web.UI.WebControls.DropDownList DdlEspecialidad;
         
         /// <summary>
-        /// Control RequiredFieldValidator1.
+        /// Control CompareValidator5.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator5;
         
         /// <summary>
         /// Control txtPrecio.

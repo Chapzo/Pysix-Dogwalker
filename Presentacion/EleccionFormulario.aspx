@@ -26,7 +26,7 @@
            </asp:TableRow>
            <asp:TableRow>
                
-               <asp:TableCell  HorizontalAlign="Center"><a href="FormularioMascota.aspx">Cliente</a></></asp:TableCell>
+               <asp:TableCell  HorizontalAlign="Center"><a href="FormularioMascota.aspx">Cliente</a></asp:TableCell>
                <asp:TableCell HorizontalAlign="Center" ><a href="FormularioPaseador.aspx">Paseador</a></asp:TableCell>
                
            </asp:TableRow>

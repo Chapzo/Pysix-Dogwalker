@@ -25,7 +25,7 @@ namespace Presentacion
         private void LlenarTablaPedirServicio()
         {
 
-            GvServicio.DataSource = PSUsuario.organizarServicio();
+            GvServicio.DataSource = PSUsuario.OrganizarServicio();
             GvServicio.DataBind();
         }
         protected void btnCancelar_Click(object sender, EventArgs e)

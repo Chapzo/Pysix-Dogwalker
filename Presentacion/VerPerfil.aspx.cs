@@ -25,6 +25,7 @@ namespace Presentacion
 
                     if (objUSuario.Usu_rol == 1)
                     {
+                        imgPerfil.ImageUrl = ("../UsuariosImg/" + objUSuario.Idusuario + objUSuario.nombre + objUSuario.apellido + ".jpg");
                         TxtPrec.Text = "5";
                         Paseadores objUpase = objupase.ObtenerPerfil(objUSuario.Idusuario);
                         Txtdisponibilidad.Text = objUpase.dias;
@@ -34,25 +35,15 @@ namespace Presentacion
                         ddlHoraFin.SelectedValue = objUpase.HoraFin.ToString();
                         LblEsR.Text = objUpase.estado;
                     }
+
                     else
                     {
                         TblPas.Visible = false;
+                        imgPerfil.ImageUrl = ("../UsuariosImg/" + objUSuario.Idusuario + objUSuario.nombre + objUSuario.apellido + ".jpg");
+                        
                     }
 
-                    Txtrol.Text = objUSuario.Roles.nombre;
-                    
-                    
-                    Txtnom.Text = objUSuario.nombre;
-                    TxtApe.Text = objUSuario.apellido;
                    
-                    TxtCorreo.Text = objUSuario.correo;
-                    ddlLocalidad.SelectedValue = objUSuario.localidad.ToString();
-                    //txtDocumento.Text = objUSuario.tipo_doc;
-                    TxtDo.Text = Convert.ToString(objUSuario.documento);
-                    TxtTelefono.Text = Convert.ToString(objUSuario.telefono);
-                    //txtBarrio.Text = objUSuario.barrio;
-                    
-                    Txtrol.Enabled = true;
                     
                 }
                 catch (Exception Ex)

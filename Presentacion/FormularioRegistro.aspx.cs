@@ -17,32 +17,40 @@ namespace Presentacion
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            {
-                try
+            {Usuarios objUSuario = (Usuarios)Session["Usuario"];
+                if (objUSuario.Idusuario==0)
                 {
-                    
-                    Usuarios objUSuario = (Usuarios)Session["Usuario"];
-                    txtNombre.Text = objUSuario.nombre;
-                    txtApellido.Text = objUSuario.apellido;
-                    txtEmail.Text = objUSuario.correo;
-                    txtPassword.Text = string.Empty;
-                    txtPasswordConfirm.Text = string.Empty;
-                    ddlLocalidad.SelectedValue = objUSuario.Localidades.nombre;
-                    ddlDocumento.SelectedValue = objUSuario.tipo_doc;
-                    txtNoDocumento.Text = Convert.ToString(objUSuario.documento);
-                    txtTelefono.Text = Convert.ToString(objUSuario.telefono);
-                    DdlBarrio.SelectedValue = objUSuario.Barrios.Nombre_barrio;
-                    Image1.ImageUrl = ("../UsuariosImg/" + objUSuario.Idusuario + objUSuario.nombre + objUSuario.apellido + ".jpg");
-                    
-                }
-                catch (Exception Ex)
-                {
+                    try
+                    {
 
-                    Lblinfo.Text = Ex.Message;
 
+                        txtNombre.Text = objUSuario.nombre;
+                        txtApellido.Text = objUSuario.apellido;
+                        txtEmail.Text = objUSuario.correo;
+                        txtPassword.Text = string.Empty;
+                        txtPasswordConfirm.Text = string.Empty;
+                        ddlLocalidad.SelectedValue = objUSuario.Localidades.nombre;
+                        ddlDocumento.SelectedValue = objUSuario.tipo_doc;
+                        txtNoDocumento.Text = Convert.ToString(objUSuario.documento);
+                        txtTelefono.Text = Convert.ToString(objUSuario.telefono);
+                        DdlBarrio.SelectedValue = objUSuario.Barrios.Nombre_barrio;
+                        Image1.ImageUrl = ("../UsuariosImg/" + objUSuario.Idusuario + objUSuario.nombre + objUSuario.apellido + ".jpg");
+
+                    }
+                    catch (Exception Ex)
+                    {
+
+                        Lblinfo.Text = Ex.Message;
+                    }
                 }
+                   else
+	{              Session.Abandon();
+                    Response.Redirect("Inicio.aspx");
+                }
+                }
+
             }
-        }
+        
        
         public void Imagenver()
         {
@@ -67,12 +75,8 @@ namespace Presentacion
 
             try
             {
-                if (objUSuario.Idusuario > 0)
-                {
-                    objusuario.ActualizarUsuario(objUSuario.Idusuario, txtNombre.Text, txtApellido.Text, Int64.Parse(txtTelefono.Text), txtEmail.Text, int.Parse(ddlLocalidad.SelectedValue), ddlDocumento.Text, Encriptar(), txtUsuario.Text, int.Parse(DdlBarrio.SelectedValue), Int64.Parse(txtNoDocumento.Text));
-                }
+                if ((Usuarios)Session["Usuario"]==null )
 
-                else
                 {
                     
                     objusuario.CrearUsuario(txtNombre.Text, txtApellido.Text, Encriptar(), txtEmail.Text, int.Parse(ddlLocalidad.SelectedValue), Int64.Parse(txtTelefono.Text), ddlDocumento.Text, Int64.Parse(txtNoDocumento.Text), int.Parse(DdlBarrio.SelectedValue), txtUsuario.Text);
@@ -81,16 +85,20 @@ namespace Presentacion
                     Imagenver();
                     table_reguistro.Visible = false;
                     Table_final.Visible = true ;
-                    Lblinfo.Text = ("El usuario con el nombre" + objUsuario.nombre +" "+ objUsuario.apellido + " ha sido creado");    
+                    Lblinfo.Text = ("El usuario con el nombre " + objUsuario.nombre +" "+ objUsuario.apellido + " ha sido creado");    
                 }
+                else
 
-
-
-
-
-
-                
-            }
+                {
+                    objusuario.ActualizarUsuario(objUSuario.Idusuario, txtNombre.Text, txtApellido.Text, Int64.Parse(txtTelefono.Text), txtEmail.Text, int.Parse(ddlLocalidad.SelectedValue), ddlDocumento.Text, Encriptar(), txtUsuario.Text, int.Parse(DdlBarrio.SelectedValue), Int64.Parse(txtNoDocumento.Text));
+                    Usuarios objUsuario = objusuario.Login(txtEmail.Text, Encriptar());
+                    Session["Usuario"] = objUsuario;
+                    Imagenver();
+                    table_reguistro.Visible = false;
+                    Table_final.Visible = true;
+                    Lblinfo.Text = ("El usuario con el nombre " + objUsuario.nombre + " " + objUsuario.apellido + " ha sido creado");
+                }
+      }
             catch (Exception ex)
             {
 

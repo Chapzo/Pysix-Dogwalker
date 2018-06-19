@@ -16,22 +16,14 @@ namespace Presentacion
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            //if (!IsPostBack)
-            //{
-            //    try
-            //    {
-            //        Usuarios objUSuario = (Usuarios)Session["Usuario"];
+            if (!IsPostBack)
+            {
+                if ((Usuarios)Session["Usuario"] != null)
+                {
+                    Response.Redirect("Menu.aspx");
 
-
-
-            //    }
-            //    catch (Exception Ex)
-            //    {
-            //        Session.Abandon();
-            //        Response.Redirect("Inicio.aspx");
-
-            //    }
-            //}
+                }
+            }
         }
         protected void BtnCrearP_Click(object sender, EventArgs e)
         {
@@ -55,8 +47,15 @@ namespace Presentacion
 
                 objpaseador.CrearPaseador(objUSuario.Idusuario, DdlEspecialidad.SelectedValue, float.Parse(txtPrecio.Text), int.Parse(ddlHoraInicio.SelectedValue), int.Parse(ddlHoraFin.SelectedValue),dias, contenido);
                 objpaseador.Rolselec(objUSuario.Idusuario, 1);
-                Response.Redirect("Menu.aspx");
+                Table_ConfirmCancelar.Visible = true;
+                Table_FormPaseador.Visible = false;
+                Lblinfo.Text = (objUSuario.nombre + "Ya finalizaste la inscripcion , ahora espera a que nuestros administradores confirmen tu informacion que llegara a tu correo");
+                btnSi.Text = "Continuar";
+                btnNo.Visible = false;
 
+               Paseadores Objupase= objpaseador.ObtenerPerfil(objUSuario.Idusuario);
+
+                Session["Paseador"] = Objupase;
             }
             catch (Exception ex)
             {
@@ -66,14 +65,23 @@ namespace Presentacion
         }
 
         protected void BtnCancelar_Click(object sender, EventArgs e)
-        {
+         {  
             
+            Table_FormPaseador.Visible = false;
+            Table_ConfirmCancelar.Visible = true;
         }
         protected void BtnSi_Click(object sender, EventArgs e)
         {
-
-            Session.Abandon();
+            if ((Paseadores)Session["Paseador"] == null)
+            {
+             Session.Abandon();
             Response.Redirect("Inicio.aspx");
+            }
+            else
+            {
+                Response.Redirect("Inicio.aspx");
+            }
+            
         }
         protected void BtnNo_click(object sender, EventArgs e)
         {
@@ -82,15 +90,15 @@ namespace Presentacion
         }
         protected void BtnRegresar_Click(object sender, EventArgs e)
         {
-            Usuarios objUSuario = (Usuarios)Session["Usuario"];
-            if (objUSuario.Usu_rol == 2)
+           
+            if ((Paseadores)Session["Paseador"]== null)
             {
-                Response.Redirect("inicio.aspx");
+                Response.Redirect("EleccionFormulario.aspx");
+               
             }
             else
             {
-
-                Response.Redirect("EleccionFormulario.aspx");
+             Response.Redirect("inicio.aspx");
             }
         }
 

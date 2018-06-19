@@ -8,22 +8,20 @@
     <title>Paseador</title>
     <link href="css/Estilos1.css" rel="stylesheet" />
      <script type = "text/javascript">
-         function ValidateCheckBox(sender, args) {
-             if (document.getElementById("<%=CblDias.ClientID %>").checked == true) {
-                 args.IsValid = true;
-             } else {
-                 args.IsValid = false;
-             }
-         }
+         function ValidateModuleList(source, args) {
+             var chkListModules = document.getElementById('<%= CblDias.ClientID %>');
+        var chkListinputs = chkListModules.getElementsByTagName("input");
+        for (var i = 0; i < chkListinputs.length; i++) {
+            if (chkListinputs[i].checked) {
+                args.IsValid = true;
+                return;
+            }
+        }
+        args.IsValid = false;
+    }
     </script>
-    <style type="text/css">
-        .auto-style1 {
-            width: 276px;
-        }
-        .auto-style2 {
-            width: 124px;
-        }
-    </style>
+
+   
 </head>
 <body>
     <form id="FormPaseador" runat="server">
@@ -37,7 +35,7 @@
                     <td>Disponibilidad: </td>
                     <td>
                         <asp:DropDownList ID="ddlHoraInicio" runat="server">
-                            <asp:ListItem>Seleccionar</asp:ListItem>
+                            <asp:ListItem Value="0">Seleccionar</asp:ListItem>
                             <asp:ListItem Value="100">1:00am</asp:ListItem>
                             <asp:ListItem Value="200">2:00am</asp:ListItem>
                             <asp:ListItem Value="300">3:00am</asp:ListItem>
@@ -66,8 +64,8 @@
                         <br />
                         Hasta
                         <br />
-                        <asp:DropDownList ID="ddlHoraFin" runat="server">
-                            <asp:ListItem>Seleccionar</asp:ListItem>
+                        <asp:DropDownList ID="ddlHoraFin" runat="server" EnableTheming="False" >
+                            <asp:ListItem Value="0">Seleccionar</asp:ListItem>
                             <asp:ListItem Value="100">1:00am</asp:ListItem>
                             <asp:ListItem Value="200">2:00am</asp:ListItem>
                             <asp:ListItem Value="300">3:00am</asp:ListItem>
@@ -94,9 +92,9 @@
                             <asp:ListItem Value="2400">12:00am</asp:ListItem>
                         </asp:DropDownList>
                         <br />
-                        <asp:CompareValidator ID="CompareValidator3" runat="server" ControlToValidate="ddlHoraFin" Display="Dynamic" ErrorMessage="Selecciona una hora de finalizacion" ForeColor="Red"></asp:CompareValidator>
-                        <asp:CompareValidator ID="CompareValidator4" runat="server" ControlToValidate="ddlHoraInicio" Display="Dynamic" ErrorMessage="Selecciona una hora de Inicio" ForeColor="Red"></asp:CompareValidator>
-<asp:CompareValidator ID="CompareValidator2" runat="server" ErrorMessage="La hora de fin es más temprana que la hora final" Display="Dynamic" ControlToCompare="ddlHoraInicio" ControlToValidate="ddlHoraFin" ForeColor="Red" Operator="GreaterThan"></asp:CompareValidator>
+                        <asp:CompareValidator ID="CompareValidator3" runat="server" ControlToValidate="ddlHoraFin" Display="Dynamic" ErrorMessage="Selecciona una hora de finalizacion" ForeColor="Red" ValueToCompare="0" Operator="NotEqual"></asp:CompareValidator>
+                        <asp:CompareValidator ID="CompareValidator4" runat="server" ControlToValidate="ddlHoraInicio" Display="Dynamic" ErrorMessage="Selecciona una hora de Inicio" ForeColor="Red" ValueToCompare="0" Operator="NotEqual"></asp:CompareValidator>
+<asp:CompareValidator ID="CompareValidator2" runat="server" ErrorMessage="La hora de fin es más temprana que la hora inicio" Display="Dynamic" ControlToCompare="ddlHoraFin" ControlToValidate="ddlHoraInicio" ForeColor="Red" Operator="LessThanEqual" Type="Integer"></asp:CompareValidator>
                         <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
                         </td>
                         <td class="auto-style2">
@@ -114,18 +112,16 @@
                             
                        
                         </td>
-                    <td class="auto-style1">
-
-                        
-                       <asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="Seleccione un dia como mínimo" ClientValidationFunction="ValidateCheckBox" ForeColor="Red" Display="Dynamic" "></asp:CustomValidator>
+                    <td>  
+                        <asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="Seleccione un dia"  ClientValidationFunction="ValidateModuleList" Display="Dynamic" ForeColor="Red" ></asp:CustomValidator>
                     </td>
                     </tr>
                       
                 <tr>
-                    <td>Especialidad: </td>
+                    <td>Especialidad: </td>           
                     <td colspan="2">
                         <asp:DropDownList ID="DdlEspecialidad" runat="server">
-                            <asp:ListItem Selected="True">Seleccionar</asp:ListItem>
+                            <asp:ListItem Selected="True" Value="0">Seleccionar</asp:ListItem>
                             <asp:ListItem>BañarPerros</asp:ListItem>
                             <asp:ListItem>PasearPerros</asp:ListItem>
                             <asp:ListItem>EntrenarPerros</asp:ListItem>
@@ -133,7 +129,7 @@
                         </asp:DropDownList>
                    </td>
                     <td class="auto-style1">
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Seleccione su especialidad" ControlToValidate="DdlEspecialidad" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+                        <asp:CompareValidator ID="CompareValidator5" runat="server" ControlToValidate="DdlEspecialidad" ErrorMessage="Selecciona una especialidad" ForeColor="Red" Operator="NotEqual" ValueToCompare="0"></asp:CompareValidator>
                         
                     </td>
                 </tr>
@@ -172,7 +168,7 @@
             </table>
 <asp:Table ID="Table_ConfirmCancelar" Visible="false" HorizontalAlign="Center"  runat="server">
             <asp:TableHeaderRow>
-                <asp:TableCell HorizontalAlign="Center" > <asp:Label runat="server">Seguro Usted desea salir </asp:Label> </asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center" > <asp:Label runat="server" Text="Seguro Usted desea salir?"> </asp:Label> </asp:TableCell>
             </asp:TableHeaderRow>
             <asp:TableRow>
                 <asp:TableCell><asp:label text="" ID="Lblinfo" runat="server" /></asp:TableCell></asp:TableRow><asp:TableHeaderRow>

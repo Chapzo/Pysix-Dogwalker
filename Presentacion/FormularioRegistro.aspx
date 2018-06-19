@@ -30,8 +30,8 @@
                 </asp:TableRow>
                  <asp:TableRow>
                     <asp:TableCell ColumnSpan="3">
-                        <asp:FileUpload ID="FileUpload1" accept=".jpg" runat="server" OnLoad="btnmirar_Click" OnPreRender="btnmirar_Click" OnUnload="btnmirar_Click" />
-                        <asp:Button ID="btnmirar" runat="server" Text="visualizar" OnClick="btnmirar_Click" />
+                        <asp:FileUpload ID="FileUpload1" accept=".jpg" runat="server" OnLoad="Btnmirar_Click" OnPreRender="Btnmirar_Click" OnUnload="Btnmirar_Click" />
+                        <asp:Button ID="btnmirar" runat="server" Text="visualizar" OnClick="Btnmirar_Click" />
                      </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>
@@ -126,7 +126,7 @@
                     </asp:TableCell>
                      <asp:TableCell>
 
-                         <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="DropDownList1" ErrorMessage="Seleccione un Barrio porfavor" InitialValue="-1" ForeColor="#CC0000"></asp:RequiredFieldValidator>
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="DdlBarrio" ErrorMessage="Seleccione un Barrio porfavor" InitialValue="-1" ForeColor="#CC0000"></asp:RequiredFieldValidator>
 
                      </asp:TableCell>
                 </asp:TableRow>
@@ -196,12 +196,12 @@
                 <asp:TableCell HorizontalAlign="Center" > <asp:Label runat="server">Confirmar Creacion </asp:Label> </asp:TableCell>
             </asp:TableHeaderRow>
             <asp:TableRow>
-                <asp:TableCell><asp:label text="el usuario Ya ha sido creado correctamente" ID="Lblinfo" runat="server" /></asp:TableCell>
+                <asp:TableCell><asp:label text="el usuario Ya ha sido creado correctamente" ID="Lblinfo" runat="server"  /></asp:TableCell>
               </asp:TableRow>
             <asp:TableHeaderRow>
-                <asp:TableCell>
-                    <asp:Button runat="server" CssClass="Boton1"   ID="BtnContinuar" Text="Continuar"  OnClick="BtnContinuar_Click" />
-                    <asp:Button runat ="server" ID="BtnCancelar2" Text="Cancelar" CssClass="Boton2" OnClientClick="BtnCancelar2_click" />
+                <asp:TableCell HorizontalAlign="Justify">
+                    <asp:Button runat="server" CssClass="Boton1"   ID="BtnContinuar" Text="Continuar"  OnClick="BtnContinuar_Click"  />
+                    <asp:Button  runat ="server" ID="BtnCancelar2" Text="Cancelar" CssClass="Boton2" OnClientClick="BtnCancelar2_click" />
                 </asp:TableCell>
             </asp:TableHeaderRow>     
         </asp:Table>  
