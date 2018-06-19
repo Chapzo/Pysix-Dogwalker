@@ -6,41 +6,140 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-    <link href="css/Estilos1.css" rel="stylesheet" />
+    <link href="DisenoMaster/css/bootstrap.min.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-   <%-- <script type="text/javascript">
-        window.onload = function ocultar() {
-            <%string Rol = Convert.ToString(Session["UsuarioRol"]);%>
-            
-            if(<%Rol;%> == "3"){}
-            document.getElementById('btnServicio').style.display = 'none';
-        }
-
-        function OcultarBotones() {
-
-        }
-    </script>--%>
 </head>
-<body>
+<body style="background-image: url('img/Fondo.png'); background-position: center center; background-repeat: no-repeat; background-attachment: fixed; background-size: cover">
 
+    <style>
+
+        .TablaTitulos{
+            background-color: #ffc107;            
+            border-radius: 10px;
+        }
+                .tabla-responsive{display:block;width:40%;overflow-x:auto;-webkit-overflow-scrolling:touch;-ms-overflow-style:-ms-autohiding-scrollbar}
+        .bg-tabla-amarillo{background-color:#ffc107!important; color:#f8f9fa; text-align: center;}
+        .bg-tabla-rojo{background-color:#f24b4b!important; color:#f8f9fa; text-align: center;}
+        .table-borderedxd{border-radius: 10px;}
+
+        .mGrid {
+    width: 60%;
+    background-color: #fff;
+    margin: 5px 0 10px 0;
+    border: solid 1px #525252;
+    border-collapse: collapse;
+}
+
+    .mGrid td {
+        padding: 2px;
+        border: solid 1px #c1c1c1;
+        color: #717171;
+    }
+
+    .mGrid th {
+        padding: 4px 2px;
+        color: #fff;
+        background: #f27a24 url(grd_head.png) repeat-x top;
+        border-left: solid 1px #525252;
+        font-size: 0.9em;
+        text-align: center;
+    }
+
+    .mGrid .alt {
+        background: #fcfcfc url(grd_alt.png) repeat-x top;
+    }
+
+    .mGrid .pgr {
+        background: #424242 url(grd_pgr.png) repeat-x top;
+    }
+
+        .mGrid .pgr table {
+            margin: 5px 0;
+        }
+
+        .mGrid .pgr td {
+            border-width: 0;
+            padding: 0 6px;
+            border-left: solid 1px #666;
+            font-weight: bold;
+            color: #fff;
+            line-height: 12px;
+        }
+
+        .mGrid .pgr a {
+            color: #666;
+            text-decoration: none;
+        }
+
+            .mGrid .pgr a:hover {
+                color: #000;
+                text-decoration: none;
+            }
+    </style>
     
     <form id="form1" runat="server">
         <div>
-            <ul>
 
-  			    <li class="liLeft"><a href="Menu.aspx"><img class="LogoHeader" src="img/PyxisLogo.png"></a></li> 
-  			    <li class="liLeft"><asp:Button ID="btnClientes" CssClass="btnMasterPage" runat="server" Text="Clientes" OnClick="btnClientes_Click"/></li>
-                <li class="liLeft"><asp:Button ID="btnPaseadores" CssClass="btnMasterPage" runat="server" Text="Paseadores" OnClick="btnPaseadores_Click"/></li>
-  			    <li class="liLeft"><asp:Button ID="btnServicio" CssClass="btnMasterPage" runat="server" Text="Pedir servicio" OnClick="btnServicio_Click"/></li>
-                <li class="liLeft"><asp:Button ID="btnPendiente" CssClass="btnMasterPage" runat="server" Text="Bandeja de entrada" OnClick="btnPendiente_Click"/></li>
-                <li class="liLeft"><asp:Button ID="btnPerfil" CssClass="btnMasterPage" runat="server" Text="Ver perfil" OnClick="btnPerfil_Click"/></li>
-                <li class="liLeft"><asp:Button ID="btnHistorial" CssClass="btnMasterPage" runat="server" Text="Historial" OnClick="btnHistorial_Click"/></li>
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      
+     <a class="navbar-brand" href="Menu.aspx">
+    <img src="img/IconoPyxis.png" width="30" height="30" class="d-inline-block align-top" alt="">
+    Pixys
+  </a>
+     <ul class="navbar-nav">
+      <li class="nav-item active" style="padding-left: 2px;">
+        <asp:Button ID="btnClientes" CssClass="btn btn-light btn-ms" runat="server" Text="Clientes" OnClick="btnClientes_Click"/>
+      </li>
+      <li class="nav-item" style="padding-left: 2px;">
+        <asp:Button ID="btnPaseadores" CssClass="btn btn-light btn-ms" runat="server" Text="Paseadores" OnClick="btnPaseadores_Click"/>
+      </li>
+      <li class="nav-item" style="padding-left: 2px;">
+        <asp:Button ID="btnServicio" CssClass="btn btn-light btn-ms" runat="server" Text="Buscar servicio" OnClick="btnServicio_Click"/>
+      </li>
+      <li class="nav-item" style="padding-left: 2px;">
+        <asp:Button ID="btnPendiente" CssClass="btn btn-light btn-ms" runat="server" Text="Bandeja de entrada" OnClick="btnPendiente_Click"/>
+      </li>
+         <li class="nav-item" style="padding-left: 2px;">
+        <asp:Button ID="btnPerfil" CssClass="btn btn-light btn-ms" runat="server" Text="Ver perfil" OnClick="btnPerfil_Click"/>
+             </li>
+         <li class="nav-item" style="padding-left: 2px;">
+             <asp:Button ID="btnHistorial" CssClass="btn btn-light btn-ms" runat="server" Text="Historial" OnClick="btnHistorial_Click"/>
+         </li>
+         
+         <li class="nav-item" style="padding-left: 2px;">
+             
+         </li>
+    </ul>
+     
+
+     
+     <ul class="navbar-nav ml-auto">
+         <li class="nav-item" style="padding-right: 2px">
+             <asp:Label ID="lblUsuario" runat="server"></asp:Label>
+         </li>
+         <li class="nav-item">
+             <asp:Button ID="btnSalir" CssClass="btn btn-danger btn-ms" runat="server" Text="Salir" OnClick="btnSalir_Click"/>
+         </li>
+     </ul>
+
+ </nav>
+
+            
+            
+                
+
+  			    
+                
+  			    
+              
+                
+               
                 
                 
                 
-                <li class="liRight"><asp:Button ID="btnSalir" CssClass="btnMasterPage" runat="server" Text="Salir" OnClick="btnSalir_Click"/></li>
-                <li class="liRight"><asp:Label ID="lblUsuario" CssClass="UsuarioNombre" runat="server" ForeColor="White"></asp:Label></li>
+                
+                <li class="liRight"></li>
 
 
 
@@ -52,5 +151,7 @@
         </asp:ContentPlaceHolder>
     </div>
     </form>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="DisenoMaster/js/bootstrap.min.js"></script>
 </body>
 </html>

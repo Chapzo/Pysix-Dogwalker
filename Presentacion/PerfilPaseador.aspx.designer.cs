@@ -10,25 +10,43 @@
 namespace Presentacion {
     
     
-    public partial class Menu {
+    public partial class PerfilPaseador {
         
         /// <summary>
-        /// Control lblSaludo.
+        /// Control lblNickPaseador.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSaludo;
+        protected global::System.Web.UI.WebControls.Label lblNickPaseador;
         
         /// <summary>
-        /// Control lblFotoPerfil.
+        /// Control imgPaseador.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFotoPerfil;
+        protected global::System.Web.UI.WebControls.Image imgPaseador;
+        
+        /// <summary>
+        /// Control lblIdUsuario.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblIdUsuario;
+        
+        /// <summary>
+        /// Control IdPaseador.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label IdPaseador;
         
         /// <summary>
         /// Control lblNombre.
@@ -49,40 +67,13 @@ namespace Presentacion {
         protected global::System.Web.UI.WebControls.Label lblApellido;
         
         /// <summary>
-        /// Control lblCorreo.
+        /// Control lblZona.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCorreo;
-        
-        /// <summary>
-        /// Control lblTipoDoc.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTipoDoc;
-        
-        /// <summary>
-        /// Control lblDocumento.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDocumento;
-        
-        /// <summary>
-        /// Control lblLocalidad.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLocalidad;
+        protected global::System.Web.UI.WebControls.Label lblZona;
         
         /// <summary>
         /// Control lblTelefono.
@@ -94,21 +85,30 @@ namespace Presentacion {
         protected global::System.Web.UI.WebControls.Label lblTelefono;
         
         /// <summary>
-        /// Control lblRol.
+        /// Control lblPrecio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRol;
+        protected global::System.Web.UI.WebControls.Label lblPrecio;
         
         /// <summary>
-        /// Control lblIdPaseador.
+        /// Control lblCalificacion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIdPaseador;
+        protected global::System.Web.UI.WebControls.Label lblCalificacion;
+        
+        /// <summary>
+        /// Control btnCalificaciones.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnCalificaciones;
     }
 }

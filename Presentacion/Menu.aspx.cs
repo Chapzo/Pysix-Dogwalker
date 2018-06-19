@@ -34,21 +34,6 @@ namespace Presentacion
 
             lblIdPaseador.Text = Convert.ToString(Session["PaseadorID"]);
 
-            
-            
-
-            
-            
-            //lblFotoPerfil.Text = Convert.ToString(Session["UsuarioFotoPerfil"]);
-            //Session["UsuarioCorreo"] = "Correo por defecto ASAX";
-            //Session["UsuarioDocumento"] = "Documento por defecto ASAX";
-            //Session["UsuarioTipoDoc"] = "Tipo de documento por defecto ASAX";
-            //Session["UsuarioLocalidad"] = "Localidad por defecto ASAX";
-            //Session["UsuarioTelefono"] = "Telefono por defecto ASAX";
-            //Session["UsuarioPassword"] = "Contraseña por defecto ASAX";
-            //Session["UsuarioRol"] = "Rol por defecto ASAX";
-            //Session["UsuarioFotoPerfil"] = "Foto de perfil por defecto ASAX";
-
         }
     }
 }

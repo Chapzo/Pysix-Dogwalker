@@ -204,6 +204,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="PedirServicio.aspx" />
+    <Content Include="PerfilPaseador.aspx" />
     <Content Include="Principal.aspx" />
     <Content Include="Servicio.aspx" />
     <Content Include="VerPerfil.aspx" />
@@ -313,6 +314,13 @@
     <Compile Include="PedirServicio.aspx.designer.cs">
       <DependentUpon>PedirServicio.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PerfilPaseador.aspx.cs">
+      <DependentUpon>PerfilPaseador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PerfilPaseador.aspx.designer.cs">
+      <DependentUpon>PerfilPaseador.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Principal.aspx.cs">
       <DependentUpon>Principal.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -357,6 +365,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="DisenoMaster\css\" />
+    <Folder Include="DisenoMaster\js\" />
     <Folder Include="lol\" />
   </ItemGroup>
   <PropertyGroup>

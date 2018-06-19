@@ -10,7 +10,7 @@
 
            </tr>
          <tr>
-            <td colspan="4"><asp:Image ID="Image1" Width="150" runat="server" aling="center" />  </td>  
+            <td colspan="4"><asp:Image ID="imgPerfil" Width="150" runat="server" aling="center" />  </td>  
         </tr>
         <tr>
             <td>  <asp:Label ID="LblNom" runat="server" Text="Nombre"></asp:Label>  </td>

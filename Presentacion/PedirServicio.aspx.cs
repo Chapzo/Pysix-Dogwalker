@@ -11,6 +11,7 @@ namespace Presentacion
     public partial class PedirServicio : System.Web.UI.Page
     {
         Usuario PSUsuario = new Usuario();
+        Paseador PSPaseador = new Paseador();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -35,6 +36,7 @@ namespace Presentacion
         protected void GvCreado(object sender, GridViewRowEventArgs e)
         {
             e.Row.Cells[0].Visible = false;
+            
         }
 
         protected void bntBuscarS_Click(object sender, EventArgs e)
@@ -66,7 +68,7 @@ namespace Presentacion
 
                 Response.Redirect("Servicio.aspx");
 
-                    
+
                 //}
                 //catch (Exception ex)
                 //{
@@ -74,6 +76,18 @@ namespace Presentacion
 
                 //}
 
+            }
+            else if(e.CommandName == "VerPerfil")
+                {
+
+                int id = int.Parse(GvServicio.Rows[Convert.ToInt32(e.CommandArgument)].Cells[1].Text);
+                Paseadores Datos = PSPaseador.ObtenerPerfil(id);
+
+                Session["PaseadorID"] = Datos.Idpaseador;
+
+
+
+                Response.Redirect("PerfilPaseador.aspx");
             }
         }
     }

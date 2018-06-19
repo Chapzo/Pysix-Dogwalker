@@ -3,14 +3,18 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div>
         <center>
-            <table>
+            <div class="tabla-responsive">
+            <table class="table table-borderedxd table-light">
+                <thead>
                 <tr>
-                    <th colspan="4" class="thPaseador">Elaboración de servicio</th>
+                    <th colspan="4" class="bg-tabla-amarillo"><center>Elaboración de servicio</th>
                 </tr>
+                    </thead>
                 <tr>
                     <td>Localidad: </td>
                     <td>
-                        <asp:DropDownList ID="ddlLocalidad" runat="server" style="margin-left: 0px" >
+                        
+                        <asp:DropDownList ID="ddlLocalidad" runat="server" >
                             <asp:ListItem>Seleccionar</asp:ListItem>
                             <asp:ListItem Value="1">Usaquén</asp:ListItem>
                             <asp:ListItem Value="2">Chapinero</asp:ListItem>
@@ -80,13 +84,15 @@
                 </tr>
 
             </table>
+                </div>
             
         </center>    
     </div>
     <br />
     <br />
     <center>
-    <asp:GridView ID="GvServicio" runat="server" AutoGenerateColumns="False" OnRowCommand="GvAcciones" OnRowCreated="GvCreado">
+    <asp:GridView ID="GvServicio" runat="server" AutoGenerateColumns="False" OnRowCommand="GvAcciones" OnRowCreated="GvCreado" CssClass="mGrid" style="margin-left: 0px" AllowPaging="true" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt"
+                PageSize="7">
         <Columns>
             <asp:BoundField DataField="IdUsuario" HeaderText="ID" />
             <asp:BoundField DataField="IdPaseador" HeaderText="IdPaseador" />
@@ -95,11 +101,13 @@
             <asp:BoundField DataField="nombre" HeaderText="Localidad" />
             <asp:BoundField DataField="Horainicio" HeaderText="Hora de inicio" />
             <asp:BoundField DataField="HoraFin" HeaderText="Hora de fin" />
-            <asp:ButtonField CommandName= "Contratar" Text="Contratar"/>
-            <asp:ButtonField CommandName= "VerPerfil" Text="Ver Perfil"/>
+            <asp:ButtonField CommandName= "Contratar" Text="Contratar" HeaderText="Acciones"/>
+            <asp:ButtonField CommandName= "Ver perfil" Text="Ver Perfil"/>
+            
         </Columns>
     </asp:GridView>
         </center>
+
         
     <asp:Label ID="lblText" runat="server"></asp:Label>
         

@@ -378,49 +378,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 </div>
 <!--//gallery-->
-<!--footer-->
-<div class="contact-agile" id="contact">
-			<div class="container">
-				<h3 class="tittle">Contáctanos</h3>
-				
-				<div class="contact-middle">
-					<form action="#" method="post">
-					<div class="form-agileinfo">
-						<p>Nombre</p>
-						<input type="text" name="your name" placeholder="Nombre" required="" />
-						<p>Correo electrónico</p>
-						<input type="email" name="your email" placeholder="Correo" required="" />
-					</div>
-					<div class="form-agileits-w3layouts">
-					<p>Comentarios</p>
-						<textarea  name="your message" placeholder="Tu mensaje" required="" ></textarea>
-							<input type="submit"   value="Send Message">
-					</div>
-					<div class="clearfix"></div>
-					</form>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-8 footer-w3layouts">
-		<div class="footer-top-agile">
-		<h2><a href="index.html">Airy Pets</a></h2>
-		<div class="footer-contact-w3ls">
-			<p class="num-w3ls">+57 305 721 1535</p>
-			<p class="email-w3l">Email: <a href="mailto:info@example.com">pyxisdogwalker@gmail.com</a></p>
-		</div>
-		<div class="clearfix"></div>
-		</div>
-		<div class="footer-bottom-wthree">
-			<div class="nav-footer-w3l">
-				<a href="#home" class="scroll">Home</a>
-				<a href="#services" class="scroll">Servicios</a>
-				<a href="#about" class="scroll">Acerca de nosotros</a>
-				<a href="#contact" class="scroll">Contáctanos</a>
-			</div>
-			<div class="clearfix"></div>
-		</div>
-		</div>
-		
+<!--footer-->		
 		<div class="clearfix"></div>
 			<div class="copy">
 		        <p>© 2018 Pyxis Dogwalker. todos los derechos reservados | Desarrolado por Ivan Avella, Diego Senior y Juan Chaparro</a> </p>
