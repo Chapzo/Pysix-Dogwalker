@@ -45,12 +45,7 @@ namespace Presentacion
                 }
 
             }
-            else
-            {
-                Session.Abandon();
-                Response.Redirect("Inicio.aspx");
-
-            }
+           
 
         }
     
