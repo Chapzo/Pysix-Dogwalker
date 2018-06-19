@@ -20,6 +20,9 @@
         .auto-style1 {
             width: 276px;
         }
+        .auto-style2 {
+            width: 124px;
+        }
     </style>
 </head>
 <body>
@@ -96,7 +99,7 @@
 <asp:CompareValidator ID="CompareValidator2" runat="server" ErrorMessage="La hora de fin es más temprana que la hora final" Display="Dynamic" ControlToCompare="ddlHoraInicio" ControlToValidate="ddlHoraFin" ForeColor="Red" Operator="GreaterThan"></asp:CompareValidator>
                         <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
                         </td>
-                        <td>
+                        <td class="auto-style2">
                         Los días:
                         <br />
                         <asp:CheckBoxList ID="CblDias" runat="server">                            
