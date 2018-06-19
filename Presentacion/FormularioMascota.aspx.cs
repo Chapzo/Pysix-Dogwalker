@@ -38,7 +38,7 @@ namespace Presentacion
             {
                 Usuarios objUSuario = (Usuarios)Session["Usuario"];
                 //objusuario.CrearMascota (objUSuario.Idusuario ,ddlTamaño.SelectedValue,txtEdad.Text,int.Parse(ddlRaza.SelectedValue),txtNombre.Text );
-                objusuario.rolselec(objUSuario.Idusuario, 2);
+                objusuario.Rolselec(objUSuario.Idusuario, 2);
                 Session.Abandon();
                 Response.Redirect("Inicio.aspx");
 

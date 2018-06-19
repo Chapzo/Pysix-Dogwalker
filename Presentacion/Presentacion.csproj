@@ -368,6 +368,7 @@
     <Folder Include="DisenoMaster\css\" />
     <Folder Include="DisenoMaster\js\" />
     <Folder Include="lol\" />
+    <Folder Include="UsuariosImg\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

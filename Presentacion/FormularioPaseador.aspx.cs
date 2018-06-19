@@ -16,25 +16,26 @@ namespace Presentacion
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            if (!IsPostBack)
-            {
-                try
-                {
-                    Usuarios objUSuario = (Usuarios)Session["Usuario"];
+            //if (!IsPostBack)
+            //{
+            //    try
+            //    {
+            //        Usuarios objUSuario = (Usuarios)Session["Usuario"];
 
 
 
-                }
-                catch (Exception Ex)
-                {
-                    Session.Abandon();
-                    Response.Redirect("Inicio.aspx");
+            //    }
+            //    catch (Exception Ex)
+            //    {
+            //        Session.Abandon();
+            //        Response.Redirect("Inicio.aspx");
 
-                }
-            }
+            //    }
+            //}
         }
-        protected void btnCrearP_Click(object sender, EventArgs e)
+        protected void BtnCrearP_Click(object sender, EventArgs e)
         {
+           
             try
             {
                 Usuarios objUSuario = (Usuarios)Session["Usuario"];
@@ -52,8 +53,8 @@ namespace Presentacion
 
                 }
 
-                objpaseador.CrearPaseador(objUSuario.Idusuario, txtEspecialidad.Text, float.Parse(txtPrecio.Text), int.Parse(ddlHoraInicio.SelectedValue), int.Parse(ddlHoraFin.SelectedValue),dias, contenido);
-                objpaseador.rolselec(objUSuario.Idusuario, 1);
+                objpaseador.CrearPaseador(objUSuario.Idusuario, DdlEspecialidad.SelectedValue, float.Parse(txtPrecio.Text), int.Parse(ddlHoraInicio.SelectedValue), int.Parse(ddlHoraFin.SelectedValue),dias, contenido);
+                objpaseador.Rolselec(objUSuario.Idusuario, 1);
                 Response.Redirect("Menu.aspx");
 
             }
@@ -64,9 +65,38 @@ namespace Presentacion
             }
         }
 
-        protected void btnCancelar_Click(object sender, EventArgs e)
+        protected void BtnCancelar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("EleccionFormulario.aspx");
+            
+        }
+        protected void BtnSi_Click(object sender, EventArgs e)
+        {
+
+            Session.Abandon();
+            Response.Redirect("Inicio.aspx");
+        }
+        protected void BtnNo_click(object sender, EventArgs e)
+        {
+            Table_FormPaseador.Visible = true;
+            Table_ConfirmCancelar.Visible = false;
+        }
+        protected void BtnRegresar_Click(object sender, EventArgs e)
+        {
+            Usuarios objUSuario = (Usuarios)Session["Usuario"];
+            if (objUSuario.Usu_rol == 2)
+            {
+                Response.Redirect("inicio.aspx");
+            }
+            else
+            {
+
+                Response.Redirect("EleccionFormulario.aspx");
+            }
+        }
+
+        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+
         }
     }
 }

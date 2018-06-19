@@ -173,6 +173,8 @@ namespace Negocio
             }
         }
 
+      
+
         public List<OrganizarPaseadorResult> Organizarpaseador()
         {
             try
@@ -227,7 +229,7 @@ namespace Negocio
             }
         }
 
-        public List<OrganizarServicioResult> organizarServicio()
+        public List<OrganizarServicioResult> OrganizarServicio()
         {
             try
             {
@@ -377,11 +379,11 @@ namespace Negocio
         //    }
 
         //}
-        public bool CrearUsuario(string nombre, string apellido,string contraseña, string correo,int localidades,long telefono,string tipodoc,long documento,byte[]img, string nickname)
+        public bool CrearUsuario(string nombre, string apellido,string contraseña, string correo,int localidades,long telefono,string tipodoc,long documento,int barrio, string nickname)
         {
             try
             {
-                data.CrearUsuario(nombre, apellido,contraseña, correo, telefono,localidades,documento,tipodoc,img, nickname);
+                data.CrearUsuario(nombre, apellido,contraseña, correo, telefono,localidades,documento,tipodoc,barrio, nickname);
                 setCodigo ("OK");
                 setRTA ("Se ingresó el contacto correctamente");
                 return true;
@@ -433,7 +435,7 @@ namespace Negocio
 
         }
 
-        public bool rolselec(int id, int numero)
+        public bool Rolselec(int id, int numero)
         {
             try
             {
@@ -451,7 +453,7 @@ namespace Negocio
 
 
         }
-        public ConsultarpaseadorResult consultarpaseador(int id)
+        public ConsultarpaseadorResult Consultarpaseador(int id)
         {
             try
             {
@@ -652,11 +654,11 @@ namespace Negocio
             }
         }
 
-        public bool ActualizarUsuario(int id, string nombre, string apellido, long telefono, string correo, int localidad, string tiusuario)
+        public bool ActualizarUsuario(int id, string nombre, string apellido, long telefono, string correo, int localidad, string tipodoc,string contraseña,string nickname,int barrio,long documento)
         {
             try
             {
-                data.ActualizarUsuario(id, nombre, apellido, telefono,localidad ,correo);
+                data.ActualizarUsuario(id, nombre, apellido, telefono,localidad ,correo,contraseña,nickname,barrio,tipodoc,documento);
                 setCodigo("Ok");
                 setRTA("ce actualizo el usuario");
                 return true;
@@ -670,18 +672,7 @@ namespace Negocio
 
         }
 
-        public string mostrarimage(int id)
-        {
-            Usuarios objuUsuario = (from f in data.Usuarios
-                                    where f.Idusuario == id 
-                                    select f).FirstOrDefault();
-            byte[] hola = objuUsuario.ImgPerfil.ToArray();
-                
-           string imagenvista =  Convert.ToBase64String(hola);
-            return imagenvista; 
-
-            
-        }
+       
 
     }
 

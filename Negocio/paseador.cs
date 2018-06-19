@@ -54,7 +54,7 @@ namespace Negocio
 
         
         }
-        public bool rolselec(int id, int numero)
+        public bool Rolselec(int id, int numero)
         {
             try
             {

@@ -7,14 +7,28 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Paseador</title>
     <link href="css/Estilos1.css" rel="stylesheet" />
+     <script type = "text/javascript">
+         function ValidateCheckBox(sender, args) {
+             if (document.getElementById("<%=CblDias.ClientID %>").checked == true) {
+                 args.IsValid = true;
+             } else {
+                 args.IsValid = false;
+             }
+         }
+    </script>
+    <style type="text/css">
+        .auto-style1 {
+            width: 276px;
+        }
+    </style>
 </head>
 <body>
     <form id="FormPaseador" runat="server">
     <div>
         <center>
-            <table>
+            <table runat="server" id="Table_FormPaseador">
                 <tr>
-                    <th colspan="3" class="thPaseador">Formulario paseador</th>
+                    <th colspan="4" class="thPaseador">Formulario paseador</th>
                 </tr>
                 <tr>
                     <td>Disponibilidad: </td>
@@ -76,6 +90,12 @@
                             <asp:ListItem Value="2300">11:00pm</asp:ListItem>
                             <asp:ListItem Value="2400">12:00am</asp:ListItem>
                         </asp:DropDownList>
+                        <br />
+                        <asp:CompareValidator ID="CompareValidator3" runat="server" ControlToValidate="ddlHoraFin" Display="Dynamic" ErrorMessage="Selecciona una hora de finalizacion" ForeColor="Red"></asp:CompareValidator>
+                        <asp:CompareValidator ID="CompareValidator4" runat="server" ControlToValidate="ddlHoraInicio" Display="Dynamic" ErrorMessage="Selecciona una hora de Inicio" ForeColor="Red"></asp:CompareValidator>
+<asp:CompareValidator ID="CompareValidator2" runat="server" ErrorMessage="La hora de fin es más temprana que la hora final" Display="Dynamic" ControlToCompare="ddlHoraInicio" ControlToValidate="ddlHoraFin" ForeColor="Red" Operator="GreaterThan"></asp:CompareValidator>
+                        <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
+                        </td>
                         <td>
                         Los días:
                         <br />
@@ -88,20 +108,40 @@
                             <asp:ListItem Value="Sab">Sábado</asp:ListItem>
                             <asp:ListItem Value="Dom">Domingo</asp:ListItem>
                         </asp:CheckBoxList>
+                            
+                       
                         </td>
+                    <td class="auto-style1">
+
+                        
+                       <asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="Seleccione un dia como mínimo" ClientValidationFunction="ValidateCheckBox" ForeColor="Red" Display="Dynamic" OnServerValidate="CustomValidator1_ServerValidate"></asp:CustomValidator>
                     </td>
-                </tr>
-        
+                    </tr>
+                      
                 <tr>
                     <td>Especialidad: </td>
                     <td colspan="2">
-                        <asp:TextBox ID="txtEspecialidad" runat="server"></asp:TextBox>
+                        <asp:DropDownList ID="DdlEspecialidad" runat="server">
+                            <asp:ListItem Selected="True">Seleccionar</asp:ListItem>
+                            <asp:ListItem>BañarPerros</asp:ListItem>
+                            <asp:ListItem>PasearPerros</asp:ListItem>
+                            <asp:ListItem>EntrenarPerros</asp:ListItem>
+                            
+                        </asp:DropDownList>
+                   </td>
+                    <td class="auto-style1">
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Seleccione su especialidad" ControlToValidate="DdlEspecialidad" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+                        
                     </td>
                 </tr>
                  <tr>
                     <td>Precio del servicio:</td>
                     <td colspan="2">
                         <asp:TextBox ID="txtPrecio" runat="server"></asp:TextBox>
+                        </td>
+                     <td class="auto-style1">
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtPrecio" Display="Dynamic" ErrorMessage="Ingrese el precio de su servicio" ForeColor="Red"></asp:RequiredFieldValidator>
+                        <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToValidate="txtPrecio" Display="Dynamic" ErrorMessage="Dato Invalido" ForeColor="Red" Operator="DataTypeCheck" Type="Double"></asp:CompareValidator>
                     </td>
                 </tr>
                  <tr>
@@ -109,14 +149,17 @@
                     <td  colspan="2">
                         
                         <asp:FileUpload ID="FileUpload1" runat="server" />
+                        </td>
+                     <td class="auto-style1">
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Inserte su Hoja de vida" ControlToValidate="FileUpload1" ForeColor="Red"></asp:RequiredFieldValidator>
                         
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="3">
+                    <td colspan="4">
                         <center>
-                        <asp:Button ID="btnCrearP" CssClass="Boton1" runat="server" Text="Crear" OnClick="btnCrearP_Click" />
-&nbsp;<asp:Button ID="btnCancelar" CssClass="Boton2" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
+                        <asp:Button ID="btnCrearP" CssClass="Boton1" runat="server" Text="Crear" OnClick="BtnCrearP_Click" />
+&nbsp;<asp:Button ID="btnCancelar" CssClass="Boton2" runat="server" Text="Cancelar" OnClick="BtnCancelar_Click" />
                         <br />
                         <asp:Label ID="Label1" runat="server"></asp:Label>
                          </center>
@@ -124,9 +167,13 @@
                 </tr>
 
             </table>
-            
-        </center>    
-    </div>
-    </form>
-</body>
-</html>
+<asp:Table ID="Table_ConfirmCancelar" Visible="false" HorizontalAlign="Center"  runat="server">
+            <asp:TableHeaderRow>
+                <asp:TableCell HorizontalAlign="Center" > <asp:Label runat="server">Seguro Usted desea salir </asp:Label> </asp:TableCell>
+            </asp:TableHeaderRow>
+            <asp:TableRow>
+                <asp:TableCell><asp:label text="" ID="Lblinfo" runat="server" /></asp:TableCell></asp:TableRow><asp:TableHeaderRow>
+                <asp:TableCell>
+                    <asp:Button runat="server" CssClass="Boton1"   ID="btnSi" Text="Si"  OnClick="BtnSi_Click" />
+                    <asp:Button runat ="server" ID="btnNo" Text="no" CssClass="Boton2" OnClick="BtnNo_click" />
+                </asp:TableCell></asp:TableHeaderRow></asp:Table></center></div></form></body></html>
