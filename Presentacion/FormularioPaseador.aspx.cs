@@ -94,9 +94,6 @@ namespace Presentacion
             }
         }
 
-        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
-        {
-
-        }
+        
     }
 }

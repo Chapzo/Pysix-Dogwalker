@@ -117,7 +117,7 @@
                     <td class="auto-style1">
 
                         
-                       <asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="Seleccione un dia como mínimo" ClientValidationFunction="ValidateCheckBox" ForeColor="Red" Display="Dynamic" OnServerValidate="CustomValidator1_ServerValidate"></asp:CustomValidator>
+                       <asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="Seleccione un dia como mínimo" ClientValidationFunction="ValidateCheckBox" ForeColor="Red" Display="Dynamic" "></asp:CustomValidator>
                     </td>
                     </tr>
                       
