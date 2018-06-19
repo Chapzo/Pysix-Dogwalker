@@ -75,7 +75,7 @@ namespace Presentacion
                 {
                     TBlCrear.Visible = true;
                     int id = int.Parse(GrUsuarios.Rows[Convert.ToInt32(e.CommandArgument)].Cells[0].Text);
-                    ConsultarpaseadorResult job = objUsuario.consultarpaseador(id);
+                    ConsultarpaseadorResult job = objUsuario.Consultarpaseador(id);
                     {
                         ViewState["IDusuario"] = job.Idpaseador.ToString();
                         txtNombre.Text = job.Nombre;
@@ -130,7 +130,7 @@ namespace Presentacion
                 try
                 {
                     int id = int.Parse(GrUsuarios.Rows[Convert.ToInt32(e.CommandArgument)].Cells[0].Text);
-                    ConsultarpaseadorResult job = objUsuario.consultarpaseador(id);
+                    ConsultarpaseadorResult job = objUsuario.Consultarpaseador(id);
                     ;
 
                     byte[] jaja = null;

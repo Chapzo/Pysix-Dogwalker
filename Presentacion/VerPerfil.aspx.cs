@@ -40,6 +40,8 @@ namespace Presentacion
                     {
                         TblPas.Visible = false;
                         imgPerfil.ImageUrl = ("../UsuariosImg/" + objUSuario.Idusuario + objUSuario.nombre + objUSuario.apellido + ".jpg");
+                        TxtApe.Text = objUSuario.apellido;
+                        TxtCorreo.Text = objUSuario.correo;
                         
                     }
 

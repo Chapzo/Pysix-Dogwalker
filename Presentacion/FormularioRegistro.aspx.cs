@@ -18,7 +18,7 @@ namespace Presentacion
         {
             if (!IsPostBack)
             {Usuarios objUSuario = (Usuarios)Session["Usuario"];
-                if (objUSuario.Idusuario==0)
+                if (objUSuario.Idusuario==null)
                 {
                     try
                     {
