@@ -39,7 +39,7 @@ namespace Presentacion
         }
         protected void btnFinalizar_Click(object sender, EventArgs e)
         {
-            UsuarioFin.FinalizarServicioCli(int.Parse(lblIdSer.Text), txtComentarioCliente.Text, int.Parse(ddlCalificacion.SelectedValue));
+            UsuarioFin.FinalizarServicioCli(int.Parse(lblIdSer.Text), txtComentarioCliente.Text, decimal.Parse(ddlCalificacion.SelectedValue));
 
             Response.Redirect("Menu.aspx");
         }

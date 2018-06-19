@@ -69,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BandejaDeEntrada.aspx" />
+    <Content Include="Calificaciones.aspx" />
     <Content Include="ControlPaseador.aspx" />
     <Content Include="ControlUS.aspx" />
     <Content Include="ControlUsxdxd.aspx" />
@@ -218,6 +219,13 @@
     </Compile>
     <Compile Include="BandejaDeEntrada.aspx.designer.cs">
       <DependentUpon>BandejaDeEntrada.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Calificaciones.aspx.cs">
+      <DependentUpon>Calificaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Calificaciones.aspx.designer.cs">
+      <DependentUpon>Calificaciones.aspx</DependentUpon>
     </Compile>
     <Compile Include="ControlPaseador.aspx.cs">
       <DependentUpon>ControlPaseador.aspx</DependentUpon>

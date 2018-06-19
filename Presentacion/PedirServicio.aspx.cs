@@ -80,10 +80,10 @@ namespace Presentacion
             else if(e.CommandName == "VerPerfil")
                 {
 
-                int id = int.Parse(GvServicio.Rows[Convert.ToInt32(e.CommandArgument)].Cells[1].Text);
+                int id = int.Parse(GvServicio.Rows[Convert.ToInt32(e.CommandArgument)].Cells[0].Text);
                 Paseadores Datos = PSPaseador.ObtenerPerfil(id);
 
-                Session["PaseadorID"] = Datos.Idpaseador;
+                Session["PaseadorID"] = Datos.Usuarios.Idusuario;
 
 
 

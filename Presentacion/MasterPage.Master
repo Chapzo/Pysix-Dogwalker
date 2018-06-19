@@ -115,12 +115,16 @@
 
      
      <ul class="navbar-nav ml-auto">
+         <li class="nav-item">
+             <asp:Image ID="imgPerfil" CssClass="rounded-circle" runat="server" Height="40px" Width="40px" />
+         </li>
          <li class="nav-item" style="padding-right: 2px">
              <asp:Label ID="lblUsuario" runat="server"></asp:Label>
          </li>
          <li class="nav-item">
              <asp:Button ID="btnSalir" CssClass="btn btn-danger btn-ms" runat="server" Text="Salir" OnClick="btnSalir_Click"/>
          </li>
+
      </ul>
 
  </nav>

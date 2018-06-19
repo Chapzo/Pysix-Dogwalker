@@ -72,7 +72,22 @@ namespace Negocio
 
 
         }
+        public List<CalcularCalificacionPromedioResult> CalificacionProm(int id)
+        {
+            List<CalcularCalificacionPromedioResult> ListaDeDatos = data.CalcularCalificacionPromedio(id).ToList();
+            return ListaDeDatos;
+        }
+        public CalcularCalificacionPromedioResult CaliProm(int id)
+        {
+            CalcularCalificacionPromedioResult job = data.CalcularCalificacionPromedio(id).FirstOrDefault();
+            return job;
+        }
 
+        public bool InsertarCali(int id, decimal Calificacion)
+        {
+            data.AnadirCalificacionPromedio(id, Calificacion);
+            return true;
+        }
     }
 }
     

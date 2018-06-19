@@ -2,11 +2,11 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-     <table class="TablaTitulos">
+     <center><table class="TablaTitulos">
         <thead>
             <tr>
                 <th>
-                    <asp:Label ID="lblNickPaseador" runat="server" Text=""></asp:Label>
+                    <h1><asp:Label ID="lblNickPaseador" runat="server" Text=""></asp:Label></h1>
                 </th>
             </tr>
         </thead>
@@ -62,7 +62,7 @@
                 Precio del servicio por hora:
             </td>
             <td>
-                <asp:Label ID="lblPrecio" runat="server"></asp:Label>
+                $<asp:Label ID="lblPrecio" runat="server"></asp:Label>
             </td>
         </tr>
         <tr>
@@ -74,13 +74,18 @@
             </td>
         </tr>
         <tr>
-            <td>
-                <asp:LinkButton ID="btnCalificaciones" runat="server" CssClass="btn btn-info btn-sm">Ver comentarios y calificaciones</asp:LinkButton>
+            <td colspan="2">
+                <asp:LinkButton ID="btnVolver" runat="server" CssClass="btn btn-danger btn-sm" OnClick="btnVolver_Click">Volver</asp:LinkButton>
+                <asp:LinkButton ID="btnCalificaciones" runat="server" CssClass="btn btn-info btn-sm" OnClick="btnCalificaciones_Click">Ver comentarios y calificaciones</asp:LinkButton>
+                <asp:LinkButton ID="btnContratar" runat="server" CssClass="btn btn-warning btn-sm" OnClick="btnContratar_Click">Contratar</asp:LinkButton>
+                
             </td>
         </tr>
     </table>
         </center>
         </div>
      <br />
-    
+
+
+    </center>
 </asp:Content>

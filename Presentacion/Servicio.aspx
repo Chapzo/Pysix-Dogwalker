@@ -1,14 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Servicio.aspx.cs" Inherits="Presentacion.Servicio" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1>Servicio</h1>
+    <center><h1>Servicio</h1>
     <br />
     <br />
     <br />
     <center>
-        <table>
+        <div class="tabla-responsive">
+        <table class="table table-borderedxd table-light">
             <thead>
-                <td colspan="2" class="thPaseador">
+                <td colspan="2" class="bg-tabla-rojo">
                 <center>Elaboración de servicio</center>
                 </td>
             </thead>
@@ -127,17 +128,18 @@
                 
             </tr>
             <tr>
-                <td><asp:Button ID="btnEnviar" CssClass="Boton1" runat="server" Text="Enviar solicitud" OnClick="btnEnviar_Click"></asp:Button></td>
-                <td><asp:Button ID="btnCancelar" CssClass="Boton2" runat="server" Text="Cancelar" OnClick="btnCancelar_Click"></asp:Button></td>
+                <td><asp:Button ID="btnEnviar" CssClass="btn btn-success btn-sm" runat="server" Text="Enviar solicitud" OnClick="btnEnviar_Click"></asp:Button></td>
+                <td><asp:Button ID="btnCancelar" CssClass="btn btn-danger btn-sm" runat="server" Text="Cancelar" OnClick="btnCancelar_Click"></asp:Button></td>
             </tr>
             
 
 
         </table>
+            </div>
     </center>
 
 
-
+    </center>
 </asp:Content>
 <asp:Content ID="Content3" runat="server" contentplaceholderid="head">
     <style type="text/css">

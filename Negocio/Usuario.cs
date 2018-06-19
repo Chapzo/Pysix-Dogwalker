@@ -336,6 +336,8 @@ namespace Negocio
 
         }
 
+        
+
         public Usuarios Login(string correo, string contreseña)
         {
 
@@ -542,6 +544,8 @@ namespace Negocio
             }
         }
 
+        
+
 
         public MostrarDatosPaseadorResult DatosPaseador(string correo, string contrasena)
         {
@@ -618,7 +622,7 @@ namespace Negocio
             }
         }
 
-        public bool FinalizarServicioCli(int id, string ComentarioCliente, int Calificacion)
+        public bool FinalizarServicioCli(int id, string ComentarioCliente, decimal Calificacion)
         {
             try
             {

@@ -102,7 +102,7 @@
             <asp:BoundField DataField="Horainicio" HeaderText="Hora de inicio" />
             <asp:BoundField DataField="HoraFin" HeaderText="Hora de fin" />
             <asp:ButtonField CommandName= "Contratar" Text="Contratar" HeaderText="Acciones"/>
-            <asp:ButtonField CommandName= "Ver perfil" Text="Ver Perfil"/>
+            <asp:ButtonField CommandName= "VerPerfil" Text="Ver Perfil"/>
             
         </Columns>
     </asp:GridView>

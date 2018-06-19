@@ -115,14 +115,14 @@
                  <asp:TableRow>
                     <asp:TableCell >Barrio </asp:TableCell>
                     <asp:TableCell>
-                       <asp:DropDownList ID="DdlBarrio" runat="server" DataSourceID="SqlDataSource1" DataTextField="Nombre_barrio" AppendDataBoundItems="True" DataValueField="IdBarrio" >
-                           <asp:ListItem  Value="-1">Seleccionar</asp:ListItem>
+                       <asp:DropDownList ID="DdlBarrio" runat="server" DataSourceID="SqlDataSource2" DataTextField="Nombre_barrio" AppendDataBoundItems="True" DataValueField="IdBarrio" >
+                           <asp:ListItem Value="-1">Seleccionar</asp:ListItem>
                         </asp:DropDownList>
-                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PyxisConnectionString %>" SelectCommand="ListarBarrios" SelectCommandType="StoredProcedure">
-                            <SelectParameters>
-                                <asp:ControlParameter ControlID="ddlLocalidad" Name="localidad" PropertyName="SelectedValue" Type="Int32" />
-                            </SelectParameters>
+
+                        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:PyxisConnectionString2 %>" SelectCommand="ListarBarrios" SelectCommandType="StoredProcedure">
+                            <SelectParameters> <asp:ControlParameter ControlID="ddlLocalidad" Name="localidad" PropertyName="SelectedValue" Type="Int32" /> </SelectParameters>
                         </asp:SqlDataSource>
+
                     </asp:TableCell>
                      <asp:TableCell>
 
