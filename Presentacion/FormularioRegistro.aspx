@@ -30,7 +30,7 @@
                 </asp:TableRow>
                  <asp:TableRow>
                     <asp:TableCell ColumnSpan="3">
-                        <asp:FileUpload ID="FileUpload1" accept=".jpg" runat="server" OnLoad="Btnmirar_Click" OnPreRender="Btnmirar_Click" OnUnload="Btnmirar_Click" />
+                        <asp:FileUpload ID="FileUpload1" accept=".jpg" runat="server"  />
                         <asp:Button ID="btnmirar" runat="server" Text="visualizar" OnClick="Btnmirar_Click" />
                      </asp:TableCell>
                 </asp:TableRow>
@@ -115,11 +115,11 @@
                  <asp:TableRow>
                     <asp:TableCell >Barrio </asp:TableCell>
                     <asp:TableCell>
-                       <asp:DropDownList ID="DdlBarrio" runat="server" DataSourceID="SqlDataSource2" DataTextField="Nombre_barrio" AppendDataBoundItems="True" DataValueField="IdBarrio" >
+                       <asp:DropDownList ID="DdlBarrio" runat="server" DataSourceID="SqlDataSource1" DataTextField="Nombre_barrio" AppendDataBoundItems="True" DataValueField="IdBarrio" >
                            <asp:ListItem Value="-1">Seleccionar</asp:ListItem>
                         </asp:DropDownList>
 
-                        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:PyxisConnectionString2 %>" SelectCommand="ListarBarrios" SelectCommandType="StoredProcedure">
+                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PyxisConnectionString %>" SelectCommand="ListarBarrios" SelectCommandType="StoredProcedure">
                             <SelectParameters> <asp:ControlParameter ControlID="ddlLocalidad" Name="localidad" PropertyName="SelectedValue" Type="Int32" /> </SelectParameters>
                         </asp:SqlDataSource>
 
