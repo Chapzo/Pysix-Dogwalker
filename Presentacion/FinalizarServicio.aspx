@@ -2,9 +2,10 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <center>
-        <table>
+        <div class="table-responsivexd">
+        <table class="table table-borderedxd table-light">
             <thead>
-                <td colspan="2">Finalización de servicio</td>
+                <td colspan="2" class="bg-tabla-azul">Finalización de servicio</td>
             </thead>
             <tr>
                 <td>Id Servicio</td>
@@ -64,5 +65,6 @@
                 <td><asp:Button ID="btnCancelar" CssClass="Boton2" runat="server" Text="Cancelar" OnClick="btnCancelar_Click"></asp:Button></td>
             </tr>
         </table>
+            </div>
     </center>
 </asp:Content>
