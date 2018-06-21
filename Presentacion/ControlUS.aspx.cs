@@ -133,12 +133,16 @@ namespace Presentacion
                     ConsultarpaseadorResult job = objUsuario.Consultarpaseador(id);
                     ;
 
-                    byte[] jaja = null;
-                     jaja=(job.Experiencia).ToArray();
+                    byte[] ver = null;
+                     ver=(job.Experiencia).ToArray();
                     Response.Clear();
-                    MemoryStream ms = new MemoryStream(jaja);
+                    MemoryStream ms = new MemoryStream(ver);
 
                     
+
+
+
+                
                      Response.ContentType = "application / pdf";
                      Response.AddHeader("content - disposition",   "attachment; filename = Tr.pdf");
                      Response.Buffer = true;
