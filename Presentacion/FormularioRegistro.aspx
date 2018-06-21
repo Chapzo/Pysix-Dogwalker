@@ -119,7 +119,7 @@
                            <asp:ListItem Value="-1">Seleccionar</asp:ListItem>
                         </asp:DropDownList>
 
-                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PyxisConnectionString %>" SelectCommand="ListarBarrios" SelectCommandType="StoredProcedure">
+                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PyxisConnectionString2 %>" SelectCommand="ListarBarrios" SelectCommandType="StoredProcedure">
                             <SelectParameters> <asp:ControlParameter ControlID="ddlLocalidad" Name="localidad" PropertyName="SelectedValue" Type="Int32" /> </SelectParameters>
                         </asp:SqlDataSource>
 

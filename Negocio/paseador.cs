@@ -88,6 +88,12 @@ namespace Negocio
             data.AnadirCalificacionPromedio(id, Calificacion);
             return true;
         }
+
+        public List<ListarCalificacionesResult> ListarCalificaciones(int id)
+        {
+            List<ListarCalificacionesResult> job = data.ListarCalificaciones(id).ToList();
+            return job;
+        }
     }
 }
     

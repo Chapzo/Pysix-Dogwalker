@@ -1,14 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Pyxis" Class="PyxisDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=IVANOVICHLEO-PC\SQLEXPRESS;Initial Catalog=Pyxis;Integrated Security=True" SettingsObjectName="DataBase.Properties.Settings" SettingsPropertyName="PyxisConnectionString3" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Barrios" Member="Barrios">
-    <Type Name="Barrios">
-      <Column Name="IdBarrio" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="IdLocalidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Nombre_barrio" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="Barrios_Usuarios" Member="Usuarios" ThisKey="IdBarrio" OtherKey="Barrio" Type="Usuarios" />
-      <Association Name="Localidades_Barrios" Member="Localidades" ThisKey="IdLocalidad" OtherKey="idLocalidad" Type="Localidades" IsForeignKey="true" />
-    </Type>
-  </Table>
+  <Connection Mode="AppSettings" ConnectionString="Data Source=CH\SQLEXPRESS;Initial Catalog=Pyxis;Integrated Security=True" SettingsObjectName="DataBase.Properties.Settings" SettingsPropertyName="PyxisConnectionString3" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Usuarios" Member="Usuarios">
     <Type Name="Usuarios">
       <Column Name="Idusuario" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -33,6 +24,15 @@
       <Association Name="Roles_Usuarios" Member="Roles" ThisKey="Usu_rol" OtherKey="idrol" Type="Roles" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.Barrios" Member="Barrios">
+    <Type Name="Barrios">
+      <Column Name="IdBarrio" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IdLocalidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Nombre_barrio" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Barrios_Usuarios" Member="Usuarios" ThisKey="IdBarrio" OtherKey="Barrio" Type="Usuarios" />
+      <Association Name="Localidades_Barrios" Member="Localidades" ThisKey="IdLocalidad" OtherKey="idLocalidad" Type="Localidades" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.Calificaciones" Member="Calificaciones">
     <Type Name="Calificaciones">
       <Column Name="Idcalificacion" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -47,8 +47,8 @@
     <Type Name="Localidades">
       <Column Name="idLocalidad" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="Localidades_Barrios" Member="Barrios" ThisKey="idLocalidad" OtherKey="IdLocalidad" Type="Barrios" />
       <Association Name="Localidades_Usuarios" Member="Usuarios" ThisKey="idLocalidad" OtherKey="localidad" Type="Usuarios" />
+      <Association Name="Localidades_Barrios" Member="Barrios" ThisKey="idLocalidad" OtherKey="IdLocalidad" Type="Barrios" />
     </Type>
   </Table>
   <Table Name="dbo.Mascotas" Member="Mascotas">
@@ -466,5 +466,14 @@
   <Function Name="dbo.RechazarServicio" Method="RechazarServicio">
     <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ListarCalificaciones" Method="ListarCalificaciones">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ListarCalificacionesResult">
+      <Column Name="Idservicio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fecha_se" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ComentarioCliente" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="Calificacion" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+    </ElementType>
   </Function>
 </Database>

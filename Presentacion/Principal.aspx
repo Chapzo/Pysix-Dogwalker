@@ -21,13 +21,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div id="house" class="top-header">
 				<div class="col-md-6 logo-w3l w32">
 					<h1 class="location"><a href="index.html">Pyxis Dogwalker</a></h1>
+                    
 				</div>
 				<div class="col-md-6 logo-w3l w31 sea">
 					<div class="right-w3l">
 						<ul class="top-links">
-							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-							<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+
+                            <li><img src="img/PyxisLogo.png" width="150px" height="45px" /></li>
 							<li><a href="Inicio.aspx"><img src="images/Check.png"class="glyphicon glyphicon-ok-sign"></img></a></li>
                             
 						</ul>
@@ -57,7 +57,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<a href="#services" class="scroll">Servicios</a>
 					    <a href="#team" class="scroll">Equipo</a>
 						<a href="#gallery" class="scroll">Galeria</a>
-						<a href="#contact" class="scroll">Contáctanos</a>
+						
 		</nav>
 	      <!--start-slider-->
 		<div class="banner">
@@ -82,24 +82,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									 <a href="#about" class="scroll banner-button" >Acerca de nosotros</a>
 								 </div>
 							 </div>
-						 </li>
-						 <li>
-							<div class="banner-info">
-								<div class="banner-right-agileits">
-									<h3>Equipo</h3>
-									 <p>Las caras detrás del aplicativo merecen reconocimiento.</p>
-									 <a href="#team" class="scroll banner-button" >Registrarse</a>
-								</div>	
-							</div>							
-						 </li>
-						 <li>
-							<div class="banner-info">
-								<div class="banner-right-agileits">
-									<h3>¿Ya tienes cuenta?</h3>
-									 <p>¿Qué esperas para entrar?</p>
-									 <a href="Inicio.aspx" class="scroll banner-button">Entrar</a>
-								</div>	
-							</div>							
 						 </li>
 					</ul>
 				</div>

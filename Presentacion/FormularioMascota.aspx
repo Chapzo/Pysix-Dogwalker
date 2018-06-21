@@ -81,7 +81,7 @@
                         <asp:DropDownList ID="ddlRaza" runat="server" DataSourceID="SqlRazas" DataTextField="nombre" DataValueField="idRaza" AppendDataBoundItems="True">
                          <asp:ListItem Value="0" Selected="True">Seleccionar</asp:ListItem>
                         </asp:DropDownList>
-                        <asp:SqlDataSource ID="SqlRazas" runat="server" ConnectionString="<%$ ConnectionStrings:PyxisConnectionString %>" SelectCommand="SELECT [idRaza], [nombre] FROM [Razas]"></asp:SqlDataSource>
+                        <asp:SqlDataSource ID="SqlRazas" runat="server" ConnectionString="<%$ ConnectionStrings:PyxisConnectionString2 %>" SelectCommand="SELECT [idRaza], [nombre] FROM [Razas]"></asp:SqlDataSource>
                     </td>
                     <td>
                         <asp:CompareValidator ID="CompareValidator2" runat="server" Display="Dynamic" ErrorMessage="Seleccione raza" Operator="NotEqual" ValueToCompare="0" ControlToValidate="ddlRaza" ForeColor="Red"></asp:CompareValidator>

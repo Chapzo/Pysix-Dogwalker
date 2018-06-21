@@ -1,12 +1,12 @@
 ﻿<%@ Page Language="C#"  MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="ControlUS.aspx.cs" Inherits="Presentacion.ControlUS" %>
 
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
-
-        <div>
+    
+        <div class="table-responsivexd">
             Paseador<br />
             <asp:Button ID="ButBuscar" runat="server" Text="Buscar" OnClick="ButBuscar_Click" /><asp:TextBox ID="Textbuscar" runat="server" Width="494px"></asp:TextBox>
             
-             <table>
+             <table class="table table-borderedxd">
                  
                  
                  
@@ -14,7 +14,8 @@
                     <td id="esto" runat="server" colspan="3" style="text-align:center" class="auto-style5">
                         
                         
-                        <asp:GridView ID="GrUsuarios" runat="server" AutoGenerateColumns="false" CellPadding="4" ForeColor="Brown" GridLines="none" OnRowCommand="grpa_Comand" OnRowCreated="Gr_created" AllowCustomPaging="True"  >
+                        <asp:GridView ID="GrUsuarios" runat="server" AutoGenerateColumns="false" CellPadding="4" GridLines="none" OnRowCommand="grpa_Comand" OnRowCreated="Gr_created" AllowCustomPaging="True"  CssClass="mGrid" style="margin-left: 0px" AllowPaging="true" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt"
+                PageSize="7"  >
                           <AlternatingRowStyle BackColor="White" />
                             <Columns>
                                 <asp:BoundField DataField="Idpaseador" HeaderText="ID" />
@@ -138,4 +139,5 @@
             <br />
             
         </div>
+    
 </asp:Content>

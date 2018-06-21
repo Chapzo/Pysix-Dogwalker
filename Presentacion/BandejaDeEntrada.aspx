@@ -1,10 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="BandejaDeEntrada.aspx.cs" Inherits="Presentacion.BandejaDeEntrada" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1><asp:Label ID="lblEntrada" runat="server" Text=""></asp:Label></h1>
+    <center><h1><asp:Label ID="lblEntrada" runat="server" Text=""></asp:Label></h1>
 <br />
     <br />
-    <asp:GridView ID="GvBandeja" runat="server" AutoGenerateColumns="False" OnRowCreated="GvCreado" OnRowCommand="GvComandos" >
+    <asp:GridView ID="GvBandeja" runat="server" AutoGenerateColumns="False" OnRowCreated="GvCreado" OnRowCommand="GvComandos" CssClass="mGrid" style="margin-left: 0px" AllowPaging="true" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt"
+                PageSize="7">
         <Columns>
             <asp:BoundField DataField="Idservicio" HeaderText="ID"/>
             <asp:BoundField DataField="fecha_se" HeaderText="Fecha de servicio" />
@@ -20,6 +21,6 @@
             <asp:ButtonField CommandName= "PrcFinalizar" Text="Finalizar"/>
         </Columns>
     </asp:GridView>
-    <br />
+    <br /></center>
 
 </asp:Content>

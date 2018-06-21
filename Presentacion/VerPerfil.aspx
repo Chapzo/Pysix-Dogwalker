@@ -4,9 +4,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <h3>Hola</h3> 
-    <table>
+    <div class="table-responsivexd">
+    <table class="table table-borderedxd table-light">
            <tr>
-            <th colspan="4">informacion de usuario  </th>
+            <th colspan="4" class="bg-tabla-rojo">informacion de usuario  </th>
 
            </tr>
          <tr>
@@ -61,7 +62,7 @@
 
         </tr>
        
-         </table><br />
+         </table></div><br />
     <asp:Table ID="TblPas" runat="server">
         <asp:TableRow>
             <asp:TableHeaderCell ColumnSpan="4">Informacion de paseador  </asp:TableHeaderCell>
