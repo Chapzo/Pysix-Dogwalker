@@ -34,6 +34,9 @@ namespace Presentacion
                         ddlHoraInicio.SelectedValue = objUpase.Horainicio.ToString();
                         ddlHoraFin.SelectedValue = objUpase.HoraFin.ToString();
                         LblEsR.Text = objUpase.estado;
+                        TxtApe.Text = objUpase.Usuarios.apellido;
+                        Txtnom.Text = objUpase.Usuarios.nombre;
+                        
                     }
 
                     else
