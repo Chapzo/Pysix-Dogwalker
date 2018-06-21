@@ -21,6 +21,7 @@
                 .tabla-responsive{display:block;width:40%;overflow-x:auto;-webkit-overflow-scrolling:touch;-ms-overflow-style:-ms-autohiding-scrollbar}
         .bg-tabla-amarillo{background-color:#ffc107!important; color:#f8f9fa; text-align: center;}
         .bg-tabla-rojo{background-color:#f24b4b!important; color:#f8f9fa; text-align: center;}
+        .bg-tabla-azul{background-color:#2fc6bf!important; color:#f8f9fa; text-align: center;}
         .table-borderedxd{border-radius: 10px;}
 
         .mGrid {
