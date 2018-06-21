@@ -34,6 +34,9 @@ namespace Presentacion
                     btnServicio.Visible = false;
                     btnHistorial.Visible = false;
                     break;
+                case  "":
+                    Response.Redirect("EleccionFormulario.aspx");
+                    break;
             }
 
             

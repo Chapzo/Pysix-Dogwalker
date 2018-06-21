@@ -61,16 +61,7 @@
                             <asp:ListItem Value="2300">11:00pm</asp:ListItem>
                             <asp:ListItem Value="2400">12:00am</asp:ListItem>
                         </asp:DropDownList>
-                        <br
-                        <asp:DropDownList ID="DdlBarrio" runat="server" DataTextField="Nombre_barrio" AppendDataBoundItems="True" DataValueField="IdBarrio" DataSourceID="SqlDataSource1">
-                           <asp:ListItem  Value="-1">Seleccionar</asp:ListItem>
-                        
-
-                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PyxisConnectionString %>" SelectCommand="ListarBarrios" SelectCommandType="StoredProcedure" DataSourceID="SqlDataSource1">
-                            <SelectParameters>
-                                <asp:ControlParameter ControlID="ddlLocalidad" Name="localidad" PropertyName="SelectedValue" Type="Int32" />
-                            </SelectParameters>
-                        </asp:SqlDataSource>
+                                             
                         <br />
                         Hasta
                         <br />
@@ -105,7 +96,7 @@
                         <asp:CompareValidator ID="CompareValidator3" runat="server" ControlToValidate="ddlHoraFin" Display="Dynamic" ErrorMessage="Selecciona una hora de finalizacion" ForeColor="Red" ValueToCompare="0" Operator="NotEqual"></asp:CompareValidator>
                         <asp:CompareValidator ID="CompareValidator4" runat="server" ControlToValidate="ddlHoraInicio" Display="Dynamic" ErrorMessage="Selecciona una hora de Inicio" ForeColor="Red" ValueToCompare="0" Operator="NotEqual"></asp:CompareValidator>
 <asp:CompareValidator ID="CompareValidator2" runat="server" ErrorMessage="La hora de fin es más temprana que la hora inicio" Display="Dynamic" ControlToCompare="ddlHoraFin" ControlToValidate="ddlHoraInicio" ForeColor="Red" Operator="LessThanEqual" Type="Integer"></asp:CompareValidator>
-                        <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
+                        
                         </td>
                         <td class="auto-style2">
                         Los días:
@@ -146,7 +137,7 @@
                  <tr>
                     <td>Precio del servicio:</td>
                     <td colspan="2">
-                        <asp:TextBox ID="txtPrecio" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtPrecio" runat="server" ToolTip="Precio POr hora"></asp:TextBox>
                         </td>
                      <td class="auto-style1">
                          <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtPrecio" Display="Dynamic" ErrorMessage="Ingrese el precio de su servicio" ForeColor="Red"></asp:RequiredFieldValidator>
@@ -168,7 +159,7 @@
                     <td colspan="4">
                         <center>
                         <asp:Button ID="btnCrearP" CssClass="Boton1" runat="server" Text="Crear" OnClick="BtnCrearP_Click" />
-&nbsp;<asp:Button ID="btnCancelar" CssClass="Boton2" runat="server" Text="Cancelar" OnClick="BtnCancelar_Click" />
+&nbsp;<asp:Button ID="btnCancelar" CssClass="Boton2" runat="server" Text="Cancelar" OnClick="BtnCancelar_Click" CausesValidation="False" />
                         <br />
                         <asp:Label ID="Label1" runat="server"></asp:Label>
                          </center>

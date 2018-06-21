@@ -19,7 +19,18 @@ namespace Presentacion
             if (!IsPostBack)
             {
                 Usuarios objUSuario = (Usuarios)Session["Usuario"];
+                if (objUSuario != null)
+                {
 
+                    if (objUSuario.Usu_rol > 0)
+                    {
+                        Response.Redirect("Inicio.aspx");
+                    }
+                    if (objUSuario.Usu_rol == null)
+                    {
+                        Response.Redirect("EleccionFormulario.aspx");
+                    }
+                }
 
                 try
                 {

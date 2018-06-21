@@ -17,9 +17,20 @@ namespace Presentacion
             {
                 Usuarios objUSuario = (Usuarios)Session["Usuario"];
                 try
-                { if (objUSuario.Usu_rol == null)
-
-                        lblPregunta.Text = ("Usuario " + objUSuario.nombre + " ¿Qué tipo de usuario quieres ser?"); 
+                {
+                    if (objUSuario != null)
+                    {
+                        if (objUSuario.Usu_rol == null)
+                        {
+                            objUSuario.Usu_rol = 0;
+                            lblPregunta.Text = ("Usuario " + objUSuario.nombre + " ¿Qué tipo de usuario quieres ser?");
+                        }
+                    }
+                    else
+                    {
+                        Response.Redirect("Inicio.aspx");
+                    }
+                    
                 
                 }
                 catch (Exception ex)
@@ -52,8 +63,9 @@ namespace Presentacion
         protected void BtnRegresar_Click(object sender, EventArgs e)
         {
             Usuarios objUSuario = (Usuarios)Session["Usuario"];
-            if (objUSuario.Usu_rol==null)
+            if (objUSuario.Usu_rol==0)
             {
+                objUSuario.Usu_rol = null;
                 Response.Redirect("inicio.aspx");
             }
             else

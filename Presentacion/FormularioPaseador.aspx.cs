@@ -19,11 +19,19 @@ namespace Presentacion
             if (!IsPostBack)
             {
                 Usuarios objusuario = (Usuarios)Session["Usuario"];
-                if (objusuario == null)
+                if (objusuario != null)
                 {
-                    Response.Redirect("Menu.aspx");
 
+                    if (objusuario.Usu_rol == null)
+                    {
+                        Response.Redirect("EleccionFormulario.aspx");
+                    }
+                    if (objusuario.Usu_rol != 0)
+                    {
+                        Response.Redirect("Inicio.aspx");
+                    }
                 }
+
             }
         }
         protected void BtnCrearP_Click(object sender, EventArgs e)

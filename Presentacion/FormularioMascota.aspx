@@ -68,7 +68,7 @@
                 <tr>
                     <td>Edad: </td>
                     <td>
-                        <asp:TextBox ID="txtEdad" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtEdad" runat="server" ToolTip="Ingrese edad en meses"></asp:TextBox>
                     </td>
                    <td>
 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Ingrese edad" ControlToValidate="txtEdad" ForeColor="Red"></asp:RequiredFieldValidator>
@@ -97,7 +97,7 @@
                         
                     </td>
                     <td>
-<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Inserte raza nueva" ControlToValidate="TxtOtro" ForeColor="#FF3300"></asp:RequiredFieldValidator>
+<asp:RequiredFieldValidator ID="RVRazaTxt" runat="server" ErrorMessage="Inserte raza nueva" ControlToValidate="TxtOtro" ForeColor="#FF3300" Enabled="False" Visible="False"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                  <tr>
@@ -114,13 +114,13 @@
                 <tr>
                     <td colspan="3">
                         <center>
-                        <asp:Button ID="btnCrearM" CssClass="Boton1" runat="server" Text="Crear" OnClick="btnCrearM_Click" />
-                        <asp:Button ID="btnCancelar" CssClass="Boton2" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
-                            <asp:Button ID="Btnfinalizar" runat="server" Text="Finalizar" OnClick="Btnfinalizar_Click"></asp:Button>
+                        <asp:Button ID="btnCrearM" CssClass="Boton1" runat="server" Text="Crear mascota" OnClick="btnCrearM_Click" />
+                        <asp:Button ID="btnCancelar" CssClass="Boton2" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" CausesValidation="False" />
+                            <asp:Button ID="Btnfinalizar" runat="server" Text="Finalizar" OnClick="Btnfinalizar_Click" CausesValidation="False"></asp:Button>
                         <br />
                         <asp:Label ID="Label1" runat="server"></asp:Label>
                         </center>                        
-                    </td>
+                    </td>   
                 </tr>
 
             </table>

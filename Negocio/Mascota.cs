@@ -35,6 +35,31 @@ public class Mascota : Respuesta
             Mascotas mascotas = new Mascotas();
             data.Crear_raza(nombre);
         }
+
+        public int RazaNueva (string Nombre)
+        {
+
+
+
+            try
+            {
+                Razas ob = ( from f in data.Razas
+                                        where f.nombre == Nombre 
+                                        select f).FirstOrDefault();
+                
+                setCodigo("ok");
+                setRTA("se realizo la consulta exitosamente");
+                return ob.idRaza;
+            }
+            catch (Exception Ex)
+            {
+                setCodigo("Error");
+                setRTA(Ex.Message);
+                return 0;
+
+            }
+
+        }
         //public bool CrearPaseador(int id, string especialidad, float precio, int HoraIni, int HoraFin, string Dias, byte[] pdf)
     }
 }

@@ -183,7 +183,7 @@
                 </asp:TableRow>
                 <asp:TableFooterRow >
                     <asp:TableCell ColumnSpan="3" HorizontalAlign="Center" >&nbsp;<asp:Button CssClass="Boton1" ID="BtnCrearU" runat="server" OnClick="BtnCrearU_Click" Text="Aceptar" />
-                        &nbsp;<asp:Button CssClass="Boton2" ID="BtnCancelar" runat="server" Text="Cancelar" OnClick="BtnCancelar_Click" />
+                        &nbsp;<asp:Button CssClass="Boton2" ID="BtnCancelar" runat="server" Text="Cancelar" OnClick="BtnCancelar_Click" CausesValidation="False" />
                         <br />
                         <asp:Label ID="Label1" runat="server"></asp:Label>
                         </asp:TableCell>
